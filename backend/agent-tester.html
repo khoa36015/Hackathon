@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tester /api/ai/agent</title>
+  <style>
+    :root { --bg:#0f1115; --fg:#e7eaf0; --muted:#9aa4b2; --card:#171923; --accent:#4f8cff; }
+    *{box-sizing:border-box}
+    body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg);margin:0;padding:24px}
+    h1{font-size:22px;margin:0 0 16px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .card{background:var(--card);border:1px solid #23273a;border-radius:14px;padding:14px}
+    label{font-size:13px;color:var(--muted)}
+    input[type="text"], textarea, select {width:100%;padding:10px 12px;border-radius:10px;border:1px solid #2a2f45;background:#0c0e16;color:var(--fg);font-size:14px;outline:none}
+    textarea{min-height:96px;resize:vertical}
+    button{background:var(--accent);border:none;color:white;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer}
+    button:disabled{opacity:.6;cursor:not-allowed}
+    code, pre{font-family:ui-monospace,Menlo,Consolas,monospace}
+    pre{margin:0;background:#0b0d14;border-radius:10px;border:1px solid #22263a;padding:12px;overflow:auto;max-height:60vh}
+    .hint{color:var(--muted);font-size:12px;margin-top:6px}
+    .tag{display:inline-block;padding:2px 8px;border:1px solid #2a2f45;border-radius:999px;font-size:12px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <h1>Tester <span class="tag">POST /api/ai/agent</span></h1>
+
+  <div class="grid">
+    <div class="card">
+      <label for="baseUrl">API base URL</label>
+      <input id="baseUrl" type="text" value="http://localhost:8000" />
+
+      <div class="row" style="margin-top:10px">
+        <div style="flex:1">
+          <label for="endpoint">Endpoint</label>
+          <input id="endpoint" type="text" value="/api/ai/agent" />
+        </div>
+        <div style="width:180px">
+          <label for="model">Model (optional)</label>
+          <input id="model" type="text" placeholder="openai/gpt-4o-mini" />
+        </div>
+      </div>
+
+      <label style="margin-top:10px" for="prompt">Prompt</label>
+      <textarea id="prompt">generate 6 tỉnh miền tây nổi bật random</textarea>
+
+      <div class="row" style="margin-top:10px">
+        <label><input id="jsonMode" type="checkbox" /> JSON mode</label>
+        <label><input id="autoPostprocess" type="checkbox" checked /> Hậu xử lý thường & không dấu cho key <code>tinh</code></label>
+        <label><input id="strictSchema" type="checkbox" /> Gửi kèm JSON Schema</label>
+      </div>
+
+      <div id="schemaBox" class="card" style="display:none;margin-top:10px">
+        <label for="schema">JSON Schema</label>
+        <textarea id="schema">{
+  "type": "object",
+  "properties": {
+    "tinh": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z ]+$" },
+      "minItems": 6, "maxItems": 6, "uniqueItems": true
+    }
+  },
+  "required": ["tinh"],
+  "additionalProperties": false
+}</textarea>
+        <div class="hint">Nếu bật, server sẽ cố ép model trả về đúng schema trên.</div>
+      </div>
+
+      <div class="row" style="margin-top:10px">
+        <div style="width:140px">
+          <label for="temperature">temperature</label>
+          <input id="temperature" type="text" value="0" />
+        </div>
+        <div style="width:140px">
+          <label for="maxTokens">max_tokens</label>
+          <input id="maxTokens" type="text" placeholder="(auto)" />
+        </div>
+      </div>
+
+      <button id="send" style="margin-top:12px">Gửi request</button>
+      <div class="hint">Mẹo: để mặc định chỉ cần nhập prompt. Server có logic tự động nhận biết “6 tỉnh miền Tây” và tự ép JSON.</div>
+    </div>
+
+    <div class="card">
+      <label>Kết quả</label>
+      <pre id="out">(chưa gọi)</pre>
+    </div>
+  </div>
+
+  <script>
+    const $ = (s)=>document.querySelector(s);
+    const baseUrl = $("#baseUrl");
+    const endpoint = $("#endpoint");
+    const prompt = $("#prompt");
+    const model = $("#model");
+    const jsonMode = $("#jsonMode");
+    const strictSchema = $("#strictSchema");
+    const schemaBox = $("#schemaBox");
+    const schema = $("#schema");
+    const autoPostprocess = $("#autoPostprocess");
+    const temperature = $("#temperature");
+    const maxTokens = $("#maxTokens");
+    const out = $("#out");
+    const sendBtn = $("#send");
+
+    strictSchema.addEventListener("change", ()=>{
+      schemaBox.style.display = strictSchema.checked ? "block" : "none";
+    });
+
+    async function callAPI() {
+      sendBtn.disabled = true;
+      out.textContent = "Đang gửi...";
+
+      const body = {
+        message: prompt.value.trim()
+      };
+      if (model.value.trim()) body.model = model.value.trim();
+
+      // Options
+      if (jsonMode.checked) body.json_mode = true;
+      if (autoPostprocess.checked) body.postprocess = { array_string_keys: ["tinh"] };
+
+      const t = parseFloat(temperature.value);
+      if (!isNaN(t)) body.temperature = t;
+
+      const mt = parseInt(maxTokens.value, 10);
+      if (!isNaN(mt)) body.max_tokens = mt;
+
+      if (strictSchema.checked) {
+        try {
+          body.json_schema = JSON.parse(schema.value);
+          body.json_mode = true; // ensure json mode
+        } catch (e) {
+          out.textContent = "Schema JSON không hợp lệ: " + e;
+          sendBtn.disabled = false;
+          return;
+        }
+      }
+
+      try {
+        const res = await fetch(baseUrl.value.replace(/\/+$/,'') + endpoint.value, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        });
+
+        const text = await res.text();
+        let data;
+        try { data = JSON.parse(text); }
+        catch { data = { raw: text }; }
+
+        out.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        out.textContent = "Lỗi gọi API: " + err;
+      } finally {
+        sendBtn.disabled = false;
+      }
+    }
+
+    $("#send").addEventListener("click", callAPI);
+  </script>
+</body>
+</html>
