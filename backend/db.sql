@@ -1,20 +1,10 @@
--- Tạo bảng để lưu trữ thông tin người dùng
-CREATE TABLE users (
-    -- ID duy nhất cho mỗi người dùng, tự động tăng
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    
-    -- Tên đăng nhập, không được trùng lặp và không được rỗng
-    username VARCHAR(100) NOT NULL UNIQUE,
-    
-    -- Mật khẩu đã được hash (Bcrypt/Argon2 output thường dài)
-    hashed_password VARCHAR(255) NOT NULL,
-    
-    -- Chuỗi "salt" ngẫu nhiên dùng để hash mật khẩu
-    salt VARCHAR(255) NOT NULL,
-    
-    -- (Tùy chọn) Dấu thời gian khi tài khoản được tạo
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+DROP DATABASE IF EXISTS authen;
+CREATE DATABASE authen CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE authen;
 
--- (Tùy chọn) Thêm chỉ mục (index) cho cột username để tăng tốc độ tìm kiếm
-CREATE INDEX idx_username ON users (username);
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(150) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
