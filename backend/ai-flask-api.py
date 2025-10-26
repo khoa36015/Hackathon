@@ -7,10 +7,10 @@ from dotenv import load_dotenv
 load_dotenv()
 #Chinh Sua Trong file .env
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
-DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "openai/gpt-4o-mini")  # change if you like
+DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "openai/gpt-4o-mini")  
 DEFAULT_SYSTEM = os.getenv("DEFAULT_SYSTEM", "You are a helpful assistant. Keep answers concise.")
 ALLOW_ORIGINS = os.getenv("ALLOW_ORIGINS", "*")
-REFERER = os.getenv("OPENROUTER_HTTP_REFERER", "")  # optional, but recommended by OpenRouter
+REFERER = os.getenv("OPENROUTER_HTTP_REFERER", "")  
 X_TITLE = os.getenv("OPENROUTER_X_TITLE", "Local Dev Agent")
 
 if not OPENROUTER_API_KEY:
@@ -26,16 +26,12 @@ def build_messages(user_message: str, system_override: str | None, history: list
     system_prompt = (system_override or DEFAULT_SYSTEM).strip()
     if system_prompt:
         messages.append({"role": "system", "content": system_prompt})
-
-    # Append prior turns if provided: [{"role":"user","content":"..."}, {"role":"assistant","content":"..."}...]
     if isinstance(history, list):
         for m in history:
             r = m.get("role")
             c = m.get("content")
             if r in ("user", "assistant", "system") and isinstance(c, str) and c.strip():
                 messages.append({"role": r, "content": c})
-
-    # Current user message last
     messages.append({"role": "user", "content": user_message})
     return messages
 
@@ -78,7 +74,6 @@ def ai_agent():
             "Authorization": f"Bearer {OPENROUTER_API_KEY}",
             "Content-Type": "application/json",
         }
-        # Optional but recommended by OpenRouter
         if REFERER:
             headers["HTTP-Referer"] = REFERER
         if X_TITLE:
@@ -86,7 +81,6 @@ def ai_agent():
 
         resp = requests.post(OPENROUTER_URL, json=payload, headers=headers, timeout=60)
         if resp.status_code >= 400:
-            # Forward OpenRouter error details if available
             try:
                 err = resp.json()
             except Exception:
@@ -94,7 +88,6 @@ def ai_agent():
             return jsonify({"error": "OpenRouter error", "details": err}), resp.status_code
 
         jr = resp.json()
-        # OpenRouter uses OpenAI-compatible schema
         choice = (jr.get("choices") or [{}])[0]
         reply = (choice.get("message") or {}).get("content", "")
 
