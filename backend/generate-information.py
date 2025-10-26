@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)  # tự động bật CORS cho toàn bộ API
+CORS(app)
 
 def add_cors_headers(resp):
-    resp.headers["Access-Control-Allow-Origin"] = "*"  # hoặc "http://127.0.0.1:5500" nếu cần chính xác
+    resp.headers["Access-Control-Allow-Origin"] = "*" 
     resp.headers["Vary"] = "Origin"
     resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
     resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
@@ -24,9 +24,9 @@ def info_mientay():
 
        
         r = requests.post(mientay_api, json=payload, timeout=10)
-        r.raise_for_status()  # nếu lỗi HTTP (400–500) sẽ ném exception
+        r.raise_for_status() 
 
-        data = r.json()  # parse JSON trả về
+        data = r.json() 
 
         response = jsonify({
             "status": "success",
@@ -36,7 +36,7 @@ def info_mientay():
         return add_cors_headers(response)
 
     except requests.exceptions.RequestException as e:
-        # Nếu API kia không chạy hoặc timeout
+
         response = jsonify({
             "status": "error",
             "error": str(e)
