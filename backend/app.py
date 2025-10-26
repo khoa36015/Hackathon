@@ -4,7 +4,12 @@ import mysql.connector
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
-
+def add_cors_headers(resp):
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    resp.headers["Vary"] = "Origin"
+    resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+    resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    return resp
 # flask connect with Mysql
 def get_db_connection():
     return mysql.connector.connect(
