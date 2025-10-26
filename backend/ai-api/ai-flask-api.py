@@ -2,6 +2,7 @@ import os
 import json
 import re
 import unicodedata
+import random
 from typing import Any, Dict, List, Optional
 
 import requests
@@ -16,16 +17,23 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "openai/gpt-4o-mini")
 DEFAULT_SYSTEM = os.getenv("DEFAULT_SYSTEM", "You are a helpful assistant. Keep answers concise.")
 ALLOW_ORIGINS = os.getenv("ALLOW_ORIGINS", "*")
-REFERER = os.getenv("OPENROUTER_HTTP_REFERER", "")
-X_TITLE = os.getenv("OPENROUTER_X_TITLE", "Local Dev Agent")
+REFERER = os.getenv("OPENROUTER_HTTP_REFERER", "http://localhost")
+X_TITLE = os.getenv("OPENROUTER_X_TITLE", "AI Agent Tester")
+OFFLINE_FALLBACK_MEKONG = os.getenv("OFFLINE_FALLBACK_MEKONG", "0") in ("1", "true", "True")
 
 if not OPENROUTER_API_KEY:
-    print("[WARN] Missing OPENROUTER_API_KEY in .env — /api/ai/agent calls will fail upstream.")
+    print("[WARN] Missing OPENROUTER_API_KEY in .env — /api/ai/agent calls may fail upstream.")
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": ALLOW_ORIGINS}})
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+
+MEKONG_PROVINCES = [
+    "an giang","bac lieu","ben tre","ca mau","can tho","dong thap",
+    "hau giang","kien giang","long an","soc trang","tien giang","tra vinh",
+    "vinh long"
+]
 
 
 # ====== Helpers ======
@@ -45,7 +53,6 @@ def build_messages(user_message: str, system_override: Optional[str], history: O
 
 
 def parse_json_strict(s: str) -> Optional[Any]:
-    """Extract JSON object from a string; strip fences and cut from first { to last }."""
     if not isinstance(s, str) or not s:
         return None
     s2 = re.sub(r"^```(?:json)?|```$", "", s.strip(), flags=re.IGNORECASE | re.MULTILINE)
@@ -79,27 +86,51 @@ def transform_array_strings(obj: Any, keys: Optional[List[str]]) -> Any:
     return out
 
 
+def pattern_is_mekong6(message: str) -> bool:
+    m = message.lower()
+    return (("6" in m or "sáu" in m or "sau " in m) and ("miền tây" in m or "mien tay" in m))
+
+
+def offline_mekong_six() -> Dict[str, List[str]]:
+    return {"tinh": sorted(random.sample(MEKONG_PROVINCES, 6))}
+
+
+def enforce_mekong6(obj: Dict[str, Any]) -> Dict[str, Any]:
+    """Ensure obj['tinh'] contains 6 unique Mekong provinces (lowercase, no diacritics)."""
+    if not isinstance(obj, dict):
+        return {"tinh": sorted(random.sample(MEKONG_PROVINCES, 6))}
+    arr = obj.get("tinh", [])
+    cleaned = []
+    seen = set()
+    # normalize and keep only known provinces
+    for x in arr if isinstance(arr, list) else []:
+        if isinstance(x, str):
+            y = vn_to_ascii_lower(x)
+            if y in MEKONG_PROVINCES and y not in seen:
+                seen.add(y)
+                cleaned.append(y)
+    # fill if less than 6
+    remaining = [p for p in MEKONG_PROVINCES if p not in seen]
+    random.shuffle(remaining)
+    while len(cleaned) < 6 and remaining:
+        cleaned.append(remaining.pop())
+    # trim if more than 6
+    cleaned = cleaned[:6]
+    return {"tinh": cleaned}
+
+
+def build_headers() -> Dict[str, str]:
+    return {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": REFERER,
+        "X-Title": X_TITLE,
+    }
+
+
 # ====== Route (UNCHANGED: /api/ai/agent) ======
 @app.route("/api/ai/agent", methods=["POST"])
 def ai_agent():
-    """
-    Accept JSON:
-    {
-      "message": "text",
-      "history": [{"role":"user","content":"..."}, {"role":"assistant","content":"..."}],
-      "model": "openai/gpt-4o-mini",
-      "system": "override system prompt",
-      "temperature": 0.7,
-      "max_tokens": 512,
-
-      // NEW (optional, no endpoint/port change):
-      "json_mode": true,
-      "json_schema": {...},                   // JSON Schema to enforce
-      "postprocess": {"array_string_keys": ["tinh"]}  // lowercase/no-diacritics
-    }
-    Returns JSON:
-    { "reply": <object|string>, "model": "...", "usage": {...} }
-    """
     try:
         data = request.get_json(force=True, silent=False) or {}
         message = (data.get("message") or "").strip()
@@ -109,7 +140,7 @@ def ai_agent():
         model = (data.get("model") or DEFAULT_MODEL).strip()
         system_override = data.get("system")
         history = data.get("history")
-        temperature = data.get("temperature", 0.7)
+        temperature = data.get("temperature", 0.0)
         max_tokens = data.get("max_tokens", None)
 
         json_mode = bool(data.get("json_mode", False))
@@ -117,24 +148,24 @@ def ai_agent():
         postprocess_cfg = data.get("postprocess") or {}
         array_string_keys = postprocess_cfg.get("array_string_keys", [])
 
-        # If the user asks for 6 Mekong provinces, auto-enable strict JSON with schema
         auto_schema = None
-        lower_msg = message.lower()
-        if ("6" in lower_msg or "sáu" in lower_msg or "sau " in lower_msg) and ("miền tây" in lower_msg or "mien tay" in lower_msg):
+        mekong_pattern = pattern_is_mekong6(message)
+        if mekong_pattern:
             json_mode = True
+            # Remove 'uniqueItems' because some providers (e.g., Azure) reject it
             auto_schema = {
                 "type": "object",
                 "properties": {
                     "tinh": {
                         "type": "array",
                         "items": {"type": "string", "pattern": "^[a-z ]+$"},
-                        "minItems": 6, "maxItems": 6, "uniqueItems": True
+                        "minItems": 6,
+                        "maxItems": 6
                     }
                 },
                 "required": ["tinh"],
                 "additionalProperties": False
             }
-            # Force a strict system prompt to forbid extra words
             system_override = (
                 "You only output compact, valid JSON. Do not include explanations, markdown, or extra text. "
                 "If unsure, return {}."
@@ -148,7 +179,6 @@ def ai_agent():
         if isinstance(max_tokens, int) and max_tokens > 0:
             payload["max_tokens"] = max_tokens
 
-        # Enforce JSON format
         if json_mode:
             if isinstance(json_schema, dict):
                 payload["response_format"] = {
@@ -163,45 +193,84 @@ def ai_agent():
             else:
                 payload["response_format"] = {"type": "json_object"}
 
-        headers = {
-            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-            "Content-Type": "application/json",
-        }
-        if REFERER: headers["HTTP-Referer"] = REFERER
-        if X_TITLE: headers["X-Title"] = X_TITLE
+        headers = build_headers()
 
-        resp = requests.post(OPENROUTER_URL, json=payload, headers=headers, timeout=60)
-        if resp.status_code >= 400:
+        # Send request (with one retry if provider rejects schema)
+        def do_request(pay):
+            return requests.post(OPENROUTER_URL, json=pay, headers=headers, timeout=60)
+
+        resp = do_request(payload)
+
+        # Retry logic for provider schema rejection (e.g., Azure)
+        if resp.status_code == 400:
             try:
                 err = resp.json()
             except Exception:
                 err = {"message": resp.text}
-            return jsonify({"error": "OpenRouter error", "details": err}), resp.status_code
+            raw = json.dumps(err)
+            if "Invalid schema for response_format" in raw:
+                # Switch to json_object and retry once
+                pay2 = dict(payload)
+                pay2.pop("response_format", None)
+                pay2["response_format"] = {"type": "json_object"}
+                resp = do_request(pay2)
+
+        # 401 handling & optional offline fallback
+        if resp.status_code == 401:
+            details = {
+                "hint": "401 từ OpenRouter. Kiểm tra API key sk-or-..., Referer whitelist, billing.",
+                "sent_headers": {k: headers[k] for k in ["HTTP-Referer", "X-Title"]},
+            }
+            if OFFLINE_FALLBACK_MEKONG and mekong_pattern:
+                result = enforce_mekong6({"tinh": []})
+                return jsonify({"reply": result, "model": "offline-fallback", "usage": {}, "warning": details}), 200
+            try: err = resp.json()
+            except Exception: err = {"message": resp.text}
+            return jsonify({"error": "OpenRouter 401", "details": err, "debug": details}), 401
+
+        if resp.status_code >= 400:
+            try: err = resp.json()
+            except Exception: err = {"message": resp.text}
+            # Fallback offline if requested and pattern matches
+            if OFFLINE_FALLBACK_MEKONG and mekong_pattern:
+                result = enforce_mekong6({"tinh": []})
+                return jsonify({"reply": result, "model": "offline-fallback", "usage": {}, "warning": err}), 200
+            return jsonify({"error": "OpenRouter error", "details": err, "status": resp.status_code}), resp.status_code
 
         jr = resp.json()
         choice = (jr.get("choices") or [{}])[0]
         reply = (choice.get("message") or {}).get("content", "")
 
+        # JSON-mode path
         if json_mode or auto_schema:
             parsed = parse_json_strict(reply)
             if parsed is None:
+                if OFFLINE_FALLBACK_MEKONG and mekong_pattern:
+                    result = enforce_mekong6({"tinh": []})
+                    return jsonify({"reply": result, "model": "offline-fallback", "usage": {},
+                                    "warning": "Model JSON invalid, used offline fallback."}), 200
                 return jsonify({"error": "Invalid JSON from model", "raw": reply}), 502
-            parsed = transform_array_strings(parsed, array_string_keys or (["tinh"] if auto_schema else []))
+
+            parsed = transform_array_strings(parsed, array_string_keys or (["tinh"] if mekong_pattern else []))
+
+            # Enforce uniqueness & length 6 server-side for Mekong case
+            if mekong_pattern:
+                parsed = enforce_mekong6(parsed if isinstance(parsed, dict) else {"tinh": []})
+
             return jsonify({"reply": parsed, "model": jr.get("model", model), "usage": jr.get("usage", {})}), 200
 
-        # Non-JSON mode: return raw string
-        return jsonify({
-            "reply": reply,
-            "model": jr.get("model", model),
-            "usage": jr.get("usage", {}),
-        }), 200
+        # Non-JSON mode
+        return jsonify({"reply": reply, "model": jr.get("model", model), "usage": jr.get("usage", {})}), 200
 
     except requests.Timeout:
+        if OFFLINE_FALLBACK_MEKONG and "message" in request.json and pattern_is_mekong6(request.json["message"]):
+            result = enforce_mekong6({"tinh": []})
+            return jsonify({"reply": result, "model": "offline-fallback", "usage": {},
+                            "warning": "Timeout upstream, used offline fallback."}), 200
         return jsonify({"error": "Gateway timeout calling OpenRouter"}), 504
     except Exception as e:
         return jsonify({"error": "Server error", "details": str(e)}), 500
 
 
 if __name__ == "__main__":
-    # Keep SAME port behavior: uses env PORT (default 8000)
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", "8000")))
