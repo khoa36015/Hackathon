@@ -32,10 +32,17 @@ def info_mientay():
             "an giang", "bac lieu", "ben tre", "ca mau", "can tho", "dong thap",
             "hau giang", "kien giang", "long an", "soc trang", "tien giang", "tra vinh",
             "vinh long"]
+        #tao ra 1 ham kiem tra index
+        def get_index(arr, value):
+            if value in arr:
+             return arr.index(value)
+            else:
+                return -1
         result = []
         for t in tinh:
-            if t in MEKONG_PROVINCES:
-                result.append(t)
+            idx = get_index(MEKONG_PROVINCES, t)
+            if idx != -1:
+                result.append(idx + 1)
         return add_cors_headers(jsonify(result)), 200
     except requests.exceptions.RequestException as e:
         return add_cors_headers(jsonify({"status": "error", "error": str(e)})), 502
