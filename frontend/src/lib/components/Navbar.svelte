@@ -1,5 +1,5 @@
 <script>
-	export let data;
+
 </script>
 
 <header class="bg-white shadow-sm">
@@ -16,13 +16,13 @@
 					Trang chủ
 				</a>
 			</li>
-			{#if data.user}
+			
 				<li>
 					<a
 						class="transition hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 focus-visible:ring-offset-2"
-						href="/profile"
+						href="/auth/register"
 					>
-						Profile
+						Đăng ký
 					</a>
 				</li>
 				<li>
@@ -33,7 +33,7 @@
 						Đăng nhập
 					</a>
 				</li>
-			{/if}
+			
 		</ul>
 	</nav>
 </header>
