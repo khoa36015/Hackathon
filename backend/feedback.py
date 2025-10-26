@@ -33,33 +33,34 @@ def send_feedback():
      conn=get_db_connection()
      cursor=conn.cursor(dictionary=True)
 
-     created_at = datetime.now()
-
-
-     #luu vao database
-     cursor.execute(
-        "INSERT INTO feedbacks(username,message,rating,created_at),VALUES (%s,%s,%s,%s)"(username,message,rating,datetime.now())
-        )
-
-     conn.commit()
-     cursor.close()
-     conn.close()
-
-     return jsonify({"message":"Thanks for your feedback!"}),201
-
+     try:
+         cursor.execute(
+            "INSERT INTO feedbacks(username, message, rating, created_at) VALUES (%s, %s, %s, %s)",
+            (username, message, rating, datetime.now())
+         )
+         conn.commit()
+         return jsonify({"message":"Thanks for your feedback!"}), 201
+     except Exception as e:
+         return jsonify({"error": str(e)}), 500
+     finally:
+         cursor.close()
+         conn.close()
 
 @app.route("/api/feedbacks",methods=['GET'])
 def get_feedbacks():
-        cursor=conn.cursor(dictionary=True)
-        cursor.execute(
-            "SELECT username,message,rating,created_at FROM feedbacks ORDER BY created_at DESC "
-        )
-results=cursor.fetchall()
-
-cursur.close()
-conn.close()
-
-return jsonify (results)
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        try:
+            cursor.execute(
+                "SELECT username, message, rating, created_at FROM feedbacks ORDER BY created_at DESC"
+            )
+            results = cursor.fetchall()
+            return jsonify(results)
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+        finally:
+            cursor.close()
+            conn.close()
 
 if __name__=='__main__':
   app.run(debug=True,port=36)
