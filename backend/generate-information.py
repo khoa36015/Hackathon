@@ -33,9 +33,9 @@ def info_mientay():
             "hau giang", "kien giang", "long an", "soc trang", "tien giang", "tra vinh",
             "vinh long"]
         result = []
-        for i, tinh in enumerate(MEKONG_PROVINCES, start=1):
-            if tinh in MEKONG_PROVINCES:
-                result.append(i)
+        for t in tinh:
+            if t in MEKONG_PROVINCES:
+                result.append(t)
         return add_cors_headers(jsonify(result)), 200
     except requests.exceptions.RequestException as e:
         return add_cors_headers(jsonify({"status": "error", "error": str(e)})), 502
