@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Agent JSON Test</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 24px auto; padding: 0 12px; }
+    textarea, input, button { width: 100%; padding: 10px; font-size: 14px; }
+    pre { background: #111; color: #eee; padding: 12px; border-radius: 8px; overflow: auto; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .muted { color: #666; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h1>Test /api/ai/agent (JSON only)</h1>
+
+  <label>Prompt</label>
+  <textarea id="prompt" rows="4">Sinh 6 tỉnh miền Tây ngẫu nhiên; chỉ trả về đúng JSON schema: {"tinh":[string,string,string,string,string,string]}; không lặp.</textarea>
+
+  <div class="row" style="margin-top:8px;">
+    <label><input id="jsonMode" type="checkbox" checked /> JSON mode</label>
+    <label><input id="enforceLower" type="checkbox" checked /> Hậu xử lý: thường & không dấu</label>
+  </div>
+
+  <button id="send" style="margin-top:8px;">Gửi</button>
+
+  <p class="muted">API: <code>POST /api/ai/agent</code></p>
+
+  <h3>Kết quả</h3>
+  <pre id="out">(chưa có)</pre>
+
+  <script>
+    const $ = (s) => document.querySelector(s);
+
+    $("#send").onclick = async () => {
+      const message = $("#prompt").value.trim();
+      const jsonMode = $("#jsonMode").checked;
+      const enforceLower = $("#enforceLower").checked;
+
+      const body = {
+        message,
+        json_mode: jsonMode,
+        temperature: 0
+      };
+
+      if (jsonMode) {
+        body.json_schema = {
+          "type": "object",
+          "properties": {
+            "tinh": {
+              "type": "array",
+              "items": { "type": "string", "pattern": "^[a-z ]+$" },
+              "minItems": 6, "maxItems": 6, "uniqueItems": true
+            }
+          },
+          "required": ["tinh"],
+          "additionalProperties": false
+        };
+        if (enforceLower) {
+          body.postprocess = { array_string_keys: ["tinh"] };
+        }
+      }
+
+      try {
+        const res = await fetch("http://localhost:5000/api/ai/agent", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        });
+        const jr = await res.json();
+        $("#out").textContent = JSON.stringify(jr, null, 2);
+      } catch (e) {
+        $("#out").textContent = "Error: " + e;
+      }
+    };
+  </script>
+</body>
+</html>
