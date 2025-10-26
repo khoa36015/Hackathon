@@ -1,252 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="vi">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>OpenRouter Agent Tester</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Agent JSON Test</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 24px auto; padding: 0 12px; }
+    textarea, input, button { width: 100%; padding: 10px; font-size: 14px; }
+    pre { background: #111; color: #eee; padding: 12px; border-radius: 8px; overflow: auto; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .muted { color: #666; font-size: 13px; }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
-  <div class="max-w-3xl mx-auto p-6 space-y-6">
-    <header class="flex items-center justify-between">
-      <h1 class="text-2xl font-bold">🧪 OpenRouter Agent Tester</h1>
-      <a href="#" class="text-xs text-slate-500 hover:underline" id="resetStorage">Reset saved settings</a>
-    </header>
+<body>
+  <h1>Test /api/ai/agent (JSON only)</h1>
 
-    <!-- Connection -->
-    <section class="bg-white rounded-2xl shadow p-5 space-y-4">
-      <div class="flex flex-col gap-2">
-        <label class="text-sm font-semibold">API Base URL</label>
-        <input id="apiBase" type="text" class="w-full rounded-xl border px-3 py-2"
-               placeholder="http://localhost:8000"
-               />
-        <p class="text-xs text-slate-500">Your Flask route is <code>/api/ai/agent</code>. We’ll call <code>{API Base}/api/ai/agent</code>.</p>
-      </div>
-    </section>
+  <label>Prompt</label>
+  <textarea id="prompt" rows="4">Sinh 6 tỉnh miền Tây ngẫu nhiên; chỉ trả về đúng JSON schema: {"tinh":[string,string,string,string,string,string]}; không lặp.</textarea>
 
-    <!-- Settings -->
-    <section class="bg-white rounded-2xl shadow p-5 space-y-4">
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="flex flex-col gap-2">
-          <label class="text-sm font-semibold">Model (optional override)</label>
-          <input id="model" type="text" class="w-full rounded-xl border px-3 py-2"
-                 placeholder="openai/gpt-4o-mini (or leave blank)" />
-        </div>
-        <div class="flex flex-col gap-2">
-          <label class="text-sm font-semibold">Max tokens (optional)</label>
-          <input id="maxTokens" type="number" min="1" class="w-full rounded-xl border px-3 py-2"
-                 placeholder="e.g., 512" />
-        </div>
-      </div>
-
-      <div class="flex flex-col gap-2">
-        <label class="text-sm font-semibold flex justify-between">
-          <span>Temperature: <span id="tempLabel" class="font-mono">0.7</span></span>
-          <span class="text-xs text-slate-500">Lower = more deterministic</span>
-        </label>
-        <input id="temperature" type="range" min="0" max="2" step="0.1" value="0.7" class="w-full">
-      </div>
-
-      <details class="rounded-xl border p-3">
-        <summary class="cursor-pointer font-semibold">System rule prompt (override) — optional</summary>
-        <textarea id="system" class="mt-3 w-full rounded-xl border px-3 py-2" rows="3"
-          placeholder="Leave empty to use backend DEFAULT_SYSTEM from .env"></textarea>
-      </details>
-    </section>
-
-    <!-- Prompt -->
-    <section class="bg-white rounded-2xl shadow p-5 space-y-4">
-      <div class="flex items-center justify-between">
-        <label for="message" class="text-sm font-semibold">Your prompt</label>
-        <span class="text-xs text-slate-500">Tip: press <kbd class="px-1 rounded bg-slate-100 border">Ctrl</kbd>+<kbd class="px-1 rounded bg-slate-100 border">Enter</kbd> to send</span>
-      </div>
-      <textarea id="message" rows="6" class="w-full rounded-xl border px-3 py-2"
-        placeholder="Ask anything…"></textarea>
-
-      <div class="flex items-center gap-3">
-        <button id="send" class="rounded-xl bg-slate-900 text-white px-4 py-2 hover:bg-slate-800 disabled:opacity-50">
-          Send
-        </button>
-        <button id="clear" class="rounded-xl border px-4 py-2 hover:bg-slate-50">Clear</button>
-        <label class="text-xs text-slate-500 ml-auto flex items-center gap-2">
-          <input id="includeHistory" type="checkbox" class="rounded" checked />
-          include chat history in request
-        </label>
-      </div>
-    </section>
-
-    <!-- Transcript -->
-    <section class="bg-white rounded-2xl shadow p-5 space-y-4">
-      <h2 class="text-sm font-semibold">Transcript</h2>
-      <div id="chat" class="space-y-3"></div>
-    </section>
-
-    <!-- Raw JSON -->
-    <section class="bg-white rounded-2xl shadow p-5 space-y-3">
-      <div class="flex items-center justify-between">
-        <h2 class="text-sm font-semibold">Last response (raw JSON)</h2>
-        <button id="copyJson" class="text-xs rounded-lg border px-3 py-1 hover:bg-slate-50">Copy JSON</button>
-      </div>
-      <pre id="raw" class="bg-slate-50 rounded-xl p-3 overflow-auto text-xs"></pre>
-    </section>
-
-    <footer class="text-center text-xs text-slate-400 pb-8">
-      Make sure your Flask server sets CORS to allow this page’s origin.
-    </footer>
+  <div class="row" style="margin-top:8px;">
+    <label><input id="jsonMode" type="checkbox" checked /> JSON mode</label>
+    <label><input id="enforceLower" type="checkbox" checked /> Hậu xử lý: thường & không dấu</label>
   </div>
 
+  <button id="send" style="margin-top:8px;">Gửi</button>
+
+  <p class="muted">API: <code>POST /api/ai/agent</code></p>
+
+  <h3>Kết quả</h3>
+  <pre id="out">(chưa có)</pre>
+
   <script>
-    const els = {
-      apiBase: document.getElementById('apiBase'),
-      model: document.getElementById('model'),
-      maxTokens: document.getElementById('maxTokens'),
-      temperature: document.getElementById('temperature'),
-      tempLabel: document.getElementById('tempLabel'),
-      system: document.getElementById('system'),
-      message: document.getElementById('message'),
-      send: document.getElementById('send'),
-      clear: document.getElementById('clear'),
-      chat: document.getElementById('chat'),
-      raw: document.getElementById('raw'),
-      copyJson: document.getElementById('copyJson'),
-      includeHistory: document.getElementById('includeHistory'),
-      resetStorage: document.getElementById('resetStorage'),
-    };
+    const $ = (s) => document.querySelector(s);
 
-    // --- Simple local state ---
-    let history = []; // [{role: 'user'|'assistant', content: '...'}, ...]
+    $("#send").onclick = async () => {
+      const message = $("#prompt").value.trim();
+      const jsonMode = $("#jsonMode").checked;
+      const enforceLower = $("#enforceLower").checked;
 
-    // --- Load saved settings ---
-    function loadSaved() {
-      els.apiBase.value = localStorage.getItem('apiBase') || 'http://localhost:8000';
-      els.model.value   = localStorage.getItem('model') || '';
-      els.maxTokens.value = localStorage.getItem('maxTokens') || '';
-      els.temperature.value = localStorage.getItem('temperature') || '0.7';
-      els.tempLabel.textContent = els.temperature.value;
-      els.system.value = localStorage.getItem('system') || '';
-    }
-    loadSaved();
-
-    // --- Persist on change ---
-    ['apiBase','model','maxTokens','system'].forEach(id => {
-      els[id].addEventListener('input', () => localStorage.setItem(id, els[id].value));
-    });
-    els.temperature.addEventListener('input', () => {
-      els.tempLabel.textContent = els.temperature.value;
-      localStorage.setItem('temperature', els.temperature.value);
-    });
-
-    els.resetStorage.addEventListener('click', (e) => {
-      e.preventDefault();
-      localStorage.clear();
-      loadSaved();
-      appendSystemNote('Local settings cleared.');
-    });
-
-    // --- UI helpers ---
-    function appendBubble(role, content) {
-      const wrap = document.createElement('div');
-      const isUser = role === 'user';
-      wrap.className = `flex ${isUser ? 'justify-end' : 'justify-start'}`;
-      const bubble = document.createElement('div');
-      bubble.className = `max-w-[85%] whitespace-pre-wrap rounded-2xl px-4 py-3 text-sm shadow ${isUser ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-900'}`;
-      bubble.textContent = content;
-      wrap.appendChild(bubble);
-      els.chat.appendChild(wrap);
-      els.chat.scrollTop = els.chat.scrollHeight;
-    }
-    function appendSystemNote(note) {
-      const p = document.createElement('p');
-      p.className = 'text-xs text-slate-500';
-      p.textContent = note;
-      els.chat.appendChild(p);
-    }
-    function setBusy(b) {
-      els.send.disabled = b;
-      els.send.textContent = b ? 'Sending…' : 'Send';
-    }
-
-    // --- Send request ---
-    async function sendMessage() {
-      const apiBase = els.apiBase.value.trim().replace(/\/+$/, '');
-      const url = apiBase + '/api/ai/agent';
-      const message = els.message.value.trim();
-      if (!message) return;
-
-      // Update UI
-      appendBubble('user', message);
-      els.message.value = '';
-
-      // Build payload
-      const payload = {
+      const body = {
         message,
-        temperature: parseFloat(els.temperature.value || '0.7'),
+        json_mode: jsonMode,
+        temperature: 0
       };
-      const system = els.system.value.trim();
-      if (system) payload.system = system;
-      const model = els.model.value.trim();
-      if (model) payload.model = model;
-      const maxTokens = parseInt(els.maxTokens.value, 10);
-      if (!isNaN(maxTokens) && maxTokens > 0) payload.max_tokens = maxTokens;
 
-      if (els.includeHistory.checked && history.length) {
-        payload.history = history.slice(-12); // keep the last few turns
-      }
-
-      setBusy(true);
-      let jsonOut = null;
-      try {
-        const res = await fetch(url, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(payload),
-        });
-        jsonOut = await res.json().catch(() => ({}));
-
-        if (!res.ok) {
-          const errText = (jsonOut && (jsonOut.error || jsonOut.details?.message)) || res.statusText;
-          appendBubble('assistant', `⚠️ Error: ${errText}`);
-          els.raw.textContent = JSON.stringify(jsonOut, null, 2);
-          return;
+      if (jsonMode) {
+        body.json_schema = {
+          "type": "object",
+          "properties": {
+            "tinh": {
+              "type": "array",
+              "items": { "type": "string", "pattern": "^[a-z ]+$" },
+              "minItems": 6, "maxItems": 6, "uniqueItems": true
+            }
+          },
+          "required": ["tinh"],
+          "additionalProperties": false
+        };
+        if (enforceLower) {
+          body.postprocess = { array_string_keys: ["tinh"] };
         }
-
-        const reply = (jsonOut && jsonOut.reply) || '';
-        appendBubble('assistant', reply || '(empty reply)');
-        els.raw.textContent = JSON.stringify(jsonOut, null, 2);
-
-        // Update history
-        history.push({ role: 'user', content: message });
-        history.push({ role: 'assistant', content: reply });
-
-      } catch (e) {
-        appendBubble('assistant', '⚠️ Network error. Check console.');
-        console.error(e);
-        els.raw.textContent = JSON.stringify({ error: String(e) }, null, 2);
-      } finally {
-        setBusy(false);
       }
-    }
 
-    // Copy JSON
-    els.copyJson.addEventListener('click', async () => {
       try {
-        await navigator.clipboard.writeText(els.raw.textContent || '');
-        appendSystemNote('Copied raw JSON to clipboard.');
-      } catch {}
-    });
-
-    els.send.addEventListener('click', sendMessage);
-    els.clear.addEventListener('click', () => {
-      els.chat.innerHTML = '';
-      history = [];
-      els.raw.textContent = '';
-    });
-    els.message.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
-        e.preventDefault();
-        sendMessage();
+        const res = await fetch("http://localhost:5000/api/ai/agent", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        });
+        const jr = await res.json();
+        $("#out").textContent = JSON.stringify(jr, null, 2);
+      } catch (e) {
+        $("#out").textContent = "Error: " + e;
       }
-    });
+    };
   </script>
 </body>
 </html>
