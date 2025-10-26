@@ -1,0 +1,3 @@
+default ai (ai-flask-api.py): /api/ai/agent port 8000 
+generate mientay ai (generate-information.py) : /api/ai/get-information-mientay port 40
+default login-register api (app.py) : /api/register,/api/login port 30
