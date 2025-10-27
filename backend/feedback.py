@@ -12,16 +12,19 @@ def add_cors_headers(resp):
     resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
     resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
     return resp
+
+    app.after_request(add_cors_headers)
+    
 #connect mysql
 def get_db_connection():
-        return mysql.connector.connect(
+     return mysql.connector.connect(
         host="34.136.163.31",
         user="admin",
         password="Kv135791!",
         database="Authen"
         )
 
-    #gui API feedback
+#gui API feedback
 @app.route("/api/feedback",methods=['POST'])
 def send_feedback():
      data=request.get_json()
