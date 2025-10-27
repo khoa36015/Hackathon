@@ -19,7 +19,7 @@ def get_db_connection():
         host="34.136.163.31",
         user="admin",
         password="Kv135791!",
-        database="Authen"
+        database="authen"
     )
 
 # API register

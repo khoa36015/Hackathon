@@ -2,78 +2,148 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Agent JSON Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Auth API Tester</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 24px auto; padding: 0 12px; }
-    textarea, input, button { width: 100%; padding: 10px; font-size: 14px; }
-    pre { background: #111; color: #eee; padding: 12px; border-radius: 8px; overflow: auto; }
-    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .muted { color: #666; font-size: 13px; }
+    :root{--bg:#0b1022;--card:#0f172a;--muted:#94a3b8;--txt:#e5e7eb;--ok:#22c55e;--warn:#f59e0b;--err:#ef4444}
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(135deg,#0b1022,#0a0f1f);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
+    .wrap{max-width:980px;margin:0 auto;padding:28px}
+    .card{background:rgba(15,23,42,.92);backdrop-filter: blur(8px);border:1px solid #1f2937;border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    h1{font-size:clamp(20px,3vw,28px);margin:0 0 6px}
+    p.small{color:var(--muted);margin:0 0 14px}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    @media (max-width:860px){.grid{grid-template-columns:1fr}}
+    label{display:block;font-weight:600;margin:8px 0 6px}
+    input[type="text"],input[type="password"]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #223047;background:#0b1220;color:var(--txt)}
+    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;font-weight:600}
+    button.primary{background:var(--ok);color:#052e16}
+    button.ghost{background:#0b1220;color:var(--txt);border:1px solid #223047}
+    button.warn{background:var(--warn);color:#3b2401}
+    button.danger{background:var(--err);color:#3b0a0a}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:#0b1220;border:1px solid #223047;color:var(--muted)}
+    .log{white-space:pre-wrap;background:#0b1220;border:1px solid #223047;border-radius:12px;padding:12px;height:260px;overflow:auto}
+    .ok{color:var(--ok)}.err{color:#fca5a5}.muted{color:var(--muted)}
+    .footer{margin-top:12px;font-size:12px;color:var(--muted)}
+    .kvs{display:grid;grid-template-columns:160px 1fr;gap:6px 12px}
+    code{background:#0b1220;border:1px solid #223047;border-radius:6px;padding:2px 6px}
   </style>
 </head>
 <body>
-  <h1>Test /api/ai/agent (JSON only)</h1>
+  <div class="wrap">
+    <div class="card">
+      <h1>Auth API Tester</h1>
+      <p class="small">Dùng để test nhanh các endpoint <code>/api/register</code>, <code>/api/login</code>, <code>/api/logout</code> và kiểm tra session.</p>
 
-  <label>Prompt</label>
-  <textarea id="prompt" rows="4">Sinh 6 tỉnh miền Tây ngẫu nhiên; chỉ trả về đúng JSON schema: {"tinh":[string,string,string,string,string,string]}; không lặp.</textarea>
+      <div class="grid">
+        <section>
+          <label for="baseUrl">API Base URL</label>
+          <input id="baseUrl" value="http://127.0.0.1:30" />
+          <div class="row" style="margin-top:8px">
+            <label class="row" style="gap:6px"><input type="checkbox" id="useCreds" /> Gửi kèm cookie (credentials)</label>
+            <span class="pill">Trạng thái: <strong id="lastStatus">—</strong></span>
+          </div>
 
-  <div class="row" style="margin-top:8px;">
-    <label><input id="jsonMode" type="checkbox" checked /> JSON mode</label>
-    <label><input id="enforceLower" type="checkbox" checked /> Hậu xử lý: thường & không dấu</label>
+          <div class="row" style="margin-top:12px">
+            <div style="flex:1">
+              <label for="username">Username</label>
+              <input id="username" placeholder="khoa" />
+            </div>
+            <div style="flex:1">
+              <label for="password">Password</label>
+              <input id="password" type="password" placeholder="••••••••" />
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:12px">
+            <button class="primary" id="btnRegister">Register</button>
+            <button class="ghost" id="btnLogin">Login</button>
+            <button class="warn" id="btnCheck">Check session (/)</button>
+            <button class="danger" id="btnLogout">Logout</button>
+          </div>
+
+          <div class="kvs" style="margin-top:14px">
+            <div class="muted">Gợi ý CORS</div>
+            <div><code>app.after_request(add_cors_headers)</code> đang bật; nếu dùng cookie cross-origin, cần <code>Access-Control-Allow-Credentials: true</code> và <code>credentials: 'include'</code>.</div>
+            <div class="muted">Login GET</div>
+            <div><code>GET /api/login</code> trả gợi ý; dùng <code>POST</code> với JSON <code>{username,password}</code> để đăng nhập.</div>
+          </div>
+        </section>
+
+        <section>
+          <label for="log">Response Log</label>
+          <div id="log" class="log" aria-live="polite"></div>
+          <div class="row" style="margin-top:8px">
+            <button class="ghost" id="btnClear">Clear log</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="footer">
+        Lưu ý: nếu test qua file <code>file://</code> có thể bị chặn CORS. Hãy mở bằng một server tĩnh đơn giản, ví dụ <code>python -m http.server 5500</code> rồi vào <code>http://127.0.0.1:5500/frontend.html</code>.
+      </div>
+    </div>
   </div>
 
-  <button id="send" style="margin-top:8px;">Gửi</button>
-
-  <p class="muted">API: <code>POST /api/ai/agent</code></p>
-
-  <h3>Kết quả</h3>
-  <pre id="out">(chưa có)</pre>
-
   <script>
-    const $ = (s) => document.querySelector(s);
+    const $ = (id) => document.getElementById(id);
 
-    $("#send").onclick = async () => {
-      const message = $("#prompt").value.trim();
-      const jsonMode = $("#jsonMode").checked;
-      const enforceLower = $("#enforceLower").checked;
-
-      const body = {
-        message,
-        json_mode: jsonMode,
-        temperature: 0
-      };
-
-      if (jsonMode) {
-        body.json_schema = {
-          "type": "object",
-          "properties": {
-            "tinh": {
-              "type": "array",
-              "items": { "type": "string", "pattern": "^[a-z ]+$" },
-              "minItems": 6, "maxItems": 6, "uniqueItems": true
-            }
-          },
-          "required": ["tinh"],
-          "additionalProperties": false
-        };
-        if (enforceLower) {
-          body.postprocess = { array_string_keys: ["tinh"] };
-        }
-      }
-
-      try {
-        const res = await fetch("http://localhost:8000/api/ai/agent", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body)
-        });
-        const jr = await res.json();
-        $("#out").textContent = JSON.stringify(jr, null, 2);
-      } catch (e) {
-        $("#out").textContent = "Error: " + e;
-      }
+    const log = (msg, type="") => {
+      const time = new Date().toLocaleTimeString();
+      const el = $("log");
+      const row = document.createElement("div");
+      row.className = type === 'ok' ? 'ok' : (type === 'err' ? 'err' : '');
+      row.textContent = `[${time}] ${msg}`;
+      el.prepend(row);
     };
+
+    const setStatus = (t) => $("lastStatus").textContent = t;
+
+    function opts(method, body){
+      const o = { method, headers: { 'Content-Type': 'application/json' } };
+      if(body) o.body = JSON.stringify(body);
+      if($("useCreds").checked){ o.credentials = 'include'; }
+      return o;
+    }
+
+    async function call(path, method='GET', body){
+      const base = $("baseUrl").value.replace(/\/$/, '');
+      const url = base + path;
+      try{
+        const res = await fetch(url, opts(method, body));
+        setStatus(`${res.status} ${res.statusText}`);
+        const text = await res.text();
+        try{
+          const json = JSON.parse(text);
+          log(`${method} ${path} → ${res.status}`);
+          log(JSON.stringify(json, null, 2));
+        }catch{ log(`RAW: ${text}`); }
+        return res.ok;
+      }catch(e){
+        setStatus('network error');
+        log(`Network error: ${e.message}`, 'err');
+        return false;
+      }
+    }
+
+    $("btnRegister").addEventListener('click', () => {
+      const u = $("username").value.trim();
+      const p = $("password").value;
+      if(!u || !p) return log('Nhập username & password', 'err');
+      call('/api/register', 'POST', { username: u, password: p });
+    });
+
+    $("btnLogin").addEventListener('click', () => {
+      const u = $("username").value.trim();
+      const p = $("password").value;
+      if(!u || !p) return log('Nhập username & password', 'err');
+      call('/api/login', 'POST', { username: u, password: p });
+    });
+
+    $("btnLogout").addEventListener('click', () => call('/api/logout', 'POST'));
+    $("btnCheck").addEventListener('click', () => call('/'));
+    $("btnClear").addEventListener('click', () => $("log").textContent='');
   </script>
 </body>
 </html>
