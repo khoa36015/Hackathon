@@ -20,30 +20,57 @@ def info_mientay():
     try:
         # goi api goc
         mientay_api = 'http://localhost:8000/api/ai/agent'
-        payload = {'message': 'generate 6 tỉnh miền tây nổi bật random'}
+        payload = {
+            'message': 'Liệt kê 6 tỉnh miền tây theo định dạng array như sau ["tỉnh 1", "tỉnh 2",...]'
+        }
+        
         r = requests.post(mientay_api, json=payload, timeout=10)
         r.raise_for_status()
+        
+        # Log raw response for debugging
+        print("Raw API Response:", r.text)
+        
         data = r.json()
-        # loc du lieu va chuyen du lieu ve array sau do chuyen nguoc lai json
-        tinh = (data.get("reply") or {}).get("tinh", [])
-        if not isinstance(tinh, list):
-            tinh = []
+        print("Parsed Response:", json.dumps(data, indent=2))
+
+        # Extract tinh from response with simpler validation
+        tinh = []
+        if isinstance(data, dict):
+            if 'tinh' in data:  # Check for tinh directly in data
+                tinh = data['tinh']
+            elif 'reply' in data and isinstance(data['reply'], dict) and 'tinh' in data['reply']:
+                tinh = data['reply']['tinh']
+
+        print("Extracted provinces:", tinh)
+
+        if not tinh:
+            return add_cors_headers(jsonify({
+                "status": "error", 
+                "message": "No provinces data received",
+                "raw_response": data
+            })), 404
+
         MEKONG_PROVINCES = [
             "an giang", "bac lieu", "ben tre", "ca mau", "can tho", "dong thap",
             "hau giang", "kien giang", "long an", "soc trang", "tien giang", "tra vinh",
-            "vinh long"]
-        #tao ra 1 ham kiem tra index
-        def get_index(arr, value):
-            if value in arr:
-             return arr.index(value)
-            else:
-                return -1
+            "vinh long"
+        ]
+        
         result = []
-        for t in tinh:
-            idx = get_index(MEKONG_PROVINCES, t)
-            if idx != -1:
-                result.append(idx + 1)
+        for idx, province in enumerate(tinh, 1):  #liet ke cac tinh danh index tu 1
+            province_name = province.lower() if isinstance(province, str) else ""
+            if province_name in MEKONG_PROVINCES:
+                result.append({
+                    "id": idx,
+                    "province": province_name.title()
+                })
+
+        if not result:
+            return add_cors_headers(jsonify({"status": "error", "message": "No valid Mekong provinces found"})), 404
+
+        print("Final result:", result)
         return add_cors_headers(jsonify(result)), 200
+        
     except requests.exceptions.RequestException as e:
         return add_cors_headers(jsonify({"status": "error", "error": str(e)})), 502
 if __name__ == '__main__':

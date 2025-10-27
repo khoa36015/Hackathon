@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect, url_for, session
 from flask_bcrypt import Bcrypt
 import mysql.connector
 
@@ -48,7 +48,7 @@ def register():
     return jsonify({"message": "dang ky thanh cong"}), 201
 
 # API Login
-@app.route("/api/login", methods=["POST"])
+@app.route("/api/login", methods=["POST","GET"])
 def login():
     data = request.get_json()
     username = data.get("username")
@@ -63,11 +63,24 @@ def login():
     conn.close()
     
     if user and bcrypt.check_password_hash(user['password'], password):
+        session["username"] = request.form.get("username")
         return jsonify({"message": "Đăng nhập thành công!"})
     else:
         return jsonify({"message": "Sai tài khoản hoặc mật khẩu!"}), 401
 
+
+#kiem tra nguoi dung da login vao hay chua
+@app.route("/", methods=["GET"])
+def check_login():
+    if not session.get("logged_in"):
+        return redirect('localhost://api/login')
+    else:
+        return jsonify({"message": "login successfully!"})
+@app.route("/api/logout", methods=["POST"])
+def logout():
+    session[username] = None
+    return redirect('localhost:80/login')
+    
+
 if __name__ == "__main__":
     app.run(debug=True,port=30)
-
-
