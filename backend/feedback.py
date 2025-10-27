@@ -14,7 +14,7 @@ def add_cors_headers(resp):
     return resp
 
     app.after_request(add_cors_headers)
-    
+
 #connect mysql
 def get_db_connection():
      return mysql.connector.connect(
@@ -72,4 +72,4 @@ def get_feedbacks():
             conn.close()
 
 if __name__=='__main__':
-  app.run(debug=True,port=36)
+  app.run(debug=True,port=3600)

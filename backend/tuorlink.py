@@ -1,4 +1,5 @@
-from flask import Flask,jsonyfy,request,abort
+from flask import Flask,jsonify,request,abort
+from data import provinces, tours
 import mysql.connector
 
 app=Flask(__name__)
@@ -10,27 +11,29 @@ def add_cors_headers(resp):
     resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
     return resp
 
+app.after_request(add_cors_headers)
+
 #connect mysql
 def get_db_connection():
-        return mysql.connector.connect(
+    return mysql.connector.connect(
         host="34.136.163.31",
         user="admin",
         password="Kv135791!",
         database="Authen"
         )
- #api get info all_provinces
+#api get info all_provinces
 @app.route("/api/provinces",methods=['GET'])
 def get_all_provinces():
-    result=[{'id':'key','ten':data['ten'],'mota':data['mota']} for key,data in provinces.items()]
+    result=[{'id':key,'ten':data['ten'],'mota':data['mota']} for key,data in provinces.items()]
     return jsonify(result)
 
 #api get info provinces
-@app.route("/api/provinces/<id_provinces",methods=['GET'])
-def get_provinces(provinces_id):
-    provinces=get.provinces(provinces_id.lower())
-    if not provinces:
-      abort(400,description="khong tim thay tinh")
-    return jsonyfy(provinces)
+@app.route("/api/provinces/<id_provinces>",methods=['GET'])
+def get_provinces(id_provinces):
+    province=provinces.get(id_provinces.lower())
+    if not province:
+      abort(400,description="không tìm thấy tỉnh")
+    return jsonify(province)
 #api search
 @app.route("/api/search",methods=['GET'])
 def get_search():
@@ -47,9 +50,9 @@ def get_tours():
 @app.route('/api/hot_tours',methods=['GET'])
 def get_hot_tours():
     hot_tours=[tour for tour in tours if tour.get("hot", True)]
-    return jsonyfy(hot_tours)
+    return jsonify(hot_tours)
 
 if __name__=="__main__":
-    app.run(debug=True,port=18)
+    app.run(debug=True,port=1800)
 
 
