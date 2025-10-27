@@ -17,6 +17,10 @@ def get_db_connection():
         password="Kv135791!",
         database="Authen"
         )
-@app.route("/api/linktour",methods=['POST'])
-def put_linktour():
-    
+
+        
+@app.route("/api/tour",methods=['GET'])
+def get_tour():
+    return jsonify(tours)
+
+
