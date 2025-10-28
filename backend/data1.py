@@ -1,4 +1,4 @@
-provinces = {
+dulieu = {
     "an_giang": {
         "ten": "An Giang",
         "mo_ta": "Vùng đất tâm linh và hùng vĩ, nơi có núi Sam, Bà Chúa Xứ và cảnh quan sông núi đặc trưng.",

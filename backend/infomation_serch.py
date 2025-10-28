@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, abort
 import mysql.connector
-from data import provinces
+from data import dulieu
 from flask_cors import CORS
 
 app = Flask(__name__)
