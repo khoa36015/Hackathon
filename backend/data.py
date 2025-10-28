@@ -1,66 +1,66 @@
 provinces = {
     "angiang": {
-        "id": "angiang",
+        "id": 1,
         "ten": "An Giang",
         "mo_ta": "Vùng đất tâm linh với Miếu Bà Chúa Xứ, Núi Sam và cảnh quan núi non hùng vĩ.",
     },
     "baclieu": {
-        "id": "baclieu",
+        "id": 2,
         "ten": "Bạc Liêu",
         "mo_ta": "Nổi tiếng với nhà Công tử Bạc Liêu, đờn ca tài tử và cánh đồng điện gió trên biển.",
     },
     "bentre": {
-        "id": "bentre",
+        "id": 3,
         "ten": "Bến Tre",
         "mo_ta": "Xứ dừa yên bình, nổi tiếng với nghề kẹo dừa, sông nước hữu tình và con người hiền hậu.",
     },
     "camau": {
-        "id": "camau",
+        "id": 4,
         "ten": "Cà Mau",
         "mo_ta": "Điểm cực Nam của Tổ quốc, nổi bật với Mũi Cà Mau và rừng ngập mặn U Minh Hạ.",
     },
     "cantho": {
-        "id": "cantho",
+        "id": 5,
         "ten": "Cần Thơ",
         "mo_ta": "Thủ phủ miền Tây, trung tâm kinh tế - văn hóa với chợ nổi Cái Răng và bến Ninh Kiều.",
     },
     "dongthap": {
-        "id": "dongthap",
+        "id": 6,
         "ten": "Đồng Tháp",
         "mo_ta": "Nổi tiếng với sen hồng, làng hoa Sa Đéc và khu du lịch Tràm Chim.",
     },
     "haugiang": {
-        "id": "haugiang",
+        "id": 7,
         "ten": "Hậu Giang",
         "mo_ta": "Vùng sông nước trù phú, với khu bảo tồn Lung Ngọc Hoàng và những miệt vườn xanh mát.",
     },
     "kiengiang": {
-        "id": "kiengiang",
+        "id": 8,
         "ten": "Kiên Giang",
         "mo_ta": "Thiên đường biển đảo với Phú Quốc, Nam Du, Hòn Sơn và Hà Tiên.",
     },
     "longan": {
-        "id": "longan",
+        "id": 9,
         "ten": "Long An",
         "mo_ta": "Cửa ngõ miền Tây, nổi bật với làng nổi Tân Lập và khu du lịch sinh thái Đồng Tháp Mười.",
     },
     "soctrang": {
-        "id": "soctrang",
+        "id": 10,
         "ten": "Sóc Trăng",
         "mo_ta": "Đất giao thoa văn hóa Kinh - Hoa - Khmer, với chùa Dơi và lễ hội Oóc Om Bóc độc đáo.",
     },
     "travinh": {
-        "id": "travinh",
+        "id": 11,
         "ten": "Trà Vinh",
         "mo_ta": "Nổi bật với kiến trúc chùa Khmer, văn hóa đa dạng và làng nghề truyền thống lâu đời.",
     },
     "vinhlong": {
-        "id": "vinhlong",
+        "id": 12,
         "ten": "Vĩnh Long",
         "mo_ta": "Miền quê thanh bình giữa hai nhánh sông Tiền và Hậu, với cù lao An Bình trù phú.",
     },
     "tiengiang": {
-        "id": "tiengiang",
+        "id": 13,
         "ten": "Tiền Giang",
         "mo_ta": "Cửa ngõ miền Tây với chợ nổi Cái Bè, cồn Thới Sơn và đặc sản trái cây miệt vườn.",
     }
