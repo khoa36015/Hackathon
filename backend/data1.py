@@ -1,268 +1,300 @@
 provinces = {
-    "cantho": {
-        "ten": "Cần Thơ",
-        "mo_ta": "Thủ phủ miền Tây, trung tâm văn hóa và kinh tế của đồng bằng sông Cửu Long.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Ben_Ninh_Kieu_Can_Tho.jpg",
-        "dia_diem_noi_bat": [
-            "Chợ nổi Cái Răng",
-            "Bến Ninh Kiều",
-            "Nhà cổ Bình Thủy",
-            "Vườn trái cây Mỹ Khánh"
-        ],
-        "van_hoa": [
-            "Chợ nổi – nét sinh hoạt đặc trưng miền Tây",
-            "Đờn ca tài tử Nam Bộ"
-        ],
-        "dac_san": [
-            "Bánh xèo Cần Thơ",
-            "Lẩu mắm"
-        ]
-    },
-    "angiang": {
+    "an_giang": {
         "ten": "An Giang",
-        "mo_ta": "Vùng đất tâm linh với Miếu Bà Chúa Xứ, núi Cấm và cảnh quan thiên nhiên hùng vĩ.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Mieu_Ba_Chua_Xu_Sam_Mountain.jpg",
+        "mo_ta": "Vùng đất tâm linh và hùng vĩ, nơi có núi Sam, Bà Chúa Xứ và cảnh quan sông núi đặc trưng.",
+        "anh_dai_dien": "https://cdn.tuoitre.vn/2022/8/8/ba-chua-xu-nui-sam-16599559621721904690651.jpg",
         "dia_diem_noi_bat": [
-            "Miếu Bà Chúa Xứ",
-            "Núi Cấm",
-            "Rừng tràm Trà Sư",
-            "Chợ Châu Đốc"
+            {"ten": "Núi Sam", "mo_ta": "Điểm du lịch tâm linh nổi tiếng với Miếu Bà Chúa Xứ linh thiêng.",
+             "anh": "https://media-cdn-v2.laodong.vn/storage/newsportal/2023/5/15/1187408/Nui-Sam-2.jpg"},
+            {"ten": "Rừng Tràm Trà Sư", "mo_ta": "Khu sinh thái ngập nước tiêu biểu của miền Tây, nổi tiếng với vẻ đẹp xanh mướt.",
+             "anh": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2017/08/rung-tram-tra-su.jpg"},
+            {"ten": "Chợ nổi Long Xuyên", "mo_ta": "Nơi buôn bán nhộn nhịp trên sông Hậu, mang đậm văn hóa sông nước.",
+             "anh": "https://mia.vn/media/uploads/blog-du-lich/cho-noi-long-xuyen-01-1658232468.jpg"},
+            {"ten": "Hồ Tà Pạ", "mo_ta": "‘Tuyệt tình cốc’ của miền Tây với làn nước xanh ngọc bích.",
+             "anh": "https://ik.imagekit.io/tvlk/blog/2023/08/ho-ta-pa-an-giang-5-1024x683.jpg"}
         ],
         "van_hoa": [
-            "Lễ hội Vía Bà Chúa Xứ",
-            "Văn hóa Khmer vùng Bảy Núi"
+            "Lễ hội Vía Bà Chúa Xứ Núi Sam.",
+            "Giao thoa văn hóa Việt - Khmer - Hoa độc đáo."
         ],
-        "dac_san": [
-            "Mắm Châu Đốc",
-            "Bún cá Long Xuyên"
+        "mon_an": [
+            {"ten": "Bún cá Châu Đốc", "mo_ta": "Món đặc sản trứ danh với hương vị đậm đà.", 
+             "anh": "https://cdn.tgdd.vn/Files/2020/12/15/1313292/cach-nau-bun-ca-chau-doc-an-giang-dam-da-vi-mien-tay-202112311025384474.jpg"},
+            {"ten": "Mắm Châu Đốc", "mo_ta": "Đặc sản làm từ cá lên men, hương vị đặc trưng miền Tây.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/09/02/1287168/huong-dan-cach-lam-mam-ca-linh-chau-doc-thom-ngon-dung-dieu-202109021135522788.jpg"},
+            {"ten": "Bánh xèo Núi Sam", "mo_ta": "Vỏ giòn, nhân tôm thịt, ăn kèm rau rừng.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/08/24/1378461/cach-lam-banh-xeo-mien-tay-gion-lau-don-gian-ngon-nhu-ngoai-hang-202108240957539697.jpg"}
         ]
     },
-    "bentre": {
-        "ten": "Bến Tre",
-        "mo_ta": "Xứ dừa thanh bình, nổi tiếng với nghề thủ công và sông nước miệt vườn.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Ben_Tre_Coconut_Trees.jpg",
-        "dia_diem_noi_bat": [
-            "Cồn Phụng",
-            "Làng nghề kẹo dừa",
-            "Vườn trái cây Châu Thành",
-            "Khu du lịch Lan Vương"
-        ],
-        "van_hoa": [
-            "Lễ hội Nghinh Ông",
-            "Đờn ca tài tử"
-        ],
-        "dac_san": [
-            "Kẹo dừa Bến Tre",
-            "Cơm dừa rang muối"
-        ]
-    },
-    "kiengiang": {
+
+    "kien_giang": {
         "ten": "Kiên Giang",
-        "mo_ta": "Thiên đường biển đảo với Phú Quốc, Nam Du, Hà Tiên và Hòn Sơn.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Phu_Quoc_Beach.jpg",
+        "mo_ta": "Thiên đường biển đảo của miền Tây, nổi bật với Phú Quốc, Nam Du và Hòn Sơn.",
+        "anh_dai_dien": "https://vcdn1-dulich.vnecdn.net/2022/04/19/phuquoc-1650358674-9330-1650358805.jpg",
         "dia_diem_noi_bat": [
-            "Phú Quốc",
-            "Nam Du",
-            "Hà Tiên",
-            "Hòn Sơn"
+            {"ten": "Phú Quốc", "mo_ta": "Hòn đảo ngọc với biển xanh và cát trắng mịn.",
+             "anh": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2017/05/dao-phu-quoc.jpg"},
+            {"ten": "Nam Du", "mo_ta": "Quần đảo hoang sơ với nước biển trong vắt.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/01/27/1325763/kinh-nghiem-du-lich-dao-nam-du-202101270857394514.jpg"},
+            {"ten": "Hòn Sơn", "mo_ta": "Thiên nhiên trong lành, là điểm đến yêu thích của dân phượt.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/01/25/1325500/kinh-nghiem-du-lich-hon-son-202101251346434768.jpg"},
+            {"ten": "Rạch Giá", "mo_ta": "Thành phố biển hiện đại, trung tâm hành chính của Kiên Giang.",
+             "anh": "https://vcdn1-dulich.vnecdn.net/2020/05/29/rachgia-1590757163.jpg"}
         ],
         "van_hoa": [
-            "Văn hóa ngư dân ven biển",
-            "Tín ngưỡng thờ cá Ông"
+            "Lễ hội Nguyễn Trung Trực tại Rạch Giá.",
+            "Văn hóa biển đảo độc đáo, đời sống gắn liền với ngư nghiệp."
         ],
-        "dac_san": [
-            "Nước mắm Phú Quốc",
-            "Ghẹ Hà Tiên"
+        "mon_an": [
+            {"ten": "Gỏi cá trích", "mo_ta": "Món đặc sản Phú Quốc nổi tiếng, ăn kèm rau rừng.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/03/15/1335265/cach-lam-goi-ca-trich-phu-quoc-202103151117369707.jpg"},
+            {"ten": "Bún quậy Kiên Giang", "mo_ta": "Sợi bún tươi trộn nước chấm tự pha, hương vị độc đáo.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/07/22/1371763/cach-nau-bun-quay-kien-giang-dam-da-chuan-vi-mien-tay-202107220951429826.jpg"},
+            {"ten": "Còi biên mai nướng", "mo_ta": "Đặc sản biển Phú Quốc được nhiều du khách ưa chuộng.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/09/16/1289940/cach-lam-coi-bien-mai-nuong-muoi-ot-thom-ngon-kho-cuong-202009161401264523.jpg"}
         ]
     },
+
+    "ben_tre": {
+        "ten": "Bến Tre",
+        "mo_ta": "Xứ dừa yên bình, quê hương của những làng nghề thủ công và món ngon miệt vườn.",
+        "anh_dai_dien": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2018/07/du-lich-ben-tre.jpg",
+        "dia_diem_noi_bat": [
+            {"ten": "Cồn Phụng", "mo_ta": "Điểm du lịch sinh thái nổi tiếng ven sông Tiền.",
+             "anh": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2018/07/con-phung-ben-tre.jpg"},
+            {"ten": "Làng nghề kẹo dừa", "mo_ta": "Nổi tiếng khắp cả nước, du khách có thể tham quan quy trình làm kẹo.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/10/30/1300968/cach-lam-keo-dua-ben-tre-thom-ngon-beo-ngay-don-gian-tai-nha-202010301614259606.jpg"},
+            {"ten": "Vườn trái cây Chợ Lách", "mo_ta": "Thiên đường cây ăn trái quanh năm trĩu quả.",
+             "anh": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2018/07/du-lich-cho-lach-ben-tre.jpg"},
+            {"ten": "Nhà cổ Huỳnh Phủ", "mo_ta": "Công trình kiến trúc cổ mang dấu ấn văn hóa miền Tây.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/11/04/1301655/nha-co-huynh-phu-ben-tre-diem-den-van-hoa-doc-dao-202011040920223997.jpg"}
+        ],
+        "van_hoa": [
+            "Lễ hội Nghinh Ông Bến Tre.",
+            "Văn hóa miệt vườn và nghề thủ công từ dừa."
+        ],
+        "mon_an": [
+            {"ten": "Kẹo dừa", "mo_ta": "Đặc sản nổi tiếng của Bến Tre, ngọt béo và thơm lừng.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/10/30/1300968/cach-lam-keo-dua-ben-tre-thom-ngon-beo-ngay-don-gian-tai-nha-202010301614259606.jpg"},
+            {"ten": "Cá kho tộ", "mo_ta": "Món ăn dân dã, đậm vị quê hương miền Tây.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/05/04/1250075/cach-lam-ca-kho-to-don-gian-dam-da-thom-ngon-dung-vi-202005041557589078.jpg"},
+            {"ten": "Chuối đập nướng", "mo_ta": "Món ăn vặt giản dị nhưng đậm đà hương vị miệt vườn.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/06/11/1361681/cach-lam-chuoi-nuong-nuoc-cot-dua-thom-ngon-chuan-vi-202106111004592986.jpg"}
+        ]
+    },
+       "can_tho": {
+        "ten": "Cần Thơ",
+        "mo_ta": "Trung tâm kinh tế, văn hóa của miền Tây, nổi tiếng với chợ nổi Cái Răng và bến Ninh Kiều.",
+        "anh_dai_dien": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2017/05/ben-ninh-kieu-can-tho.jpg",
+        "dia_diem_noi_bat": [
+            {"ten": "Bến Ninh Kiều", "mo_ta": "Biểu tượng của thành phố, nơi du khách ngắm sông Hậu và thành phố về đêm.",
+             "anh": "https://statics.vinpearl.com/ben-ninh-kieu-1_1662709080.jpg"},
+            {"ten": "Chợ nổi Cái Răng", "mo_ta": "Nơi thể hiện rõ nhất nét văn hóa sông nước miền Tây.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/02/18/1329789/kinh-nghiem-du-lich-cho-noi-cai-rang-can-tho-202102181618593506.jpg"},
+            {"ten": "Nhà cổ Bình Thủy", "mo_ta": "Ngôi nhà cổ hơn 100 năm tuổi, pha trộn kiến trúc Đông - Tây.",
+             "anh": "https://vcdn1-dulich.vnecdn.net/2021/01/19/nha-co-binh-thuy-1-1611050345.jpg"},
+            {"ten": "Cầu Cần Thơ", "mo_ta": "Cây cầu dây văng lớn nhất miền Tây, biểu tượng hiện đại của vùng.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/09/16/1289909/cau-can-tho-202009161215357642.jpg"}
+        ],
+        "van_hoa": [
+            "Văn hóa chợ nổi đặc trưng.",
+            "Con người hiền hòa, hiếu khách."
+        ],
+        "mon_an": [
+            {"ten": "Lẩu mắm Cần Thơ", "mo_ta": "Món ăn trứ danh miền sông nước với mùi vị đậm đà.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/05/22/1253749/cach-nau-lau-mam-can-tho-thom-ngon-chuan-vi-202005221152013308.jpg"},
+            {"ten": "Ốc nướng tiêu", "mo_ta": "Món ăn dân dã, cay thơm, thường thấy ở các quán ven sông.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/06/02/1257089/cach-lam-oc-buou-nuong-tieu-xanh-202006021037247080.jpg"},
+            {"ten": "Bánh cống Cần Thơ", "mo_ta": "Vỏ giòn rụm, nhân tôm thịt, chấm nước mắm chua ngọt.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/07/15/1267459/cach-lam-banh-cong-can-tho-thom-ngon-gion-rum-202007150900176211.jpg"}
+        ]
+    },
+
+    "ca_mau": {
+        "ten": "Cà Mau",
+        "mo_ta": "Mảnh đất cực Nam của Tổ quốc, nơi có Mũi Cà Mau thiêng liêng và hệ sinh thái rừng ngập mặn độc đáo.",
+        "anh_dai_dien": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2017/05/mui-ca-mau.jpg",
+        "dia_diem_noi_bat": [
+            {"ten": "Mũi Cà Mau", "mo_ta": "Cột mốc thiêng liêng nơi tận cùng đất nước.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/07/14/1370947/mui-ca-mau-diem-den-thieng-lieng-cua-to-quoc-202107141057273915.jpg"},
+            {"ten": "Rừng U Minh Hạ", "mo_ta": "Khu dự trữ sinh quyển, nơi sinh sống của nhiều loài động vật quý hiếm.",
+             "anh": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2017/05/uminhha.jpg"},
+            {"ten": "Hòn Đá Bạc", "mo_ta": "Quần thể đá granite kỳ vĩ nằm ven biển.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/09/14/1289554/hon-da-bac-ca-mau-202009141152518548.jpg"},
+            {"ten": "Chợ nổi Cà Mau", "mo_ta": "Nơi giao thương nhộn nhịp giữa các ghe hàng trên sông.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/06/29/1363743/cho-noi-ca-mau-diem-den-doc-dao-mang-net-van-hoa-song-nuoc-202106290946027267.jpg"}
+        ],
+        "van_hoa": [
+            "Lễ hội Nghinh Ông Sông Đốc.",
+            "Văn hóa người Khmer và Hoa hòa quyện."
+        ],
+        "mon_an": [
+            {"ten": "Ba khía muối", "mo_ta": "Đặc sản trứ danh, mặn mà hương vị biển Tây Nam.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/02/03/1328589/cach-lam-ba-khia-muoi-ca-mau-chuan-vi-mien-tay-202102031411265999.jpg"},
+            {"ten": "Lẩu mắm U Minh", "mo_ta": "Món ăn dân dã, quy tụ tinh hoa ẩm thực Cà Mau.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/05/05/1354479/cach-nau-lau-mam-ca-mau-dam-da-huong-vi-mien-tay-202105051024514301.jpg"},
+            {"ten": "Cua Cà Mau", "mo_ta": "Nổi tiếng cả nước với thịt ngọt, chắc và thơm.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/05/05/1354479/cua-ca-mau-202105051024514301.jpg"}
+        ]
+    },
+
+    "dong_thap": {
+        "ten": "Đồng Tháp",
+        "mo_ta": "Miền sen hồng rực rỡ, với những cánh đồng sen và làng hoa Sa Đéc.",
+        "anh_dai_dien": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2017/05/lang-hoa-sa-dec.jpg",
+        "dia_diem_noi_bat": [
+            {"ten": "Làng hoa Sa Đéc", "mo_ta": "Thiên đường hoa rực rỡ quanh năm.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/01/26/1325649/lang-hoa-sa-dec-202101261548595518.jpg"},
+            {"ten": "Khu du lịch Xẻo Quýt", "mo_ta": "Khu rừng tràm lịch sử, gắn liền kháng chiến.",
+             "anh": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2018/04/xeo-quyt.jpg"},
+            {"ten": "Tràm Chim Tam Nông", "mo_ta": "Nơi trú ngụ của hàng trăm loài chim quý hiếm.",
+             "anh": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2018/04/tram-chim-tam-nong.jpg"},
+            {"ten": "Nhà cổ Huỳnh Thủy Lê", "mo_ta": "Công trình kiến trúc Pháp cổ nổi tiếng.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/10/29/1300708/nha-co-huynh-thuy-le-dong-thap-202010291539526437.jpg"}
+        ],
+        "van_hoa": [
+            "Lễ hội Sen Đồng Tháp.",
+            "Tình người miền sông nước chân chất, hiền hòa."
+        ],
+        "mon_an": [
+            {"ten": "Hủ tiếu Sa Đéc", "mo_ta": "Sợi hủ tiếu dẻo, nước dùng ngọt thanh đặc trưng.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/02/18/1329802/cach-nau-hu-tieu-sa-dec-dam-da-chuan-vi-202102181627325027.jpg"},
+            {"ten": "Chuột đồng nướng", "mo_ta": "Đặc sản dân dã, giòn thơm hấp dẫn.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/06/14/1362042/cach-lam-chuot-dong-nuong-dam-da-huong-vi-mien-tay-202106141021386057.jpg"},
+            {"ten": "Xôi ngũ sắc", "mo_ta": "Món xôi đặc trưng được làm từ gạo nếp thơm.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/05/13/1356017/cach-nau-xoi-ngu-sac-dep-mat-ngon-mieng-202105131540239567.jpg"}
+        ]
+    },
+
+    "soc_trang": {
+        "ten": "Sóc Trăng",
+        "mo_ta": "Vùng đất giao thoa văn hóa Việt - Hoa - Khmer, nổi bật với chùa Dơi và chùa Chén Kiểu.",
+        "anh_dai_dien": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2018/04/chua-doi-soc-trang.jpg",
+        "dia_diem_noi_bat": [
+            {"ten": "Chùa Dơi", "mo_ta": "Ngôi chùa Khmer cổ kính, nơi sinh sống của hàng ngàn con dơi.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/02/25/1330431/chua-doi-soc-trang-202102251513182083.jpg"},
+            {"ten": "Chùa Chén Kiểu", "mo_ta": "Ngôi chùa độc đáo với tường khảm chén sứ.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/03/05/1332111/chua-chen-kieu-soc-trang-202103051107496950.jpg"},
+            {"ten": "Khu du lịch Hồ Nước Ngọt", "mo_ta": "Điểm thư giãn lý tưởng giữa lòng thành phố.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/06/11/1361642/ho-nuoc-ngot-soc-trang-diem-den-du-lich-hap-dan-202106111014285207.jpg"},
+            {"ten": "Chợ nổi Ngã Năm", "mo_ta": "Chợ nổi giao thương tấp nập trên sông.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/03/03/1331846/cho-noi-nga-nam-soc-trang-202103031529493914.jpg"}
+        ],
+        "van_hoa": [
+            "Lễ hội Oóc Om Bóc.",
+            "Văn hóa chùa chiền Khmer đậm sắc màu."
+        ],
+        "mon_an": [
+            {"ten": "Bún nước lèo Sóc Trăng", "mo_ta": "Món ăn biểu tượng của vùng, kết hợp cá, tôm, heo quay.",
+             "anh": "https://cdn.tgdd.vn/Files/2021/03/25/1336676/cach-nau-bun-nuoc-leo-soc-trang-202103251034349539.jpg"},
+            {"ten": "Bánh pía", "mo_ta": "Đặc sản nổi tiếng toàn quốc, nhân sầu riêng trứng muối.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/07/07/1265593/cach-lam-banh-pia-soc-trang-thom-ngon-de-lam-202007071115414888.jpg"},
+            {"ten": "Bún gỏi dà", "mo_ta": "Hương vị chua ngọt đặc trưng, hấp dẫn lạ miệng.",
+             "anh": "https://cdn.tgdd.vn/Files/2020/06/18/1262036/cach-nau-bun-goi-da-chuan-vi-mien-tay-202006181357219743.jpg"}
+        ]
+    },
+
     "haugiang": {
         "ten": "Hậu Giang",
-        "mo_ta": "Vùng đất trẻ trung với cảnh đồng quê yên bình và con người hiền hậu.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Hau_Giang_Floating_Market.jpg",
+        "mo_ta": "Trái tim của miền Tây, nơi lưu giữ nét đẹp văn hóa sông nước và những khu sinh thái miệt vườn đặc trưng.",
         "dia_diem_noi_bat": [
-            "Khu du lịch sinh thái Tầm Vu",
-            "Chợ nổi Ngã Bảy",
-            "Khu bảo tồn Lung Ngọc Hoàng",
-            "Vườn cò Long Trị"
+            {"ten": "Khu du lịch sinh thái Lung Ngọc Hoàng", "anh": "https://media.vov.vn/sites/default/files/styles/large/public/2021-03/lung-ngoc-hoang.jpg"},
+            {"ten": "Chợ nổi Ngã Bảy", "anh": "https://mia.vn/media/uploads/blog-du-lich/cho-noi-nga-bay-hau-giang-164.jpg"}
         ],
         "van_hoa": [
-            "Chợ nổi miền sông nước",
-            "Hội đua ghe Ngo"
+            "Đậm đà bản sắc Nam Bộ, nổi bật với đờn ca tài tử và lễ hội Ok Om Bok của người Khmer.",
+            "Người dân chân chất, thân thiện và yêu lao động."
         ],
-        "dac_san": [
-            "Cá thác lác rút xương",
-            "Bánh xèo củ hủ dừa"
+        "am_thuc": [
+            {"mon": "Lẩu mắm Hậu Giang", "anh": "https://statics.vinpearl.com/lau-mam-mien-tay-3_1629455540.jpg"},
+            {"mon": "Bánh xèo củ hủ dừa", "anh": "https://cdn.tgdd.vn/2020/10/CookProduct/thumb-banh-xeo-cu-hu-dua-thumbnail.jpg"}
         ]
     },
-    "dongthap": {
-        "ten": "Đồng Tháp",
-        "mo_ta": "Miền sen hồng thơ mộng với làng hoa Sa Đéc và di tích Xẻo Quýt.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Dong_Thap_Sen_Hong.jpg",
-        "dia_diem_noi_bat": [
-            "Làng hoa Sa Đéc",
-            "Khu di tích Xẻo Quýt",
-            "Khu du lịch Tràm Chim",
-            "Nhà cổ Huỳnh Thủy Lê"
-        ],
-        "van_hoa": [
-            "Lễ hội Sen Đồng Tháp",
-            "Văn hóa miệt vườn Sa Đéc"
-        ],
-        "dac_san": [
-            "Hủ tiếu Sa Đéc",
-            "Nem Lai Vung"
-        ]
-    },
-    "vlnhlong": {
-        "ten": "Vĩnh Long",
-        "mo_ta": "Miền đất xanh mát giữa sông Tiền và sông Hậu, nổi tiếng với du lịch miệt vườn.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Vinh_Long_River.jpg",
-        "dia_diem_noi_bat": [
-            "Cù lao An Bình",
-            "Chợ nổi Trà Ôn",
-            "Nhà cổ Cai Cường",
-            "Khu du lịch Vinh Sang"
-        ],
-        "van_hoa": [
-            "Đờn ca tài tử Vĩnh Long",
-            "Văn hóa sông nước miệt vườn"
-        ],
-        "dac_san": [
-            "Khoai lang Bình Tân",
-            "Cá tai tượng chiên xù"
-        ]
-    },
+
     "travinh": {
         "ten": "Trà Vinh",
-        "mo_ta": "Vùng đất giao thoa văn hóa Khmer, Kinh, Hoa đặc sắc với nhiều ngôi chùa cổ kính.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/3/33/Ang_Pagoda_Tra_Vinh.jpg",
+        "mo_ta": "Vùng đất giao thoa văn hóa Việt - Khmer với nhiều ngôi chùa cổ kính và di sản văn hóa phong phú.",
         "dia_diem_noi_bat": [
-            "Chùa Âng",
-            "Ao Bà Om",
-            "Bảo tàng văn hóa Khmer",
-            "Cù lao Long Trị"
+            {"ten": "Ao Bà Om", "anh": "https://statics.vinpearl.com/ao-ba-om-tra-vinh-1_1667377751.jpg"},
+            {"ten": "Chùa Âng", "anh": "https://statics.vinpearl.com/chua-ang-tra-vinh-1_1667462291.jpg"}
         ],
         "van_hoa": [
-            "Lễ hội Ok Om Bok",
-            "Đua ghe Ngo của người Khmer"
+            "Nổi bật với lễ hội Ok Om Bok và kiến trúc chùa Khmer độc đáo.",
+            "Âm nhạc và ẩm thực mang đậm bản sắc Khmer Nam Bộ."
         ],
-        "dac_san": [
-            "Bánh tét Trà Cuôn",
-            "Cháo ám Trà Vinh"
+        "am_thuc": [
+            {"mon": "Bún nước lèo Trà Vinh", "anh": "https://cdn.tgdd.vn/2021/02/CookProduct/thumb-bun-nuoc-leo-tra-vinh-thumbnail.jpg"},
+            {"mon": "Bánh canh Bến Có", "anh": "https://cdn.tgdd.vn/2021/04/CookProduct/thumb-banh-canh-ben-co-thumbnail.jpg"}
         ]
     },
-    "soctrang": {
-        "ten": "Sóc Trăng",
-        "mo_ta": "Nơi hội tụ văn hóa ba dân tộc Kinh – Hoa – Khmer với nhiều chùa chiền và lễ hội độc đáo.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Som_Rong_Temple_Soc_Trang.jpg",
-        "dia_diem_noi_bat": [
-            "Chùa Dơi",
-            "Chùa Som Rong",
-            "Khu du lịch Hồ Bể",
-            "Chợ nổi Ngã Năm"
-        ],
-        "van_hoa": [
-            "Lễ hội đua ghe Ngo",
-            "Ẩm thực Khmer đặc sắc"
-        ],
-        "dac_san": [
-            "Bún nước lèo Sóc Trăng",
-            "Bánh pía"
-        ]
-    },
+
     "baclieu": {
         "ten": "Bạc Liêu",
-        "mo_ta": "Vùng đất gắn liền với Công tử Bạc Liêu và bản Dạ cổ hoài lang nổi tiếng.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Bac_Lieu_Wind_Farm.jpg",
+        "mo_ta": "Nổi tiếng với công tử Bạc Liêu, đờn ca tài tử và cánh đồng điện gió khổng lồ ven biển.",
         "dia_diem_noi_bat": [
-            "Nhà Công tử Bạc Liêu",
-            "Cánh đồng điện gió Bạc Liêu",
-            "Khu lưu niệm Nghệ thuật Đờn ca tài tử",
-            "Phật Bà Nam Hải"
+            {"ten": "Cánh đồng điện gió Bạc Liêu", "anh": "https://statics.vinpearl.com/canh-dong-dien-gio-bac-lieu_1667445397.jpg"},
+            {"ten": "Nhà công tử Bạc Liêu", "anh": "https://statics.vinpearl.com/nha-cong-tu-bac-lieu_1667445409.jpg"}
         ],
         "van_hoa": [
-            "Nguồn gốc bản Dạ cổ hoài lang",
-            "Lễ hội Nghinh Ông"
+            "Cái nôi của đờn ca tài tử Nam Bộ – di sản phi vật thể UNESCO.",
+            "Con người Bạc Liêu hào sảng, hiếu khách và giàu lòng nhân ái."
         ],
-        "dac_san": [
-            "Bánh củ cải Bạc Liêu",
-            "Ba khía muối"
+        "am_thuc": [
+            {"mon": "Bánh củ cải Bạc Liêu", "anh": "https://cdn.tgdd.vn/2020/08/CookRecipe/GalleryStep/thanh-pham-28.jpg"},
+            {"mon": "Ba khía muối", "anh": "https://cdn.tgdd.vn/2020/08/CookRecipe/GalleryStep/ba-khia-muoi-1.jpg"}
         ]
     },
-    "camau": {
-        "ten": "Cà Mau",
-        "mo_ta": "Cực Nam của Tổ quốc, nơi có rừng U Minh và Mũi Cà Mau thiêng liêng.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Mui_Ca_Mau_Cape.jpg",
+    "vinhlong": {
+        "ten": "Vĩnh Long",
+        "mo_ta": "Nằm giữa hai nhánh sông Tiền và sông Hậu, Vĩnh Long là vùng đất miệt vườn trù phú và đậm đà bản sắc Nam Bộ.",
         "dia_diem_noi_bat": [
-            "Mũi Cà Mau",
-            "Rừng U Minh Hạ",
-            "Đầm Thị Tường",
-            "Hòn Đá Bạc"
+            {"ten": "Cù Lao An Bình", "anh": "https://statics.vinpearl.com/cu-lao-an-binh-vinh-long.jpg"},
+            {"ten": "Chợ nổi Trà Ôn", "anh": "https://statics.vinpearl.com/cho-noi-tra-on-vinh-long.jpg"}
         ],
         "van_hoa": [
-            "Văn hóa ngư dân vùng biển cực Nam",
-            "Hát Dạ cổ hoài lang"
+            "Người dân hiền hòa, gắn bó với nghề làm vườn và đờn ca tài tử.",
+            "Nhiều làng nghề truyền thống và lễ hội miệt vườn đặc sắc."
         ],
-        "dac_san": [
-            "Tôm khô Cà Mau",
-            "Ba khía Rạch Gốc"
+        "am_thuc": [
+            {"mon": "Cá tai tượng chiên xù", "anh": "https://cdn.tgdd.vn/2020/08/CookProduct/ca-tai-tuong-chien-xu.jpg"},
+            {"mon": "Bánh xèo Vĩnh Long", "anh": "https://cdn.tgdd.vn/2020/08/CookProduct/banh-xeo-vinh-long.jpg"}
         ]
     },
+
     "longan": {
         "ten": "Long An",
-        "mo_ta": "Cửa ngõ miền Tây, kết nối TP.HCM với đồng bằng sông Cửu Long.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Long_An_Rice_Field.jpg",
+        "mo_ta": "Cửa ngõ miền Tây Nam Bộ, nổi tiếng với vùng trồng thanh long và di tích lịch sử phong phú.",
         "dia_diem_noi_bat": [
-            "Làng cổ Phước Lộc Thọ",
-            "Khu du lịch Cát Tường Phú Sinh",
-            "Nhà trăm cột",
-            "Chùa Tôn Thạnh"
+            {"ten": "Làng nổi Tân Lập", "anh": "https://statics.vinpearl.com/lang-noi-tan-lap-long-an.jpg"},
+            {"ten": "Nhà trăm cột", "anh": "https://statics.vinpearl.com/nha-tram-cot-long-an.jpg"}
         ],
         "van_hoa": [
-            "Lễ hội Làm Chay",
-            "Nghệ thuật hát Bội"
+            "Là nơi giao thoa giữa miền Đông và miền Tây, vừa hiện đại vừa mang nét quê yên bình.",
+            "Có nhiều lễ hội truyền thống như lễ hội Vía Bà Ngũ Hành, lễ hội Làm Chay."
         ],
-        "dac_san": [
-            "Dừa nước Gò Công",
-            "Rượu đế Gò Đen"
+        "am_thuc": [
+            {"mon": "Thanh long chấm muối ớt", "anh": "https://cdn.tgdd.vn/2020/08/CookProduct/thanh-long-cham-muoi-ot.jpg"},
+            {"mon": "Bánh canh tôm", "anh": "https://cdn.tgdd.vn/2020/08/CookProduct/banh-canh-tom-long-an.jpg"}
         ]
     },
+
     "tiengiang": {
         "ten": "Tiền Giang",
-        "mo_ta": "Cửa ngõ sông Tiền với nhiều miệt vườn trái cây trù phú và cảnh quan sông nước.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Tien_Giang_Cai_Be_Floating_Market.jpg",
+        "mo_ta": "Cửa ngõ của miền Tây Nam Bộ, nổi tiếng với chợ nổi Cái Bè, cù lao Thới Sơn và đặc sản miệt vườn.",
         "dia_diem_noi_bat": [
-            "Cái Bè",
-            "Chợ nổi Cái Bè",
-            "Cù lao Thới Sơn",
-            "Trại rắn Đồng Tâm"
+            {"ten": "Cù Lao Thới Sơn", "anh": "https://statics.vinpearl.com/cu-lao-thoi-son-tien-giang.jpg"},
+            {"ten": "Chợ nổi Cái Bè", "anh": "https://statics.vinpearl.com/cho-noi-cai-be-tien-giang.jpg"}
         ],
         "van_hoa": [
-            "Văn hóa miệt vườn sông Tiền",
-            "Hội chợ trái cây Mỹ Tho"
+            "Gắn bó với nghề trồng cây ăn trái và du lịch sinh thái sông nước.",
+            "Có nhiều lễ hội dân gian đặc sắc như lễ hội Nghinh Ông và đờn ca tài tử."
         ],
-        "dac_san": [
-            "Hủ tiếu Mỹ Tho",
-            "Chôm chôm Cái Bè"
+        "am_thuc": [
+            {"mon": "Hủ tiếu Mỹ Tho", "anh": "https://cdn.tgdd.vn/2020/08/CookProduct/hu-tieu-my-tho.jpg"},
+            {"mon": "Chuối ngự nướng", "anh": "https://cdn.tgdd.vn/2020/08/CookProduct/chuoi-ngut-nuong-tien-giang.jpg"}
         ]
-    },
-    "travinh": {
-        "ten": "Trà Vinh",
-        "mo_ta": "Vùng đất giao thoa văn hóa Khmer, Kinh, Hoa đặc sắc với nhiều ngôi chùa cổ kính.",
-        "hinh_anh": "https://upload.wikimedia.org/wikipedia/commons/3/33/Ang_Pagoda_Tra_Vinh.jpg",
-        "dia_diem_noi_bat": [
-            "Chùa Âng",
-            "Ao Bà Om",
-            "Bảo tàng văn hóa Khmer",
-            "Cù lao Long Trị"
-        ],
-        "van_hoa": [
-            "Lễ hội Ok Om Bok",
-            "Đua ghe Ngo của người Khmer"
-        ],
-        "dac_san": [
-            "Bánh tét Trà Cuôn",
-            "Cháo ám Trà Vinh"
-        ]
-    }
+    }, 
+
 }
+    
+    
