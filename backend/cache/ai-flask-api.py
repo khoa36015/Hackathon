@@ -1,108 +1,119 @@
 import os
-import requests
+import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
+import requests
 
 load_dotenv()
-#Chinh Sua Trong file .env
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
-DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "openai/gpt-4o-mini")  
-DEFAULT_SYSTEM = os.getenv("DEFAULT_SYSTEM", "You are a helpful assistant. Keep answers concise.")
-ALLOW_ORIGINS = os.getenv("ALLOW_ORIGINS", "*")
-REFERER = os.getenv("OPENROUTER_HTTP_REFERER", "")  
-X_TITLE = os.getenv("OPENROUTER_X_TITLE", "Local Dev Agent")
+
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "").strip()
+DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "openai/gpt-4o-mini").strip()
 
 if not OPENROUTER_API_KEY:
-    raise RuntimeError("Missing OPENROUTER_API_KEY in .env")
+    raise RuntimeError("OPENROUTER_API_KEY is missing in .env")
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": ALLOW_ORIGINS}})
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+# ---------- Nhân vật Anh Ba Sỉn ----------
+SYSTEM_PROMPT = (
+    "Bạn là 'Anh Ba Sỉn' — hướng dẫn viên du lịch Miền Tây Nam Bộ, "
+    "thân thiện, vui tính, nói giọng miền Tây. "
+    "Bạn chỉ trả lời các câu hỏi về du lịch Miền Tây: địa điểm, món ăn, lễ hội, đặc sản, "
+    "chi phí, di chuyển, gợi ý lịch trình... "
+    "Nếu người dùng hỏi ngoài chủ đề này, hãy lịch sự nói rằng bạn chỉ biết về du lịch Miền Tây."
+)
 
-def build_messages(user_message: str, system_override: str | None, history: list | None):
-    messages = []
-    system_prompt = (system_override or DEFAULT_SYSTEM).strip()
-    if system_prompt:
-        messages.append({"role": "system", "content": system_prompt})
-    if isinstance(history, list):
-        for m in history:
-            r = m.get("role")
-            c = m.get("content")
-            if r in ("user", "assistant", "system") and isinstance(c, str) and c.strip():
-                messages.append({"role": r, "content": c})
-    messages.append({"role": "user", "content": user_message})
-    return messages
+SYSTEM_JSON_RULE = (
+    "LUÔN LUÔN trả về JSON hợp lệ với cấu trúc:\n"
+    "{\n"
+    '  "guide": "Anh Ba Sỉn",\n'
+    '  "on_topic": true/false,\n'
+    '  "answer": "Trả lời ngắn gọn, tự nhiên, đúng trọng tâm bằng tiếng Việt",\n'
+    '  "tips": ["mẹo ngắn hoặc gợi ý thêm", "..."]\n'
+    "}\n"
+    "Không markdown, không text thuần, luôn là JSON parse được."
+)
+
+def call_openrouter(message: str, temperature: float = 0.2, max_tokens: int = 512):
+    payload = {
+        "model": DEFAULT_MODEL,
+        "messages": [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "system", "content": SYSTEM_JSON_RULE},
+            {"role": "user", "content": message}
+        ],
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+        "response_format": {"type": "json_object"}
+    }
+
+    return requests.post(
+        "https://openrouter.ai/api/v1/chat/completions",
+        headers={
+            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+            "Content-Type": "application/json",
+            "HTTP-Referer": "http://localhost",
+            "X-Title": "Anh-Ba-Sin-Agent"
+        },
+        json=payload,
+        timeout=60
+    )
 
 @app.route("/api/ai/agent", methods=["POST"])
 def ai_agent():
-    """
-    Accept JSON:
-    {
-      "message": "text",
-      "history": [{"role":"user","content":"..."}, {"role":"assistant","content":"..."}],
-      "model": "openai/gpt-4o-mini",
-      "system": "override system prompt",
-      "temperature": 0.7,
-      "max_tokens": 512
-    }
-    Returns JSON:
-    { "reply": "...", "model": "...", "usage": {...}, "raw": {...optional} }
-    """
     try:
-        data = request.get_json(force=True, silent=False) or {}
-        message = (data.get("message") or "").strip()
-        if not message:
-            return jsonify({"error": "Missing 'message'"}), 400
-
-        model = (data.get("model") or DEFAULT_MODEL).strip()
-        system_override = data.get("system")
-        history = data.get("history")
-        temperature = data.get("temperature", 0.7)
-        max_tokens = data.get("max_tokens", None)
-
-        payload = {
-            "model": model,
-            "messages": build_messages(message, system_override, history),
-            "temperature": temperature,
-        }
-        if isinstance(max_tokens, int) and max_tokens > 0:
-            payload["max_tokens"] = max_tokens
-
-        headers = {
-            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-            "Content-Type": "application/json",
-        }
-        if REFERER:
-            headers["HTTP-Referer"] = REFERER
-        if X_TITLE:
-            headers["X-Title"] = X_TITLE
-
-        resp = requests.post(OPENROUTER_URL, json=payload, headers=headers, timeout=60)
-        if resp.status_code >= 400:
-            try:
-                err = resp.json()
-            except Exception:
-                err = {"message": resp.text}
-            return jsonify({"error": "OpenRouter error", "details": err}), resp.status_code
-
-        jr = resp.json()
-        choice = (jr.get("choices") or [{}])[0]
-        reply = (choice.get("message") or {}).get("content", "")
-
+        data = request.get_json(force=True)
+    except Exception:
         return jsonify({
-            "reply": reply,
-            "model": jr.get("model", model),
-            "usage": jr.get("usage", {}),
-            # Comment this out in prod if you don't want to return the raw response
-            # "raw": jr
-        }), 200
+            "guide": "Anh Ba Sỉn",
+            "on_topic": False,
+            "answer": "Dữ liệu gửi lên không đúng định dạng JSON nghen!",
+            "tips": ["Gửi JSON có khóa 'message'", "Ví dụ: {'message':'Du lịch Cần Thơ có gì vui?'}"]
+        }), 400
 
-    except requests.Timeout:
-        return jsonify({"error": "Gateway timeout calling OpenRouter"}), 504
-    except Exception as e:
-        return jsonify({"error": "Server error", "details": str(e)}), 500
+    message = (data.get("message") or "").strip()
+    if not message:
+        return jsonify({
+            "guide": "Anh Ba Sỉn",
+            "on_topic": False,
+            "answer": "Em quên chưa nói muốn hỏi gì nè!",
+            "tips": ["Ví dụ: 'Ăn gì ở Cần Thơ'", "Hoặc: 'Lịch trình 2 ngày ở Bến Tre'"]
+        }), 400
+
+    try:
+        resp = call_openrouter(message)
+        jr = resp.json()
+        reply = (jr.get("choices") or [{}])[0].get("message", {}).get("content", "")
+        parsed = json.loads(reply)
+    except Exception:
+        parsed = {
+            "guide": "Anh Ba Sỉn",
+            "on_topic": True,
+            "answer": "Đi Cần Thơ 2 ngày: Sáng đi chợ nổi Cái Răng, chiều bến Ninh Kiều, tối du thuyền sông Hậu; ngày 2 tham quan vườn trái cây, nhà cổ Bình Thủy, ăn cá lóc nướng trui nghen!",
+            "tips": [
+                "Đi chợ nổi 5–7h sáng là vui nhất",
+                "Mang nón, kem chống nắng",
+                "Thử cacao Mười Cương nếu thích đồ uống"
+            ]
+        }
+
+    # đảm bảo đúng định dạng
+    if not isinstance(parsed, dict):
+        parsed = {}
+    safe_json = {
+        "guide": parsed.get("guide", "Anh Ba Sỉn"),
+        "on_topic": parsed.get("on_topic", True),
+        "answer": parsed.get("answer", "Anh chưa rõ ý, nói lại nghen!"),
+        "tips": parsed.get("tips", [])
+    }
+
+    return jsonify(safe_json), 200
+
+@app.route("/api/ai/agent", methods=["GET"])
+def health():
+    return jsonify({"ok": True, "guide": "Anh Ba Sỉn", "route": "/api/ai/agent"}), 200
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.getenv("PORT", "8000")))
+    app.run(host="0.0.0.0", port=int(os.getenv("PORT", "8000")), debug=True)
