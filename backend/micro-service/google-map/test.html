@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <title>Đường đi đến Bến Ninh Kiều (Cần Thơ)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    #container { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; height: 100vh; padding: 12px; box-sizing: border-box; }
+    #map { width: 100%; height: 100%; border-radius: 12px; }
+    #panel { overflow: auto; border: 1px solid #ccc; border-radius: 12px; padding: 12px; }
+    #controls { display: flex; gap: 8px; margin-bottom: 10px; align-items: center; }
+    select, button { padding: 8px 10px; }
+    @media (max-width: 900px) {
+      #container { grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
+      #map { height: 60vh; }
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="map"></div>
+    <div id="panel">
+      <div id="controls">
+        <label for="mode">Chế độ:</label>
+        <select id="mode">
+          <option value="DRIVING" selected>Ô tô</option>
+          <option value="WALKING">Đi bộ</option>
+          <option value="BICYCLING">Xe đạp</option>
+          <option value="TRANSIT">Xe công cộng</option>
+        </select>
+        <button id="routeBtn">Tính đường</button>
+      </div>
+      <div id="directions"></div>
+    </div>
+  </div>
+
+  <script>
+    const DESTINATION = { lat: 10.033, lng: 105.783 };     // Bến Ninh Kiều
+    const FALLBACK_ORIGIN = { lat: 10.045, lng: 105.746 }; // Origin dự phòng
+    let map, directionsService, directionsRenderer;
+
+    // CHỈ gọi init sau khi script Google Maps tải xong (onload ở thẻ script phía dưới)
+    async function init() {
+      // Import libs theo chuẩn mới; lúc này google đã sẵn sàng vì gọi sau onload
+      const { Map, TravelMode } = await google.maps.importLibrary("maps");
+      let AdvancedMarkerElement = null;
+      try {
+        const markerLib = await google.maps.importLibrary("marker");
+        AdvancedMarkerElement = markerLib.AdvancedMarkerElement;
+      } catch (e) {
+        console.warn("Không import được library 'marker', fallback Marker thường.", e);
+      }
+
+      map = new Map(document.getElementById("map"), {
+        zoom: 13,
+        center: DESTINATION
+        // mapId: "YOUR_MAP_ID"
+      });
+
+      // Marker điểm đến — ưu tiên AdvancedMarkerElement
+      if (AdvancedMarkerElement) {
+        new AdvancedMarkerElement({
+          position: DESTINATION,
+          map,
+          title: "Bến Ninh Kiều (điểm đến)"
+        });
+      } else {
+        new google.maps.Marker({
+          position: DESTINATION,
+          map,
+          title: "Bến Ninh Kiều (điểm đến)"
+        });
+      }
+
+      directionsService = new google.maps.DirectionsService();
+      directionsRenderer = new google.maps.DirectionsRenderer({
+        map,
+        panel: document.getElementById("directions")
+      });
+
+      document.getElementById("routeBtn").addEventListener("click", async () => {
+        try {
+          const origin = await getOrigin();
+          calcRoute(origin, DESTINATION, getMode(TravelMode));
+        } catch {
+          calcRoute(FALLBACK_ORIGIN, DESTINATION, getMode(TravelMode));
+        }
+      });
+
+      // Tự tính đường khi load
+      try {
+        const origin = await getOrigin();
+        calcRoute(origin, DESTINATION, getMode(TravelMode));
+      } catch {
+        calcRoute(FALLBACK_ORIGIN, DESTINATION, getMode(TravelMode));
+      }
+    }
+
+    function getMode(TravelMode) {
+      const mode = document.getElementById("mode").value;
+      return TravelMode[mode]; // DRIVING/WALKING/BICYCLING/TRANSIT
+    }
+
+    function getOrigin() {
+      return new Promise((resolve, reject) => {
+        if (!navigator.geolocation) return reject("Không có geolocation");
+        navigator.geolocation.getCurrentPosition(
+          (pos) => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+          () => reject("User từ chối chia sẻ vị trí"),
+          { enableHighAccuracy: true, timeout: 8000 }
+        );
+      });
+    }
+
+    function calcRoute(origin, destination, travelMode) {
+      directionsService.route(
+        {
+          origin,
+          destination,
+          travelMode,
+          provideRouteAlternatives: true
+        },
+        (result, status) => {
+          if (status === "OK") {
+            directionsRenderer.setDirections(result);
+            const route = result.routes?.[0];
+            if (route?.bounds) map.fitBounds(route.bounds);
+          } else {
+            document.getElementById("directions").innerHTML =
+              `<p><b>Lỗi:</b> Không tính được đường (status: ${status}).</p>`;
+          }
+        }
+      );
+    }
+  </script>
+
+  <!-- THAY YOUR_API_KEY. Không dùng callback=. Dùng loading=async; gọi init() SAU KHI script load xong -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=04cb409ac600f9ca553e6a02ee2c21b6f86bfa25e5ec0d6ebc4b75fbacdd198f&v=weekly&libraries=marker&language=vi&loading=async"
+    async
+    onload="init()"
+  ></script>
+</body>
+</html>
