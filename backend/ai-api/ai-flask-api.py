@@ -14,9 +14,17 @@ if not OPENROUTER_API_KEY:
     raise RuntimeError("OPENROUTER_API_KEY is missing in .env")
 
 app = Flask(__name__)
+
+# 💡 hiển thị tiếng Việt có dấu
+app.config["JSON_AS_ASCII"] = False
+try:
+    app.json.ensure_ascii = False
+except Exception:
+    pass
+
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-# ---------- Persona + quy tắc JSON ----------
+# ---------- Nhân vật Anh Ba Sỉn ----------
 SYSTEM_PROMPT = (
     "Bạn là 'Anh Ba Sỉn' — hướng dẫn viên du lịch Miền Tây Nam Bộ, "
     "thân thiện, vui tính, nói giọng miền Tây. "
@@ -62,7 +70,6 @@ def call_openrouter(message: str, temperature: float = 0.2, max_tokens: int = 51
 
 @app.route("/api/ai/agent", methods=["POST"])
 def ai_agent():
-    # Lấy body
     try:
         data = request.get_json(force=True, silent=False) or {}
     except Exception:
@@ -88,7 +95,6 @@ def ai_agent():
     max_tokens = data.get("max_tokens", 512)
     model = data.get("model", DEFAULT_MODEL)
 
-    # Gọi model (luôn yêu cầu trả JSON đúng schema)
     try:
         resp = call_openrouter(message, temperature=temperature, max_tokens=max_tokens)
         if resp.status_code >= 400:
@@ -97,11 +103,10 @@ def ai_agent():
         reply = (jr.get("choices") or [{}])[0].get("message", {}).get("content", "")
         parsed = json.loads(reply)
     except Exception:
-        # Fallback đảm bảo JSON đúng schema
         parsed = {
             "guide": "Anh Ba Sỉn",
             "on_topic": True,
-            "answer": "Đi Cần Thơ 2 ngày: Sáng sớm ngày 1 đi chợ nổi Cái Răng, trưa ăn hủ tiếu ghe; chiều bến Ninh Kiều, tối du thuyền sông Hậu. "
+            "answer": "Đi Cần Thơ 2 ngày: sáng sớm chợ nổi Cái Răng, trưa ăn hủ tiếu ghe; chiều bến Ninh Kiều, tối du thuyền sông Hậu. "
                       "Ngày 2 tham quan vườn trái cây, nhà cổ Bình Thủy, ăn cá lóc nướng trui nghen!",
             "tips": [
                 "Đi chợ nổi từ 5–7h sáng là vui nhất",
@@ -110,7 +115,6 @@ def ai_agent():
             ]
         }
 
-    # Chuẩn hoá/giới hạn field
     if not isinstance(parsed, dict):
         parsed = {}
     guide = parsed.get("guide") if isinstance(parsed.get("guide"), str) else "Anh Ba Sỉn"
@@ -124,7 +128,13 @@ def ai_agent():
         "answer": answer,
         "tips": [t for t in tips if isinstance(t, str)][:8]
     }
-    return jsonify(safe_json), 200
+
+    # dùng ensure_ascii=False để luôn trả UTF-8
+    return app.response_class(
+        response=json.dumps(safe_json, ensure_ascii=False),
+        status=200,
+        mimetype="application/json; charset=utf-8"
+    )
 
 @app.route("/api/ai/agent", methods=["GET"])
 def health():
