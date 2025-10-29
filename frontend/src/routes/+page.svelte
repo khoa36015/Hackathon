@@ -65,18 +65,31 @@
     <p class="text-gray-500">Đang tải dữ liệu...</p>
   {:else if !selectedProvince}
     <!-- Hiển thị 6 địa điểm ngẫu nhiên -->
-    <section class="p-6">
-      <h2 class="text-2xl font-bold mb-4">📍 Gợi ý địa điểm nổi bật</h2>
-      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <section class="px-6 py-10 bg-gradient-to-b from-sky-50 to-white">
+      <h2 class="text-3xl font-bold text-center text-sky-800 mb-8">📍 Gợi ý địa điểm nổi bật</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each randomPlaces as place}
-          <li class="border p-4 rounded-lg shadow">
-            <h3 class="text-xl font-medium">{place.name}</h3>
-            <p class="italic text-sm text-gray-600">Tỉnh: {place.province}</p>
-            <p>{place.mo_ta}</p>
-            <img src={place.anh} alt={place.name} class="mt-2 rounded" />
-          </li>
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-[1.02] hover:shadow-xl">
+            <div class="h-48 w-full overflow-hidden">
+              <img src={place.anh} alt={place.name} class="w-full h-full object-cover transition duration-300 group-hover:scale-105" />
+            </div>
+            <div class="p-5 space-y-3">
+              <h3 class="text-xl font-bold text-sky-700">{place.name}</h3>
+              <p class="text-sm text-gray-500 italic">Tỉnh: {place.province}</p>
+              <p class="text-gray-700 text-sm leading-relaxed line-clamp-3">{place.mo_ta}</p>
+            </div>
+          </div>
         {/each}
-      </ul>
+      </div>
+
+      <div class="mt-10 flex justify-center">
+        <button
+          on:click={() => randomPlaces = getRandomPlaces(allProvinces)}
+          class="bg-sky-600 hover:bg-sky-700 text-white font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300">
+          🔁 Gợi ý khác
+        </button>
+      </div>
     </section>
   {:else}
     <!-- Hiển thị chi tiết tỉnh đã chọn -->
@@ -89,10 +102,12 @@
         <h2 class="text-2xl font-semibold mt-6 mb-2">📍 Địa điểm nổi bật</h2>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
           {#each Object.entries(selectedProvince.dia_diem) as [name, info]}
-            <li class="border p-4 rounded-lg shadow">
-              <h3 class="text-xl font-medium">{name}</h3>
-              <p>{info.mo_ta}</p>
-              <img src={info.anh} alt={name} class="mt-2 rounded" />
+            <li class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group">
+              <img src={info.anh} alt={name} class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div class="p-4 space-y-2">
+                <h3 class="text-xl font-semibold text-gray-800">{name}</h3>
+                <p class="text-gray-600 text-sm">{info.mo_ta}</p>
+              </div>
             </li>
           {/each}
         </ul>
@@ -111,10 +126,12 @@
         <h2 class="text-2xl font-semibold mt-6 mb-2">🍜 Món ăn đặc sản</h2>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
           {#each Object.entries(selectedProvince.mon_an) as [dish, info]}
-            <li class="border p-4 rounded-lg shadow">
-              <h3 class="text-xl font-medium">{dish}</h3>
-              <p>{info.mo_ta}</p>
-              <img src={info.anh} alt={dish} class="mt-2 rounded" />
+            <li class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group">
+              <img src={info.anh} alt={dish} class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div class="p-4 space-y-2">
+                <h3 class="text-xl font-semibold text-gray-800">{dish}</h3>
+                <p class="text-gray-600 text-sm">{info.mo_ta}</p>
+              </div>
             </li>
           {/each}
         </ul>

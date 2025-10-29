@@ -1,58 +1,58 @@
 <script>
   import Modal from '$lib/components/Modal.svelte';
-  import LoginForm from '$lib/components/LoginForm.svelte';
-  import RegisterForm from '$lib/components/RegisterForm.svelte';
+  import AuthForm from '$lib/components/Auth.svelte';
+  import { session } from '$lib/stores/session';
+  import { logout } from '$lib/api';
+  
+  let showAuthForm = false;
+  let showMenu = false;
 
-  let showLogin = false;
-  let showRegister = false;
-
-  export let token;
-  let isLoggedIn = !!token;
-  const logout = async () => {
-    await fetch('/auth/logout', { method: 'POST' });
-    location.reload(); // hoặc chuyển hướng về trang chủ
+  async function handleLogout() {
+    await logout();
+    session.set({ isLoggedIn: false, username: null });
+    location.reload();
   }
 </script>
 
-<nav class="bg-gray-300 border-gray-200">
-  <div class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="/" class="h-8" alt="Logo" />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">MIỀN TÂY TRAVEL</span>
+<nav class="bg-sky-100 border-b border-gray-200 shadow-sm transition-all duration-300 ease-in-out">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 transition-all duration-300 ease-in-out">
+      <img src="/images/logo.png" class="h-10 w-auto" alt="Logo" />
+      <span class="text-2xl font-bold text-sky-800 tracking-wide">MIỀN TÂY TRAVEL</span>
     </a>
-    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-        <span class="sr-only">Menu</span>
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-        </svg>
+
+    <!-- Toggle button -->
+    <button
+      on:click={() => showMenu = !showMenu}
+      class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-300 transition-all duration-300 ease-in-out"
+      aria-controls="navbar-default"
+      aria-expanded={showMenu}
+    >
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
     </button>
-    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0">
-        <li>
-          <a href="/" class="block py-2 px-3 text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">TRANG CHỦ</a>
-        </li>
-        {#if !isLoggedIn}
-          <li>
-            <a href="#" on:click={() => showLogin = true} class="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">ĐĂNG NHẬP</a>
-          </li>
-          <li>
-            <a href="#" on:click={() => showRegister = true} class="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">ĐĂNG KÝ</a>
-          </li>
-        {:else}
-            <a href="#" on:click={logout} class="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">ĐĂNG XUẤT</a>
-        {/if}
-        
-      </ul>
-    </div>
+  </div>
+
+  <!-- Menu -->
+  <div class={`transition-all duration-500 ease-in-out ${showMenu ? 'block' : 'hidden'} md:block bg-white border-t md:border-none shadow-md md:shadow-none`} id="navbar-default">
+    <ul class="flex flex-col md:flex-row gap-3 md:gap-6 px-4 py-4 md:py-0 text-gray-800 font-medium">
+      <li><a href="/" class="block hover:text-sky-600 transition duration-300">TRANG CHỦ</a></li>
+      {#if $session.isLoggedIn}
+        <li><span class="text-sm">Xin chào, <strong>{$session.username}</strong></span></li>
+        <li><a on:click={handleLogout} href="/" class="block hover:text-red-500 transition duration-300">ĐĂNG XUẤT</a></li>
+      {:else}
+        <li><a href="#" on:click={() => showAuthForm = true} class="block hover:text-sky-600 transition duration-300">ĐĂNG KÝ</a></li>
+      {/if}
+    </ul>
   </div>
 </nav>
 
-<!-- Modal đăng nhập -->
-<Modal show={showLogin} onClose={() => showLogin = false}>
-  <LoginForm />
-</Modal>
 
 <!-- Modal đăng ký -->
-<Modal show={showRegister} onClose={() => showRegister = false}>
-  <RegisterForm />
+<Modal show={showAuthForm} onClose={() => showAuthForm = false}>
+  <AuthForm />
 </Modal>
