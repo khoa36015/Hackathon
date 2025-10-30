@@ -1,4 +1,5 @@
 <script>
+	import { URL } from './../../node_modules/uuid/dist/esm/v35.js';
   import '../app.css';
   import { onMount } from 'svelte';
   import Header from '$lib/components/Header.svelte';
@@ -11,6 +12,8 @@
   let selectedProvince = null;
   let randomPlaces = [];
   let error = null;
+
+  let URL_tinh = '';
 
   // Hàm lấy ngẫu nhiên 6 địa điểm từ tất cả tỉnh
   function getRandomPlaces(data, count = 6) {
@@ -48,6 +51,14 @@
       selectedProvince = null;
       alert('Không tìm thấy tỉnh phù hợp!');
     }
+  }
+
+  async function getProvinces(URL_tinh) {
+    const res = await fetch(URL_tinh);
+    if (!res.ok) {
+      throw new Error('Không thể tải dữ liệu tỉnh.');
+    }
+    return await res.json();
   }
 
 </script>
@@ -135,3 +146,12 @@
   {/if}
 </main>
 <Footer />
+
+<div class="6-tinh-mien-tay">
+  <div class="1"></div>
+  <div class="2"></div>
+  <div class="3"></div>
+  <div class="4"></div>
+  <div class="5"></div>
+  <div class="6"></div>
+</div>

@@ -1,149 +1,134 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Auth API Tester</title>
+  <meta charset="UTF-8">
+  <title>Test Flask Auth API</title>
   <style>
-    :root{--bg:#0b1022;--card:#0f172a;--muted:#94a3b8;--txt:#e5e7eb;--ok:#22c55e;--warn:#f59e0b;--err:#ef4444}
-    html,body{height:100%}
-    body{margin:0;background:linear-gradient(135deg,#0b1022,#0a0f1f);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
-    .wrap{max-width:980px;margin:0 auto;padding:28px}
-    .card{background:rgba(15,23,42,.92);backdrop-filter: blur(8px);border:1px solid #1f2937;border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-    h1{font-size:clamp(20px,3vw,28px);margin:0 0 6px}
-    p.small{color:var(--muted);margin:0 0 14px}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
-    @media (max-width:860px){.grid{grid-template-columns:1fr}}
-    label{display:block;font-weight:600;margin:8px 0 6px}
-    input[type="text"],input[type="password"]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #223047;background:#0b1220;color:var(--txt)}
-    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;font-weight:600}
-    button.primary{background:var(--ok);color:#052e16}
-    button.ghost{background:#0b1220;color:var(--txt);border:1px solid #223047}
-    button.warn{background:var(--warn);color:#3b2401}
-    button.danger{background:var(--err);color:#3b0a0a}
-    .pill{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:#0b1220;border:1px solid #223047;color:var(--muted)}
-    .log{white-space:pre-wrap;background:#0b1220;border:1px solid #223047;border-radius:12px;padding:12px;height:260px;overflow:auto}
-    .ok{color:var(--ok)}.err{color:#fca5a5}.muted{color:var(--muted)}
-    .footer{margin-top:12px;font-size:12px;color:var(--muted)}
-    .kvs{display:grid;grid-template-columns:160px 1fr;gap:6px 12px}
-    code{background:#0b1220;border:1px solid #223047;border-radius:6px;padding:2px 6px}
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f4f4f4;
+      padding: 40px;
+    }
+    h2 { color: #333; }
+    .container {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    pre {
+      background: #222;
+      color: #0f0;
+      padding: 10px;
+      border-radius: 6px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Auth API Tester</h1>
-      <p class="small">Dùng để test nhanh các endpoint <code>/api/register</code>, <code>/api/login</code>, <code>/api/logout</code> và kiểm tra session.</p>
+  <h2>🧑‍💻 Flask Auth Tester</h2>
 
-      <div class="grid">
-        <section>
-          <label for="baseUrl">API Base URL</label>
-          <input id="baseUrl" value="http://127.0.0.1:30" />
-          <div class="row" style="margin-top:8px">
-            <label class="row" style="gap:6px"><input type="checkbox" id="useCreds" /> Gửi kèm cookie (credentials)</label>
-            <span class="pill">Trạng thái: <strong id="lastStatus">—</strong></span>
-          </div>
+  <div class="container">
+    <h3>Đăng ký tài khoản</h3>
+    <input type="text" id="regUser" placeholder="Username">
+    <input type="password" id="regPass" placeholder="Password">
+    <button onclick="register()">Register</button>
+  </div>
 
-          <div class="row" style="margin-top:12px">
-            <div style="flex:1">
-              <label for="username">Username</label>
-              <input id="username" placeholder="khoa" />
-            </div>
-            <div style="flex:1">
-              <label for="password">Password</label>
-              <input id="password" type="password" placeholder="••••••••" />
-            </div>
-          </div>
+  <div class="container">
+    <h3>Đăng nhập</h3>
+    <input type="text" id="loginUser" placeholder="Username">
+    <input type="password" id="loginPass" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
 
-          <div class="row" style="margin-top:12px">
-            <button class="primary" id="btnRegister">Register</button>
-            <button class="ghost" id="btnLogin">Login</button>
-            <button class="warn" id="btnCheck">Check session (/)</button>
-            <button class="danger" id="btnLogout">Logout</button>
-          </div>
+  <div class="container">
+    <h3>Kiểm tra phiên đăng nhập</h3>
+    <button onclick="checkSession()">Check Session</button>
+  </div>
 
-          <div class="kvs" style="margin-top:14px">
-            <div class="muted">Gợi ý CORS</div>
-            <div><code>app.after_request(add_cors_headers)</code> đang bật; nếu dùng cookie cross-origin, cần <code>Access-Control-Allow-Credentials: true</code> và <code>credentials: 'include'</code>.</div>
-            <div class="muted">Login GET</div>
-            <div><code>GET /api/login</code> trả gợi ý; dùng <code>POST</code> với JSON <code>{username,password}</code> để đăng nhập.</div>
-          </div>
-        </section>
+  <div class="container">
+    <h3>Đăng xuất</h3>
+    <button onclick="logout()">Logout</button>
+  </div>
 
-        <section>
-          <label for="log">Response Log</label>
-          <div id="log" class="log" aria-live="polite"></div>
-          <div class="row" style="margin-top:8px">
-            <button class="ghost" id="btnClear">Clear log</button>
-          </div>
-        </section>
-      </div>
-
-      <div class="footer">
-        Lưu ý: nếu test qua file <code>file://</code> có thể bị chặn CORS. Hãy mở bằng một server tĩnh đơn giản, ví dụ <code>python -m http.server 5500</code> rồi vào <code>http://127.0.0.1:5500/frontend.html</code>.
-      </div>
-    </div>
+  <div class="container">
+    <h3>Kết quả API</h3>
+    <pre id="output">...</pre>
   </div>
 
   <script>
-    const $ = (id) => document.getElementById(id);
+    const API = "http://127.0.0.1:3000"; // Flask backend
 
-    const log = (msg, type="") => {
-      const time = new Date().toLocaleTimeString();
-      const el = $("log");
-      const row = document.createElement("div");
-      row.className = type === 'ok' ? 'ok' : (type === 'err' ? 'err' : '');
-      row.textContent = `[${time}] ${msg}`;
-      el.prepend(row);
-    };
-
-    const setStatus = (t) => $("lastStatus").textContent = t;
-
-    function opts(method, body){
-      const o = { method, headers: { 'Content-Type': 'application/json' } };
-      if(body) o.body = JSON.stringify(body);
-      if($("useCreds").checked){ o.credentials = 'include'; }
-      return o;
+    async function register() {
+      const username = document.getElementById("regUser").value;
+      const password = document.getElementById("regPass").value;
+      const res = await fetch(`${API}/api/register`, {
+        method: "POST",
+        credentials: "include", // để gửi session cookie
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+      const data = await res.json();
+      show(data);
     }
 
-    async function call(path, method='GET', body){
-      const base = $("baseUrl").value.replace(/\/$/, '');
-      const url = base + path;
-      try{
-        const res = await fetch(url, opts(method, body));
-        setStatus(`${res.status} ${res.statusText}`);
-        const text = await res.text();
-        try{
-          const json = JSON.parse(text);
-          log(`${method} ${path} → ${res.status}`);
-          log(JSON.stringify(json, null, 2));
-        }catch{ log(`RAW: ${text}`); }
-        return res.ok;
-      }catch(e){
-        setStatus('network error');
-        log(`Network error: ${e.message}`, 'err');
-        return false;
-      }
+    async function login() {
+      const username = document.getElementById("loginUser").value;
+      const password = document.getElementById("loginPass").value;
+      const res = await fetch(`${API}/api/login`, {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+      const data = await res.json();
+      show(data);
     }
 
-    $("btnRegister").addEventListener('click', () => {
-      const u = $("username").value.trim();
-      const p = $("password").value;
-      if(!u || !p) return log('Nhập username & password', 'err');
-      call('/api/register', 'POST', { username: u, password: p });
-    });
+    async function checkSession() {
+      const res = await fetch(`${API}/api/check-session`, {
+        method: "GET",
+        credentials: "include"
+      });
+      const data = await res.json();
+      show(data);
+    }
 
-    $("btnLogin").addEventListener('click', () => {
-      const u = $("username").value.trim();
-      const p = $("password").value;
-      if(!u || !p) return log('Nhập username & password', 'err');
-      call('/api/login', 'POST', { username: u, password: p });
-    });
+    async function logout() {
+      const res = await fetch(`${API}/api/logout`, {
+        method: "POST",
+        credentials: "include"
+      });
+      const data = await res.json();
+      show(data);
+    }
 
-    $("btnLogout").addEventListener('click', () => call('/api/logout', 'POST'));
-    $("btnCheck").addEventListener('click', () => call('/'));
-    $("btnClear").addEventListener('click', () => $("log").textContent='');
+    function show(data) {
+      document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+    }
   </script>
 </body>
 </html>

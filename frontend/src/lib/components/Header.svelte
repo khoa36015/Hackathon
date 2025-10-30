@@ -26,8 +26,8 @@
 <div class="relative h-[600px] bg-[url(/images/bg_official.png)] bg-cover bg-center bg-no-repeat flex items-center justify-center">
   <!-- Lớp phủ nhẹ để tăng độ tương phản -->
   <div class="absolute inset-0 bg-black/20">
-    <nav class="backdrop-blur-md bg-white/40 border-gray-200 shadow-sm transition-all duration-300 ease-in-out">
-      <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <nav class="backdrop-blur-md bg-white/40 border-gray-200 shadow-sm transition-all duration-300 ease-in-out fixed top-0 left-0 w-full z-20">
+      <div class="max-w-7xl mx-auto px-4 py-8 items-center justify-between flex">
         
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3 transition-all duration-300 ease-in-out">
@@ -49,16 +49,14 @@
         </button>
     </div>
 
-    
-
     <!-- Menu -->
-    <div class={`transition-all duration-500 ease-in-out ${showMenu ? 'block' : 'hidden'} bg-white/40 border-t md:border-none shadow-md md:shadow-none `} id="navbar-default">
-      <ul class="flex flex-col md:flex-row gap-3 md:gap-6 px-4 py-4 md:py-0 text-gray-800 font-medium ">
+    <div class={`transition-all duration-500 ease-in-out ${showMenu ? 'block' : 'hidden'} bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700`} id="navbar-default">
+      <ul class="py-2 text-sm text-gray-800 dark:text-gray-200 flex flex-col md:flex-row gap-3 md:gap-6 px-4 md:py-0 text-gray-800 font-medium">
         {#if $session.isLoggedIn}
           <li><span class="text-sm">Xin chào, <strong>{$session.username}</strong></span></li>
           <li><a on:click={handleLogout} href="/" class="block hover:text-red-500 transition duration-300">ĐĂNG XUẤT</a></li>
         {:else}
-          <li><a href="#" on:click={() => showAuthForm = true} class="block hover:text-sky-600 transition duration-300">ĐĂNG KÝ</a></li>
+          <li><a href="#" on:click={() => showAuthForm = true} class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white transition duration-300">ĐĂNG KÝ</a></li>
         {/if}
       </ul>
     </div>
