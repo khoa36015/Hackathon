@@ -52,7 +52,7 @@ dulieu = {
             },
             "Nam Du": {
                 "mo_ta": "Quần đảo hoang sơ với nước biển trong vắt.",
-                "anh":"/static/images/namdu.jpg"
+                "anh": "/static/images/namdu.jpg"
             },
             "Hòn Sơn": {
                 "mo_ta": "Thiên nhiên trong lành, là điểm đến yêu thích của dân phượt.",
@@ -128,7 +128,7 @@ dulieu = {
     "can_tho": {
         "ten": "Cần Thơ",
         "mo_ta": "Trung tâm kinh tế, văn hóa của miền Tây, nổi tiếng với chợ nổi Cái Răng và bến Ninh Kiều.",
-        "anh_dai_dien": "static/images/cantho.jpg",
+        "anh_dai_dien": "/static/images/cantho.jpg",
         "dia_diem": {
             "Bến Ninh Kiều": {
                 "mo_ta": "Biểu tượng của thành phố, nơi du khách ngắm sông Hậu và thành phố về đêm.",
@@ -140,7 +140,7 @@ dulieu = {
             },
             "Nhà cổ Bình Thủy": {
                 "mo_ta": "Ngôi nhà cổ hơn 100 năm tuổi, pha trộn kiến trúc Đông - Tây.",
-                "anh": "/static/images/nhacothuybinh.jpg"
+                "anh": "/static/images/nhacobinhthuy.jpg"
             },
             "Cầu Cần Thơ": {
                 "mo_ta": "Cây cầu dây văng lớn nhất miền Tây, biểu tượng hiện đại của vùng.",
@@ -166,7 +166,6 @@ dulieu = {
             }
         }
     },
-
     "ca_mau": {
         "ten": "Cà Mau",
         "mo_ta": "Mảnh đất cực Nam của Tổ quốc, nơi có Mũi Cà Mau thiêng liêng và hệ sinh thái rừng ngập mặn độc đáo.",
@@ -254,7 +253,7 @@ dulieu = {
     "soc_trang": {
         "ten": "Sóc Trăng",
         "mo_ta": "Vùng đất giao thoa văn hóa Việt - Hoa - Khmer, nổi bật với chùa Dơi và chùa Chén Kiểu.",
-        "anh_dai_dien": "/static/imeges/soctrang.jpg",
+        "anh_dai_dien": "/static/images/soctrang.jpg",
         "dia_diem": {
             "Chùa Dơi": {
                 "mo_ta": "Ngôi chùa Khmer cổ kính, nơi sinh sống của hàng ngàn con dơi.",
@@ -322,153 +321,196 @@ dulieu = {
             }
         }
     },
-
-    "travinh": {
+    "tra_vinh": {
         "ten": "Trà Vinh",
-        "mo_ta": "Vùng đất giao thoa văn hóa Việt - Khmer với nhiều ngôi chùa cổ kính và di sản văn hóa phong phú.",
+        "mo_ta": "Vùng đất của chùa Khmer, mang nét văn hóa đặc sắc và thiên nhiên thanh bình.",
         "anh_dai_dien": "/static/images/travinh.jpg",
         "dia_diem": {
             "Ao Bà Om": {
-                "mo_ta": "Di tích lịch sử văn hóa nổi tiếng của Trà Vinh.",
+                "mo_ta": "Hồ nước nổi tiếng, được bao quanh bởi rừng cổ thụ.",
                 "anh": "/static/images/aobaom.jpg"
             },
             "Chùa Âng": {
-                "mo_ta": "Ngôi chùa Khmer cổ kính với kiến trúc độc đáo.",
+                "mo_ta": "Ngôi chùa Khmer cổ kính, nằm cạnh Ao Bà Om.",
                 "anh": "/static/images/chuaang.jpg"
+            },
+            "Bảo tàng văn hóa Khmer": {
+                "mo_ta": "Nơi lưu giữ các hiện vật văn hóa truyền thống Khmer.",
+                "anh": "/static/images/baotangkhmer.jpg"
+            },
+            "Biển Ba Động": {
+                "mo_ta": "Khu du lịch biển nổi tiếng, thu hút nhiều du khách.",
+                "anh": "/static/images/bienbadong.jpg"
             }
         },
         "van_hoa": [
-            "Nổi bật với lễ hội Ok Om Bok và kiến trúc chùa Khmer độc đáo",
-            "Âm nhạc và ẩm thực mang đậm bản sắc Khmer Nam Bộ"
+            "Lễ hội Ok Om Bok của người Khmer",
+            "Văn hóa chùa chiền và ẩm thực đậm sắc Khmer"
         ],
         "mon_an": {
             "Bún nước lèo Trà Vinh": {
-                "mo_ta": "Món ăn truyền thống của người Khmer.",
+                "mo_ta": "Đặc sản mang hương vị riêng biệt, thơm ngon đậm đà.",
                 "anh": "/static/images/bunnuocleotravinh.jpg"
             },
             "Bánh canh Bến Có": {
-                "mo_ta": "Đặc sản nổi tiếng của Trà Vinh.",
+                "mo_ta": "Nổi tiếng với nước dùng ngọt thanh và sợi bánh dai ngon.",
                 "anh": "/static/images/banhcanhbenco.jpg"
+            },
+            "Bún suông": {
+                "mo_ta": "Món ăn dân dã, hấp dẫn với vị tôm đặc trưng.",
+                "anh": "/static/images/bunsuong.jpg"
             }
         }
     },
 
-    "baclieu": {
+    "bac_lieu": {
         "ten": "Bạc Liêu",
-        "mo_ta": "Nổi tiếng với công tử Bạc Liêu, đờn ca tài tử và cánh đồng điện gió khổng lồ ven biển.",
+        "mo_ta": "Vùng đất trù phú, gắn với giai thoại Công tử Bạc Liêu và văn hóa đờn ca tài tử.",
         "anh_dai_dien": "/static/images/baclieu.jpg",
         "dia_diem": {
-            "Cánh đồng điện gió Bạc Liêu": {
-                "mo_ta": "Công trình năng lượng sạch hiện đại bậc nhất Việt Nam.",
-                "anh": "/static/images/cachdongdiengiobaclieu.jpg"
-            },
-            "Nhà công tử Bạc Liêu": {
-                "mo_ta": "Di tích lịch sử gắn liền với giai thoại về công tử Bạc Liêu.",
+            "Nhà Công tử Bạc Liêu": {
+                "mo_ta": "Ngôi biệt thự cổ của vị công tử nổi tiếng miền Nam.",
                 "anh": "/static/images/nhacongtubaclieu.jpg"
+            },
+            "Cánh đồng quạt gió": {
+                "mo_ta": "Biểu tượng mới của du lịch Bạc Liêu.",
+                "anh": "/static/images/canhdongquatgio.jpg"
+            },
+            "Khu lưu niệm Cao Văn Lầu": {
+                "mo_ta": "Nơi tưởng nhớ tác giả bài Dạ cổ hoài lang.",
+                "anh": "/static/images/khuluuniemcaovanlau.jpg"
+            },
+            "Nhà thờ Tắc Sậy": {
+                "mo_ta": "Địa điểm hành hương nổi tiếng của người dân miền Tây.",
+                "anh": "/static/images/nhathotacsay.jpg"
             }
         },
         "van_hoa": [
-            "Cái nôi của đờn ca tài tử Nam Bộ – di sản phi vật thể UNESCO",
-            "Con người Bạc Liêu hào sảng, hiếu khách và giàu lòng nhân ái"
+            "Văn hóa đờn ca tài tử Nam Bộ",
+            "Lễ hội Nghinh Ông Gành Hào"
         ],
         "mon_an": {
-            "Bánh củ cải Bạc Liêu": {
-                "mo_ta": "Món bánh truyền thống đặc trưng của Bạc Liêu.",
-                "anh": "/static/images/banh.jpg"
+            "Bánh củ cải": {
+                "mo_ta": "Đặc sản dân dã, giòn thơm vị tôm khô và củ cải.",
+                "anh": "/static/images/banhcucai.jpg"
             },
-            "Ba khía muối": {
-                "mo_ta": "Đặc sản nổi tiếng vùng ven biển.",
-                "anh": "/static/images/bakhiamuoi.jpg"
+            "Lẩu mắm Bạc Liêu": {
+                "mo_ta": "Món ăn đặc trưng của vùng, hương vị đậm đà.",
+                "anh": "/static/images/laumambaclieu.jpg"
+            },
+            "Bún bò cay Bạc Liêu": {
+                "mo_ta": "Món ăn đặc sản cay nồng khó quên.",
+                "anh": "/static/images/bunbocaybaclieu.jpg"
             }
         }
     },
 
-    "vinhlong": {
+    "vinh_long": {
         "ten": "Vĩnh Long",
-        "mo_ta": "Nằm giữa hai nhánh sông Tiền và sông Hậu, Vĩnh Long là vùng đất miệt vườn trù phú và đậm đà bản sắc Nam Bộ.",
+        "mo_ta": "Vùng đất trù phú giữa sông Tiền và sông Hậu, nổi tiếng với miệt vườn trái cây.",
         "anh_dai_dien": "/static/images/vinhlong.jpg",
         "dia_diem": {
             "Cù Lao An Bình": {
-                "mo_ta": "Hòn đảo xanh mát giữa sông với vườn cây ăn trái sum suê.",
-                "anh": "/static/images/culaoanbinh.jpg"
+                "mo_ta": "Địa điểm du lịch sinh thái nổi tiếng với miệt vườn trĩu quả.",
+                "anh": "/static/images/culaonanbinh.jpg"
             },
-            "Chợ nổi Trà Ôn": {
-                "mo_ta": "Điểm giao thương sầm uất trên sông nước.",
-                "anh": "/static/images/chonoitraon.jpg"
+            "Khu du lịch Vinh Sang": {
+                "mo_ta": "Khu vui chơi giải trí và trải nghiệm văn hóa miền Tây.",
+                "anh": "/static/images/khudulichvinhsang.jpg"
+            },
+            "Nhà cổ Cai Cường": {
+                "mo_ta": "Công trình kiến trúc cổ đặc trưng Nam Bộ.",
+                "anh": "/static/images/nhacocaicuong.jpg"
             }
         },
         "van_hoa": [
-            "Người dân hiền hòa, gắn bó với nghề làm vườn và đờn ca tài tử",
-            "Nhiều làng nghề truyền thống và lễ hội miệt vườn đặc sắc"
+            "Văn hóa miệt vườn và sông nước",
+            "Người dân chân chất, mến khách"
         ],
         "mon_an": {
-            "Cá tai tượng chiên xù": {
-                "mo_ta": "Món ăn đặc sản từ cá tai tượng.",
-                "anh": "/static/images/cataituongchienxu.jpg"
+            "Lẩu cá kèo": {
+                "mo_ta": "Món lẩu dân dã đậm hương vị miền Tây.",
+                "anh": "/static/images/laucakheo.jpg"
             },
             "Bánh xèo Vĩnh Long": {
-                "mo_ta": "Bánh xèo đặc trưng vùng miệt vườn.",
+                "mo_ta": "Vỏ bánh giòn rụm, nhân tôm thịt hấp dẫn.",
                 "anh": "/static/images/banhxeovinhlong.jpg"
+            },
+            "Chuối nếp nướng": {
+                "mo_ta": "Món ăn vặt thơm ngon, được yêu thích khắp miền Tây.",
+                "anh": "/static/images/chuoinepnuong.jpg"
             }
         }
     },
 
-    "longan": {
+    "long_an": {
         "ten": "Long An",
-        "mo_ta": "Cửa ngõ miền Tây Nam Bộ, nổi tiếng với vùng trồng thanh long và di tích lịch sử phong phú.",
+        "mo_ta": "Cửa ngõ miền Tây, nơi hội tụ nét đẹp của đồng bằng và vùng giáp ranh Đông Nam Bộ.",
         "anh_dai_dien": "/static/images/longan.jpg",
         "dia_diem": {
             "Làng nổi Tân Lập": {
-                "mo_ta": "Khu du lịch sinh thái độc đáo với hệ sinh thái rừng tràm.",
+                "mo_ta": "Khu du lịch sinh thái rừng tràm nổi tiếng.",
                 "anh": "/static/images/langnoitanlap.jpg"
             },
-            "Nhà trăm cột": {
-                "mo_ta": "Di tích kiến trúc độc đáo với 100 cột gỗ quý.",
-                "anh": "/static/images/nhatramcot.jpg"
+            "Nhà cổ Trần Văn Hổ": {
+                "mo_ta": "Công trình cổ kính mang đậm dấu ấn lịch sử.",
+                "anh": "/static/images/nhacotranvanho.jpg"
+            },
+            "Chùa Tôn Thạnh": {
+                "mo_ta": "Ngôi chùa có kiến trúc cổ và gắn liền với nhà thơ Nguyễn Đình Chiểu.",
+                "anh": "/static/images/chuatonthanh.jpg"
             }
         },
         "van_hoa": [
-            "Là nơi giao thoa giữa miền Đông và miền Tây, vừa hiện đại vừa mang nét quê yên bình",
-            "Có nhiều lễ hội truyền thống như lễ hội Vía Bà Ngũ Hành, lễ hội Làm Chay"
+            "Lễ hội Nghinh Ông",
+            "Văn hóa nông nghiệp gắn liền sông nước"
         ],
         "mon_an": {
-            "Thanh long chấm muối ớt": {
-                "mo_ta": "Đặc sản từ trái thanh long nổi tiếng.",
-                "anh": "/static/images/thanhlongchammuoiot.jpg"
+            "Canh chua cá lóc": {
+                "mo_ta": "Món canh chua dân dã, hương vị đậm đà.",
+                "anh": "/static/images/canhchuacaloc.jpg"
             },
-            "Bánh canh tôm": {
-                "mo_ta": "Món ăn dân dã đặc trưng của vùng.",
-                "anh": "/static/images/banhcanhtom.jpg"
+            "Bánh tét Long An": {
+                "mo_ta": "Đặc sản ngày Tết, dẻo thơm và đậm vị.",
+                "anh": "/static/images/banhtetlongan.jpg"
             }
         }
     },
 
-    "tiengiang": {
+    "tien_giang": {
         "ten": "Tiền Giang",
-        "mo_ta": "Cửa ngõ của miền Tây Nam Bộ, nổi tiếng với chợ nổi Cái Bè, cù lao Thới Sơn và đặc sản miệt vườn.",
+        "mo_ta": "Vùng đất ven sông Tiền, nổi tiếng với chợ nổi Cái Bè và miệt vườn trù phú.",
         "anh_dai_dien": "/static/images/tiengiang.jpg",
         "dia_diem": {
-            "Cù Lao Thới Sơn": {
-                "mo_ta": "Hòn đảo xinh đẹp với vườn cây ăn trái sum suê.",
-                "anh": "/static/images/culaothoison.jpg"
-            },
             "Chợ nổi Cái Bè": {
-                "mo_ta": "Khu chợ nổi sầm uất trên sông Tiền.",
+                "mo_ta": "Chợ nổi lâu đời, trung tâm giao thương trên sông Tiền.",
                 "anh": "/static/images/chonoicaibe.jpg"
+            },
+            "Cù Lao Thới Sơn": {
+                "mo_ta": "Khu du lịch sinh thái nổi tiếng, nơi du khách có thể chèo xuồng, thưởng thức trái cây.",
+                "anh": "/static/images/culauthoison.jpg"
+            },
+            "Miệt vườn Cái Bè": {
+                "mo_ta": "Thiên đường trái cây nhiệt đới, thu hút du khách khắp nơi.",
+                "anh": "/static/images/mietvuoncaibe.jpg"
             }
         },
         "van_hoa": [
-            "Gắn bó với nghề trồng cây ăn trái và du lịch sinh thái sông nước",
-            "Có nhiều lễ hội dân gian đặc sắc như lễ hội Nghinh Ông và đờn ca tài tử"
+            "Lễ hội Rước ông bà cốt",
+            "Văn hóa miệt vườn trù phú, gắn bó với sông nước"
         ],
         "mon_an": {
             "Hủ tiếu Mỹ Tho": {
-                "mo_ta": "Món ăn nổi tiếng với nước dùng đặc trưng.",
+                "mo_ta": "Đặc sản nổi tiếng với sợi hủ tiếu dai ngon, nước dùng đậm đà.",
                 "anh": "/static/images/hutieumytho.jpg"
             },
-            "Chuối ngự nướng": {
-                "mo_ta": "Món ăn vặt đặc sản từ chuối ngự.",
-                "anh": "/static/images/chuoingunuong.jpg"
+            "Cá tai tượng chiên xù": {
+                "mo_ta": "Món ăn trứ danh được nhiều du khách yêu thích.",
+                "anh": "/static/images/cataituongchienxu.jpg"
+            },
+            "Bánh vá Tiền Giang": {
+                "mo_ta": "Món ăn vặt dân dã, giòn rụm và thơm béo.",
+                "anh": "/static/images/banhvatiengiang.jpg"
             }
         }
     }
