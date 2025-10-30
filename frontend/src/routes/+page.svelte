@@ -2,9 +2,8 @@
   import '../app.css';
   import { onMount } from 'svelte';
   import Header from '$lib/components/Header.svelte';
-  export let data;
   import Footer from '$lib/components/Footer.svelte';
-  import Hero from '$lib/components/Hero.svelte';
+  export let data;
   
   import { getProvinceData } from '$lib';
 
@@ -53,20 +52,16 @@
 
 </script>
 
-
-<Header token={data.token} />
+<Header on:search={(e) => selectProvince(e.detail.keyword)} />
 <main>
-  <Hero on:search={(e) => selectProvince(e.detail.keyword)} />
-
-
   {#if error}
     <p class="text-red-500">{error}</p>
   {:else if !allProvinces}
     <p class="text-gray-500">Đang tải dữ liệu...</p>
   {:else if !selectedProvince}
     <!-- Hiển thị 6 địa điểm ngẫu nhiên -->
-    <section class="px-6 py-10 bg-gradient-to-b from-sky-50 to-white">
-      <h2 class="text-3xl font-bold text-center text-sky-800 mb-8">📍 Gợi ý địa điểm nổi bật</h2>
+    <section class="px-6 py-10 bg-linear-to-b from-sky-50 to-white">
+      <h2 class="text-3xl font-bold text-center text-sky-800 mb-8">📍 Địa điểm nổi bật</h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each randomPlaces as place}
