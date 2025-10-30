@@ -2,133 +2,120 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Test Flask Auth API</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      background: #f4f4f4;
-      padding: 40px;
-    }
-    h2 { color: #333; }
-    .container {
-      background: white;
-      padding: 20px;
-      max-width: 400px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      margin-bottom: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    button {
-      background: #007bff;
-      color: white;
-      padding: 10px 14px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-    pre {
-      background: #222;
-      color: #0f0;
-      padding: 10px;
-      border-radius: 6px;
-      white-space: pre-wrap;
-      word-break: break-all;
-    }
-  </style>
+  <title>Test API auth + feedback</title>
 </head>
 <body>
-  <h2>🧑‍💻 Flask Auth Tester</h2>
-
-  <div class="container">
-    <h3>Đăng ký tài khoản</h3>
-    <input type="text" id="regUser" placeholder="Username">
-    <input type="password" id="regPass" placeholder="Password">
+  <h2>Auth</h2>
+  <div>
+    <input id="reg_user" placeholder="username">
+    <input id="reg_pass" type="password" placeholder="password">
     <button onclick="register()">Register</button>
   </div>
-
-  <div class="container">
-    <h3>Đăng nhập</h3>
-    <input type="text" id="loginUser" placeholder="Username">
-    <input type="password" id="loginPass" placeholder="Password">
+  <div style="margin-top:8px;">
+    <input id="login_user" placeholder="username">
+    <input id="login_pass" type="password" placeholder="password">
     <button onclick="login()">Login</button>
-  </div>
-
-  <div class="container">
-    <h3>Kiểm tra phiên đăng nhập</h3>
     <button onclick="checkSession()">Check Session</button>
-  </div>
-
-  <div class="container">
-    <h3>Đăng xuất</h3>
     <button onclick="logout()">Logout</button>
   </div>
 
-  <div class="container">
-    <h3>Kết quả API</h3>
-    <pre id="output">...</pre>
+  <h2 style="margin-top:16px;">Feedback</h2>
+  <div>
+    <input id="fb_user" placeholder="username (optional)">
+    <input id="fb_rating" type="number" min="1" max="5" placeholder="rating 1-5 (optional)">
+    <br>
+    <textarea id="fb_msg" rows="3" cols="50" placeholder="Nội dung feedback *"></textarea>
+    <br>
+    <button onclick="sendFeedback()">Gửi feedback</button>
+    <button onclick="loadFeedbacks()">Tải feedback</button>
   </div>
 
-  <script>
-    const API = "http://127.0.0.1:3000"; // Flask backend
+  <h3>Kết quả API</h3>
+  <pre id="out">{}</pre>
 
-    async function register() {
-      const username = document.getElementById("regUser").value;
-      const password = document.getElementById("regPass").value;
-      const res = await fetch(`${API}/api/register`, {
-        method: "POST",
-        credentials: "include", // để gửi session cookie
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password })
-      });
-      const data = await res.json();
-      show(data);
-    }
+  <h3>Danh sách feedback</h3>
+  <div id="list"></div>
 
-    async function login() {
-      const username = document.getElementById("loginUser").value;
-      const password = document.getElementById("loginPass").value;
-      const res = await fetch(`${API}/api/login`, {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password })
-      });
-      const data = await res.json();
-      show(data);
-    }
+<script>
+const API = "http://127.0.0.1:3000";
 
-    async function checkSession() {
-      const res = await fetch(`${API}/api/check-session`, {
-        method: "GET",
-        credentials: "include"
-      });
-      const data = await res.json();
-      show(data);
-    }
+function show(x){ document.getElementById('out').textContent = JSON.stringify(x, null, 2); }
 
-    async function logout() {
-      const res = await fetch(`${API}/api/logout`, {
-        method: "POST",
-        credentials: "include"
-      });
-      const data = await res.json();
-      show(data);
-    }
+async function register(){
+  const body = {
+    username: document.getElementById('reg_user').value,
+    password: document.getElementById('reg_pass').value
+  };
+  const r = await fetch(API + "/api/register", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    credentials: "include",
+    body: JSON.stringify(body)
+  });
+  show(await r.json());
+}
 
-    function show(data) {
-      document.getElementById("output").textContent = JSON.stringify(data, null, 2);
-    }
-  </script>
+async function login(){
+  const body = {
+    username: document.getElementById('login_user').value,
+    password: document.getElementById('login_pass').value
+  };
+  const r = await fetch(API + "/api/login", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    credentials: "include",
+    body: JSON.stringify(body)
+  });
+  show(await r.json());
+}
+
+async function checkSession(){
+  const r = await fetch(API + "/api/check-session", {
+    credentials: "include"
+  });
+  show(await r.json());
+}
+
+async function logout(){
+  const r = await fetch(API + "/api/logout", {
+    method: "POST",
+    credentials: "include"
+  });
+  show(await r.json());
+}
+
+async function sendFeedback(){
+  const body = {
+    username: document.getElementById('fb_user').value || null,
+    message: document.getElementById('fb_msg').value,
+    rating: document.getElementById('fb_rating').value ? Number(document.getElementById('fb_rating').value) : null
+  };
+  const r = await fetch(API + "/api/feedback", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    credentials: "include",
+    body: JSON.stringify(body)
+  });
+  const data = await r.json();
+  show(data);
+  if(r.ok) loadFeedbacks();
+}
+
+async function loadFeedbacks(){
+  const r = await fetch(API + "/api/feedbacks", { credentials: "include" });
+  const data = await r.json();
+  show(data);
+  const list = document.getElementById('list');
+  list.innerHTML = "";
+  (data.data || []).forEach(item => {
+    const div = document.createElement('div');
+    div.textContent = `[${item.created_at}] ${item.username || 'Ẩn danh'}: ${item.message} (${item.rating ?? 'no rate'})`;
+    list.appendChild(div);
+  });
+}
+
+// auto load
+loadFeedbacks();
+</script>
 </body>
 </html>
