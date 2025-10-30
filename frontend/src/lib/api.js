@@ -1,7 +1,8 @@
-export const API_BASE = 'http://localhost:3000/api';
+export const API_AUTH = 'http://localhost:3000/api';
+export const API_PROVINCE = 'http://localhost:5000/api';
 
 export async function register(username, password) {
-  const res = await fetch(`${API_BASE}/register`, {
+  const res = await fetch(`${API_AUTH}/register`, {
     method: 'POST',
     credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
@@ -11,7 +12,7 @@ export async function register(username, password) {
 }
 
 export async function login(username, password) {
-  const res = await fetch(`${API_BASE}/login`, {
+  const res = await fetch(`${API_AUTH}/login`, {
     method: 'POST',
     credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
@@ -21,7 +22,7 @@ export async function login(username, password) {
 }
 
 export async function checkSession() {
-  const res = await fetch(`${API_BASE}/check-session`, {
+  const res = await fetch(`${API_AUTH}/check-session`, {
     method: 'GET',
     credentials: 'include'
   });
@@ -29,8 +30,16 @@ export async function checkSession() {
 }
 
 export async function logout() {
-  const res = await fetch(`${API_BASE}/logout`, {
+  const res = await fetch(`${API_AUTH}/logout`, {
     method: 'POST',
+    credentials: 'include'
+  });
+  return await res.json();
+}
+
+export async function getProvinces() {
+  const res = await fetch(`${API_PROVINCE}/random-provinces`, {
+    method: 'GET',
     credentials: 'include'
   });
   return await res.json();
