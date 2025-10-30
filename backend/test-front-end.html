@@ -2,120 +2,83 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Test API auth + feedback</title>
+  <title>Test API Miền Tây</title>
 </head>
 <body>
-  <h2>Auth</h2>
+  <h2>Test API Miền Tây</h2>
+
   <div>
-    <input id="reg_user" placeholder="username">
-    <input id="reg_pass" type="password" placeholder="password">
-    <button onclick="register()">Register</button>
-  </div>
-  <div style="margin-top:8px;">
-    <input id="login_user" placeholder="username">
-    <input id="login_pass" type="password" placeholder="password">
-    <button onclick="login()">Login</button>
-    <button onclick="checkSession()">Check Session</button>
-    <button onclick="logout()">Logout</button>
+    <button onclick="loadProvinces()">Tải tất cả tỉnh</button>
   </div>
 
-  <h2 style="margin-top:16px;">Feedback</h2>
-  <div>
-    <input id="fb_user" placeholder="username (optional)">
-    <input id="fb_rating" type="number" min="1" max="5" placeholder="rating 1-5 (optional)">
-    <br>
-    <textarea id="fb_msg" rows="3" cols="50" placeholder="Nội dung feedback *"></textarea>
-    <br>
-    <button onclick="sendFeedback()">Gửi feedback</button>
-    <button onclick="loadFeedbacks()">Tải feedback</button>
+  <div style="margin-top: 12px;">
+    <input id="searchInput" placeholder="Nhập tên tỉnh... (vd: can tho, an giang)">
+    <button onclick="searchProvince()">Tìm</button>
   </div>
 
-  <h3>Kết quả API</h3>
-  <pre id="out">{}</pre>
+  <div style="margin-top: 12px;">
+    <input id="detailInput" placeholder="Nhập id tỉnh... (vd: an_giang)">
+    <button onclick="getDetail()">Xem chi tiết</button>
+  </div>
 
-  <h3>Danh sách feedback</h3>
-  <div id="list"></div>
+  <h3>Kết quả</h3>
+  <pre id="output">{}</pre>
+
+  <h3>Danh sách tỉnh</h3>
+  <ul id="list"></ul>
 
 <script>
-const API = "http://127.0.0.1:3000";
+const API = "http://127.0.0.1:1311";
 
-function show(x){ document.getElementById('out').textContent = JSON.stringify(x, null, 2); }
-
-async function register(){
-  const body = {
-    username: document.getElementById('reg_user').value,
-    password: document.getElementById('reg_pass').value
-  };
-  const r = await fetch(API + "/api/register", {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    credentials: "include",
-    body: JSON.stringify(body)
-  });
-  show(await r.json());
+function show(data) {
+  document.getElementById('output').textContent = JSON.stringify(data, null, 2);
 }
 
-async function login(){
-  const body = {
-    username: document.getElementById('login_user').value,
-    password: document.getElementById('login_pass').value
-  };
-  const r = await fetch(API + "/api/login", {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    credentials: "include",
-    body: JSON.stringify(body)
-  });
-  show(await r.json());
-}
-
-async function checkSession(){
-  const r = await fetch(API + "/api/check-session", {
-    credentials: "include"
-  });
-  show(await r.json());
-}
-
-async function logout(){
-  const r = await fetch(API + "/api/logout", {
-    method: "POST",
-    credentials: "include"
-  });
-  show(await r.json());
-}
-
-async function sendFeedback(){
-  const body = {
-    username: document.getElementById('fb_user').value || null,
-    message: document.getElementById('fb_msg').value,
-    rating: document.getElementById('fb_rating').value ? Number(document.getElementById('fb_rating').value) : null
-  };
-  const r = await fetch(API + "/api/feedback", {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    credentials: "include",
-    body: JSON.stringify(body)
-  });
-  const data = await r.json();
-  show(data);
-  if(r.ok) loadFeedbacks();
-}
-
-async function loadFeedbacks(){
-  const r = await fetch(API + "/api/feedbacks", { credentials: "include" });
-  const data = await r.json();
+async function loadProvinces() {
+  const res = await fetch(API + "/api/provinces");
+  const data = await res.json();
   show(data);
   const list = document.getElementById('list');
   list.innerHTML = "";
-  (data.data || []).forEach(item => {
-    const div = document.createElement('div');
-    div.textContent = `[${item.created_at}] ${item.username || 'Ẩn danh'}: ${item.message} (${item.rating ?? 'no rate'})`;
-    list.appendChild(div);
+  data.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item.ten + " (" + item.id + ")";
+    li.style.cursor = "pointer";
+    li.onclick = () => getDetailById(item.id);
+    list.appendChild(li);
   });
 }
 
-// auto load
-loadFeedbacks();
+async function searchProvince() {
+  const q = document.getElementById('searchInput').value.trim();
+  if (!q) return;
+  const res = await fetch(API + "/api/search?name=" + encodeURIComponent(q));
+  if (res.ok) {
+    const data = await res.json();
+    show(data);
+  } else {
+    show({error: "Không tìm thấy"});
+  }
+}
+
+async function getDetail() {
+  const id = document.getElementById('detailInput').value.trim();
+  if (!id) return;
+  getDetailById(id);
+}
+
+async function getDetailById(id) {
+  const res = await fetch(API + "/api/province/" + id);
+  if (res.ok) {
+    const data = await res.json();
+    show(data);
+  } else {
+    show({error: "Không tìm thấy tỉnh " + id});
+  }
+}
+
+// tải sẵn
+loadProvinces();
 </script>
 </body>
 </html>
