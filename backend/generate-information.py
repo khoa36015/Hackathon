@@ -1,8 +1,25 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 from data1 import dulieu
 import random
 
 app = Flask(__name__)
+CORS(app, supports_credentials=True)
+
+# def add_cors_headers(resp):
+#     resp.headers["Access-Control-Allow-Origin"] = request.headers.get("Origin", "*")
+#     resp.headers["Access-Control-Allow-Credentials"] = "true"
+#     resp.headers["Vary"] = "Origin"
+#     resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+#     resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+#     return resp
+
+# app.after_request(add_cors_headers)
+
+# @app.route("/api/<path:path>", methods=["OPTIONS"])
+# def handle_options(path):
+#     response = jsonify({"message": "CORS preflight"})
+#     return add_cors_headers(response)
 
 @app.route("/api/random-provinces", methods=["GET"])
 def random_provinces():

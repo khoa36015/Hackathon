@@ -38,7 +38,7 @@ export async function logout() {
 }
 
 export async function getProvinces() {
-  const res = await fetch(`${API_PROVINCE}/random-provinces`, {
+  const res = await fetch(`${API_AUTH}/provinces`, {
     method: 'GET',
     credentials: 'include'
   });

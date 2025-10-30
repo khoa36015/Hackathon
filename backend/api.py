@@ -1,39 +1,27 @@
-from flask import Flask, jsonify, request, session
+from flask import Flask, jsonify, request, session, abort
 from flask_bcrypt import Bcrypt
 from flask_session import Session
+from flask_cors import CORS
 from datetime import datetime, timedelta
-import mysql.connector, os
-from data1 import dulieu  # ✅ import đúng dữ liệu từ file data1.py
+import mysql.connector
+from data1 import dulieu
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
 
-# ✅ key cố định để restart không mất session
+# Secret key và session config
 app.secret_key = "super-secret-dev-key"
-
-# ✅ cấu hình session cho DEV (http, khác port)
 app.config.update(
     SESSION_TYPE='filesystem',
     PERMANENT_SESSION_LIFETIME=timedelta(days=1),
     SESSION_COOKIE_HTTPONLY=True,
-    SESSION_COOKIE_SAMESITE='Lax',   # Lax an toàn và vẫn gửi trong hầu hết trường hợp
-    SESSION_COOKIE_SECURE=False      # dev http => False
+    SESSION_COOKIE_SAMESITE='Lax',
+    SESSION_COOKIE_SECURE=False  # dev mode
 )
 Session(app)
 
-# ---------- CORS ----------
-@app.after_request
-def add_cors_headers(resp):
-    resp.headers["Access-Control-Allow-Origin"] = request.headers.get("Origin", "http://127.0.0.1:5500")
-    resp.headers["Access-Control-Allow-Credentials"] = "true"
-    resp.headers["Vary"] = "Origin"
-    resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-    resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
-    return resp
-
-@app.route("/api/<path:path>", methods=["OPTIONS"])
-def handle_options(path):
-    return add_cors_headers(jsonify({"message": "ok"}))
+# ✅ CORS cấu hình cho dev (cho phép credentials)
+CORS(app, supports_credentials=True, origins=["http://localhost:5173", "http://127.0.0.1:5500"])
 
 # ---------- DB ----------
 def db_conn(db_name):
@@ -100,10 +88,7 @@ def feedback():
     if rating is not None and not isinstance(rating, (int, float)):
         return jsonify({"message": "Rating must be number"}), 400
 
-    # changed: use dictionary cursor to inspect created_at and avoid duplicate inserts
     conn = db_conn("feedback"); cur = conn.cursor(dictionary=True)
-
-    # check recent duplicate: same username+message inserted very recently (e.g. within 5 seconds)
     try:
         cur.execute(
             "SELECT id, created_at FROM feedbacks WHERE username=%s AND message=%s ORDER BY created_at DESC LIMIT 1",
@@ -113,10 +98,8 @@ def feedback():
         if prev and isinstance(prev.get("created_at"), datetime):
             if datetime.now() - prev["created_at"] < timedelta(seconds=5):
                 cur.close(); conn.close()
-                # benign response: treat as already-received to prevent duplicate on refresh
                 return jsonify({"message": "Duplicate ignored"}), 200
 
-        # proceed with insert if not a recent duplicate
         cur.execute(
             "INSERT INTO feedbacks(username,message,rating,created_at) VALUES (%s,%s,%s,%s)",
             (d.get("username"), d["message"], rating, datetime.now())
@@ -135,23 +118,7 @@ def feedbacks():
     cur.close(); conn.close()
     return jsonify({"success": True, "data": data})
 
-if __name__ == "__main__":
-    # ❗ quan trọng: tắt reloader để không chạy 2 process
-    app.run(debug=True, port=3000, use_reloader=False)
-
-
-app = Flask(__name__)
-CORS(app)
-
-@app.after_request
-def add_cors_headers(resp):
-    resp.headers["Access-Control-Allow-Origin"] = "*"
-    resp.headers["Vary"] = "Origin"
-    resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-    resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
-    return resp
-
-# ✅ Lấy tất cả tỉnh
+# ---------- PROVINCE API ----------
 @app.route('/api/provinces', methods=['GET'])
 def get_provinces():
     result = [
@@ -160,7 +127,6 @@ def get_provinces():
     ]
     return jsonify(result)
 
-# lay chi tiet tinh theo id
 @app.route('/api/province/<province_id>', methods=['GET'])
 def get_province_detail(province_id):
     province = dulieu.get(province_id.lower())
@@ -168,7 +134,6 @@ def get_province_detail(province_id):
         abort(404, description="Không tìm thấy tỉnh này.")
     return jsonify(province)
 
-##tim kiem theo ten
 @app.route('/api/search', methods=['GET'])
 def search_province():
     name = request.args.get('name', '').lower()
@@ -180,3 +145,7 @@ def search_province():
     if not results:
         abort(404, description="Không tìm thấy tỉnh nào phù hợp.")
     return jsonify(results)
+
+# ---------- MAIN ----------
+if __name__ == "__main__":
+    app.run(debug=True, port=3000, use_reloader=False)
