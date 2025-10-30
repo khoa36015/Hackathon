@@ -170,23 +170,23 @@ dulieu = {
     "ca_mau": {
         "ten": "Cà Mau",
         "mo_ta": "Mảnh đất cực Nam của Tổ quốc, nơi có Mũi Cà Mau thiêng liêng và hệ sinh thái rừng ngập mặn độc đáo.",
-        "anh_dai_dien": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2017/05/mui-ca-mau.jpg",
+        "anh_dai_dien": "/static/images/camau.jpg",
         "dia_diem": {
             "Mũi Cà Mau": {
                 "mo_ta": "Cột mốc thiêng liêng nơi tận cùng đất nước.",
-                "anh": "/static/images/image_1.jpg"
+                "anh": "/static/images/muicamau.jpg"
             },
             "Rừng U Minh Hạ": {
                 "mo_ta": "Khu dự trữ sinh quyển, nơi sinh sống của nhiều loài động vật quý hiếm.",
-                "anh": "/static/images/image_2.jpg"
+                "anh": "/static/images/runguminhha.jpg"
             },
             "Hòn Đá Bạc": {
                 "mo_ta": "Quần thể đá granite kỳ vĩ nằm ven biển.",
-                "anh": "/static/images/image_3.jpg"
+                "anh": "/static/images/hondabac.jpg"
             },
             "Chợ nổi Cà Mau": {
                 "mo_ta": "Nơi giao thương nhộn nhịp giữa các ghe hàng trên sông.",
-                "anh": "/static/images/image_4.jpg"
+                "anh": "/static/images/chonoicamau.jpg"
             }
         },
         "van_hoa": [
@@ -196,15 +196,15 @@ dulieu = {
         "mon_an": {
             "Ba khía muối": {
                 "mo_ta": "Đặc sản trứ danh, mặn mà hương vị biển Tây Nam.",
-                "anh": "/static/images/image_5.jpg"
+                "anh": "/static/images/bakhiamuoi.jpg"
             },
             "Lẩu mắm U Minh": {
                 "mo_ta": "Món ăn dân dã, quy tụ tinh hoa ẩm thực Cà Mau.",
-                "anh": "/static/images/image_6.jpg"
+                "anh": "/static/images/laumamuminh.jpg"
             },
             "Cua Cà Mau": {
                 "mo_ta": "Nổi tiếng cả nước với thịt ngọt, chắc và thơm.",
-                "anh": "/static/images/image_7.jpg"
+                "anh": "/static/images/cuacamau.jpg"
             }
         }
     },
@@ -212,23 +212,23 @@ dulieu = {
     "dong_thap": {
         "ten": "Đồng Tháp",
         "mo_ta": "Miền sen hồng rực rỡ, với những cánh đồng sen và làng hoa Sa Đéc.",
-        "anh_dai_dien": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2017/05/lang-hoa-sa-dec.jpg",
+        "anh_dai_dien": "/static/images/dongthap.jpg",
         "dia_diem": {
             "Làng hoa Sa Đéc": {
                 "mo_ta": "Thiên đường hoa rực rỡ quanh năm.",
-                "anh": "/static/images/image_8.jpg"
+                "anh": "/static/images/langhoasadec.jpg"
             },
             "Khu du lịch Xẻo Quýt": {
                 "mo_ta": "Khu rừng tràm lịch sử, gắn liền kháng chiến.",
-                "anh": "/static/images/image_9.jpg"
+                "anh": "/static/images/khudulichxeoquyt.jpg"
             },
             "Tràm Chim Tam Nông": {
                 "mo_ta": "Nơi trú ngụ của hàng trăm loài chim quý hiếm.",
-                "anh": "/static/images/image_10.jpg"
+                "anh": "/static/images/tramchimtamnong.jpg"
             },
             "Nhà cổ Huỳnh Thủy Lê": {
                 "mo_ta": "Công trình kiến trúc Pháp cổ nổi tiếng.",
-                "anh": "/static/images/image_11.jpg"
+                "anh": "/static/images/nhacohuynhthuyle.jpg"
             }
         },
         "van_hoa": [
@@ -238,15 +238,15 @@ dulieu = {
         "mon_an": {
             "Hủ tiếu Sa Đéc": {
                 "mo_ta": "Sợi hủ tiếu dẻo, nước dùng ngọt thanh đặc trưng.",
-                "anh": "/static/images/image_12.jpg"
+                "anh": "/static/images/hutieusadec.jpg"
             },
             "Chuột đồng nướng": {
                 "mo_ta": "Đặc sản dân dã, giòn thơm hấp dẫn.",
-                "anh": "/static/images/image_13.jpg"
+                "anh": "/static/images/chuotdongnuong.jpg"
             },
             "Xôi ngũ sắc": {
                 "mo_ta": "Món xôi đặc trưng được làm từ gạo nếp thơm.",
-                "anh": "/static/images/image_14.jpg"
+                "anh": "/static/images/xoingusac.jpg"
             }
         }
     },
@@ -254,23 +254,23 @@ dulieu = {
     "soc_trang": {
         "ten": "Sóc Trăng",
         "mo_ta": "Vùng đất giao thoa văn hóa Việt - Hoa - Khmer, nổi bật với chùa Dơi và chùa Chén Kiểu.",
-        "anh_dai_dien": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2018/04/chua-doi-soc-trang.jpg",
+        "anh_dai_dien": "/static/imeges/soctrang.jpg",
         "dia_diem": {
             "Chùa Dơi": {
                 "mo_ta": "Ngôi chùa Khmer cổ kính, nơi sinh sống của hàng ngàn con dơi.",
-                "anh": "/static/images/image_15.jpg"
+                "anh": "/static/images/chuadoi.jpg"
             },
             "Chùa Chén Kiểu": {
                 "mo_ta": "Ngôi chùa độc đáo với tường khảm chén sứ.",
-                "anh": "/static/images/image_16.jpg"
+                "anh": "/static/images/chuachenkieu.jpg"
             },
             "Khu du lịch Hồ Nước Ngọt": {
                 "mo_ta": "Điểm thư giãn lý tưởng giữa lòng thành phố.",
-                "anh": "/static/images/image_17.jpg"
+                "anh": "/static/images/khudulichhonuocngot.jpg"
             },
             "Chợ nổi Ngã Năm": {
                 "mo_ta": "Chợ nổi giao thương tấp nập trên sông.",
-                "anh": "/static/images/image_18.jpg"
+                "anh": "/static/images/chonoinganam.jpg"
             }
         },
         "van_hoa": [
@@ -280,15 +280,15 @@ dulieu = {
         "mon_an": {
             "Bún nước lèo Sóc Trăng": {
                 "mo_ta": "Món ăn biểu tượng của vùng, kết hợp cá, tôm, heo quay.",
-                "anh": "/static/images/image_19.jpg"
+                "anh": "/static/images/bunnuocleosoctrang.jpg"
             },
             "Bánh pía": {
                 "mo_ta": "Đặc sản nổi tiếng toàn quốc, nhân sầu riêng trứng muối.",
-                "anh": "/static/images/image_20.jpg"
+                "anh": "/static/images/banhpia.jpg"
             },
             "Bún gỏi dà": {
                 "mo_ta": "Hương vị chua ngọt đặc trưng, hấp dẫn lạ miệng.",
-                "anh": "/static/images/image_21.jpg"
+                "anh": "/static/images/bungoida.jpg"
             }
         }
     },
@@ -296,15 +296,15 @@ dulieu = {
     "haugiang": {
         "ten": "Hậu Giang",
         "mo_ta": "Trái tim của miền Tây, nơi lưu giữ nét đẹp văn hóa sông nước và những khu sinh thái miệt vườn đặc trưng.",
-        "anh_dai_dien": "https://media.vov.vn/sites/default/files/styles/large/public/2021-03/lung-ngoc-hoang.jpg",
+        "anh_dai_dien": "/static/images/haugiang.jpg",
         "dia_diem": {
             "Khu du lịch sinh thái Lung Ngọc Hoàng": {
                 "mo_ta": "Khu sinh thái đẹp với hệ sinh thái đa dạng.",
-                "anh": "/static/images/image_22.jpg"
+                "anh": "/static/images/khudulichsinhthaingochoang.jpg"
             },
             "Chợ nổi Ngã Bảy": {
                 "mo_ta": "Điểm giao thương sầm uất trên sông.",
-                "anh": "/static/images/image_23.jpg"
+                "anh": "/static/images/chonoingabay.jpg"
             }
         },
         "van_hoa": [
@@ -314,11 +314,11 @@ dulieu = {
         "mon_an": {
             "Lẩu mắm Hậu Giang": {
                 "mo_ta": "Món ăn đặc trưng của vùng sông nước.",
-                "anh": "/static/images/image_24.jpg"
+                "anh": "/static/images/laumamhaugiang.jpg"
             },
             "Bánh xèo củ hủ dừa": {
                 "mo_ta": "Bánh xèo độc đáo với nhân củ hủ dừa.",
-                "anh": "/static/images/image_25.jpg"
+                "anh": "/static/images/banhxeocuhudua.jpg"
             }
         }
     },
@@ -326,15 +326,15 @@ dulieu = {
     "travinh": {
         "ten": "Trà Vinh",
         "mo_ta": "Vùng đất giao thoa văn hóa Việt - Khmer với nhiều ngôi chùa cổ kính và di sản văn hóa phong phú.",
-        "anh_dai_dien": "https://statics.vinpearl.com/ao-ba-om-tra-vinh-1_1667377751.jpg",
+        "anh_dai_dien": "/static/images/travinh.jpg",
         "dia_diem": {
             "Ao Bà Om": {
                 "mo_ta": "Di tích lịch sử văn hóa nổi tiếng của Trà Vinh.",
-                "anh": "/static/images/image_26.jpg"
+                "anh": "/static/images/aobaom.jpg"
             },
             "Chùa Âng": {
                 "mo_ta": "Ngôi chùa Khmer cổ kính với kiến trúc độc đáo.",
-                "anh": "/static/images/image_27.jpg"
+                "anh": "/static/images/chuaang.jpg"
             }
         },
         "van_hoa": [
@@ -344,11 +344,11 @@ dulieu = {
         "mon_an": {
             "Bún nước lèo Trà Vinh": {
                 "mo_ta": "Món ăn truyền thống của người Khmer.",
-                "anh": "/static/images/image_28.jpg"
+                "anh": "/static/images/bunnuocleotravinh.jpg"
             },
             "Bánh canh Bến Có": {
                 "mo_ta": "Đặc sản nổi tiếng của Trà Vinh.",
-                "anh": "/static/images/image_29.jpg"
+                "anh": "/static/images/banhcanhbenco.jpg"
             }
         }
     },
@@ -356,7 +356,7 @@ dulieu = {
     "baclieu": {
         "ten": "Bạc Liêu",
         "mo_ta": "Nổi tiếng với công tử Bạc Liêu, đờn ca tài tử và cánh đồng điện gió khổng lồ ven biển.",
-        "anh_dai_dien": "https://statics.vinpearl.com/canh-dong-dien-gio-bac-lieu_1667445397.jpg",
+        "anh_dai_dien": "/static/images/baclieu.jpg",
         "dia_diem": {
             "Cánh đồng điện gió Bạc Liêu": {
                 "mo_ta": "Công trình năng lượng sạch hiện đại bậc nhất Việt Nam.",
