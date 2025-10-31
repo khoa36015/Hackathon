@@ -17,25 +17,25 @@ def add_cors_headers(resp):
 @app.route('/api/provinces', methods=['GET'])
 def get_provinces():
     result = [
-        {"id": key, "ten": data["ten"], "mo_ta": data["mo_ta"]}
+        {"id": key, **data}  # Return all fields from data
         for key, data in dulieu.items()
     ]
     return jsonify(result)
 
-# ✅ Lấy chi tiết tỉnh theo id (ví dụ: /api/province/an_giang)
+# ✅ Lấy chi tiết tỉnh theo id
 @app.route('/api/province/<province_id>', methods=['GET'])
 def get_province_detail(province_id):
     province = dulieu.get(province_id.lower())
     if not province:
         abort(404, description="Không tìm thấy tỉnh này.")
-    return jsonify(province)
+    return jsonify({"id": province_id.lower(), **province})
 
-# ✅ Tìm kiếm theo tên (ví dụ: /api/search?name=can tho)
+# ✅ Tìm kiếm theo tên
 @app.route('/api/search', methods=['GET'])
 def search_province():
     name = request.args.get('name', '').lower()
     results = [
-        {"id": key, "ten": info["ten"], "mo_ta": info["mo_ta"]}
+        {"id": key, **info}  # Return all fields from info
         for key, info in dulieu.items()
         if name in info["ten"].lower()
     ]
