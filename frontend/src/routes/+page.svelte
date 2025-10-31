@@ -62,7 +62,7 @@
   {:else if !selectedProvince}
     <!-- Hiển thị 6 địa điểm ngẫu nhiên -->
     <section class="px-6 py-10 bg-linear-to-b from-sky-50 to-white">
-      <h2 class="text-3xl font-bold text-center text-sky-800 mb-8">📍 Địa điểm nổi bật</h2>
+      <h2 class="text-3xl font-bold text-center text-sky-800 mb-8">Địa điểm nổi bật</h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each randomPlaces as place}
@@ -95,7 +95,7 @@
       <img src={selectedProvince.anh_dai_dien} alt="Ảnh Tỉnh" class="w-full rounded-lg" />
 
       <section>
-        <h2 class="text-2xl font-semibold mt-6 mb-2">📍 Địa điểm nổi bật</h2>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Địa điểm nổi bật</h2>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
           {#each Object.entries(selectedProvince.dia_diem) as [name, info]}
             <li class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group">
@@ -110,7 +110,7 @@
       </section>
 
       <section>
-        <h2 class="text-2xl font-semibold mt-6 mb-2">🎭 Văn hoá</h2>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Văn hoá</h2>
         <ul class="list-disc list-inside">
           {#each selectedProvince.van_hoa as culture}
             <li>{culture}</li>
@@ -119,7 +119,7 @@
       </section>
 
       <section>
-        <h2 class="text-2xl font-semibold mt-6 mb-2">🍜 Món ăn đặc sản</h2>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Món ăn đặc sản</h2>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
           {#each Object.entries(selectedProvince.mon_an) as [dish, info]}
             <li class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group">
