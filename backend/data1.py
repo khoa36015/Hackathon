@@ -515,3 +515,36 @@ dulieu = {
         }
     }
 }
+
+import copy
+from typing import Any, Dict
+
+def _prefix_images(obj: Any, base_url: str) -> None:
+	"""
+	Recursive: thay tất cả chuỗi bắt đầu bằng "/static/" thành base_url + path.
+	Sửa trên đối tượng đã cho (in-place).
+	"""
+	if isinstance(obj, dict):
+		for k, v in obj.items():
+			if isinstance(v, str) and v.startswith("/static/"):
+				obj[k] = base_url.rstrip("/") + v
+			else:
+				_prefix_images(v, base_url)
+	elif isinstance(obj, list):
+		for i, item in enumerate(obj):
+			if isinstance(item, str) and item.startswith("/static/"):
+				obj[i] = base_url.rstrip("/") + item
+			else:
+				_prefix_images(item, base_url)
+
+def get_data(base_url: str = None) -> Dict:
+	"""
+	Trả về bản sao của `dulieu`.
+	Nếu base_url được cung cấp (ví dụ "http://localhost:5000"), các giá trị ảnh
+	bắt đầu bằng "/static/..." sẽ được đổi thành "http://.../static/...".
+	"""
+	if not base_url:
+		return copy.deepcopy(dulieu)
+	data = copy.deepcopy(dulieu)
+	_prefix_images(data, base_url)
+	return data
