@@ -64,36 +64,38 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour An Giang 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại An Giang.",
+            "ten": "Tour An Giang 2N1Đ – Châu Đốc – Núi Sam – Rừng Tràm Trà Sư",
+            "mo_ta": "Khởi hành Châu Đốc, viếng Miếu Bà Chúa Xứ Núi Sam, tham quan rừng tràm Trà Sư và chợ nổi Long Xuyên. Lịch trình mô phỏng chương trình thực tế của các công ty lữ hành An Giang. Nên đi mùa nước nổi (9–11).",
             "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "khoi_hanh": "Cần Thơ / TP.HCM (theo lịch)",
+            "gia_tham_khao": "1.300.000 – 1.700.000đ/khách",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm An Giang",
+                    "tieu_de": "TP.HCM/Cần Thơ – Châu Đốc – Núi Sam – Miếu Bà",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở An Giang",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                        "Di chuyển đến Châu Đốc nhận phòng",
+                        "Viếng Miếu Bà Chúa Xứ Núi Sam",
+                        "Tham quan lăng Thoại Ngọc Hầu",
+                        "Ăn trưa đặc sản bún cá / mắm Châu Đốc",
+                        "Tối dạo chợ Châu Đốc, nghỉ đêm"
                     ]
                 },
                 {
                     "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "tieu_de": "Châu Đốc – Rừng Tràm Trà Sư – Long Xuyên",
                     "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Đi tắc ráng vào rừng tràm Trà Sư, chụp ảnh tổ chim",
+                        "Lên đài quan sát ngắm toàn cảnh rừng ngập nước",
+                        "Ăn trưa với món đồng quê",
+                        "Ghé chợ nổi Long Xuyên (nếu còn thời gian)",
+                        "Trả khách về điểm đón"
                     ]
                 }
             ],
             "anh": {
-                "id": 101,
-                "url": "/static/images/tour_an_giang.jpg"
+                "id": 201,
+                "url": "/static/images/tour_an_giang_thuc_te.jpg"
             }
         }
     },
@@ -162,35 +164,42 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour Kiên Giang 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Kiên Giang.",
-            "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "ten": "Tour Kiên Giang – Phú Quốc 3N2Đ (Đông + Nam đảo)",
+            "mo_ta": "Tour chuẩn Phú Quốc gồm: Đông đảo (vườn tiêu, cơ sở nước mắm, Hòn Thơm cáp treo), Bắc đảo (Grand World, Vinpearl/Safari) và tắm biển + chợ đêm. Khởi hành từ Rạch Giá/Hà Tiên hoặc bay thẳng Phú Quốc.",
+            "thoi_luong": "3 ngày 2 đêm",
+            "khoi_hanh": "Rạch Giá / Hà Tiên / TP.HCM",
+            "gia_tham_khao": "3.500.000 – 6.500.000đ/khách (tùy vé máy bay)",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm Kiên Giang",
+                    "tieu_de": "Rạch Giá – Phú Quốc – tham quan Đông đảo",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở Kiên Giang",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                        "Di chuyển ra Phú Quốc bằng tàu cao tốc/máy bay",
+                        "Tham quan vườn tiêu, cơ sở nước mắm, rượu sim",
+                        "Tắm biển Bãi Sao",
+                        "Tối đi chợ đêm"
                     ]
                 },
                 {
                     "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "tieu_de": "Bắc đảo – Vinpearl/Safari – Grand World",
                     "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Tham quan VinWonders hoặc Safari (tùy chọn)",
+                        "Check-in Grand World",
+                        "Ăn hải sản Phú Quốc"
+                    ]
+                },
+                {
+                    "ngay": 3,
+                    "tieu_de": "Tự do – tiễn khách",
+                    "hoat_dong": [
+                        "Tự do tắm biển/mua đặc sản",
+                        "Tiễn khách ra sân bay/cảng"
                     ]
                 }
             ],
             "anh": {
-                "id": 102,
+                "id": 207,
                 "url": "/static/images/tour_kien_giang.jpg"
             }
         }
@@ -260,35 +269,35 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour Bến Tre 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Bến Tre.",
-            "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "ten": "Tour Mỹ Tho – Bến Tre 1 ngày – Cồn Phụng – Làng kẹo dừa – Đờn ca tài tử",
+            "mo_ta": "Tuyến kinh điển của Bến Tre: đi thuyền trên sông Tiền, tham quan lò kẹo dừa, đi xuồng chèo rạch dừa nước, nghe đờn ca tài tử, ăn cá tai tượng cuốn bánh tráng. Khởi hành hằng ngày từ TP.HCM.",
+            "thoi_luong": "1 ngày",
+            "khoi_hanh": "TP.HCM",
+            "gia_tham_khao": "390.000 – 850.000đ/khách",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm Bến Tre",
+                    "tieu_de": "Sài Gòn – Mỹ Tho – Chùa Vĩnh Tràng",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở Bến Tre",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                        "Khởi hành đi Mỹ Tho, tham quan chùa Vĩnh Tràng",
+                        "Xuống thuyền ra cồn Thới Sơn/cồn Phụng",
+                        "Thăm cơ sở làm kẹo dừa, ăn trái cây miệt vườn",
+                        "Nghe đờn ca tài tử"
                     ]
                 },
                 {
-                    "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "ngay": 1,
+                    "tieu_de": "Chèo xuồng – ăn trưa – mua đặc sản",
                     "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Chèo xuồng ba lá dưới rạch dừa nước",
+                        "Ăn trưa với cá tai tượng chiên xù, tép rang nước dừa",
+                        "Mua kẹo dừa, bánh phồng sữa làm quà",
+                        "Chiều về lại TP.HCM"
                     ]
                 }
             ],
             "anh": {
-                "id": 103,
+                "id": 205,
                 "url": "/static/images/tour_ben_tre.jpg"
             }
         }
@@ -358,35 +367,35 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour Cần Thơ 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Cần Thơ.",
-            "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "ten": "Tour Cần Thơ 1 ngày – Chợ nổi Cái Răng – Nhà cổ Bình Thủy – Vườn trái cây",
+            "mo_ta": "Tour sáng đi chợ nổi Cái Răng ăn sáng trên ghe, trưa về vườn trái cây/nhà vườn Cồn Sơn, chiều tham quan Nhà cổ Bình Thủy và Bến Ninh Kiều. Đây là tuyến phổ biến nhất Cần Thơ.",
+            "thoi_luong": "1 ngày (05:00 – 15:00)",
+            "khoi_hanh": "Bến Ninh Kiều",
+            "gia_tham_khao": "350.000 – 750.000đ/khách",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm Cần Thơ",
+                    "tieu_de": "05:00 – 10:30 Chợ nổi Cái Răng",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở Cần Thơ",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                        "Đón khách tại bến Ninh Kiều, lên tàu đi chợ nổi",
+                        "Ăn sáng hủ tiếu/bún/bánh mì trên ghe",
+                        "Tham quan lò hủ tiếu truyền thống",
+                        "Uống cà phê trên sông, chụp ảnh chợ nổi"
                     ]
                 },
                 {
-                    "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "ngay": 1,
+                    "tieu_de": "10:30 – 15:00 Vườn trái cây – Nhà cổ Bình Thủy",
                     "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Tham quan vườn trái cây/cồn Sơn",
+                        "Ăn trưa món miền Tây",
+                        "Chiều tham quan nhà cổ Bình Thủy",
+                        "Tự do check-in bến Ninh Kiều"
                     ]
                 }
             ],
             "anh": {
-                "id": 104,
+                "id": 204,
                 "url": "/static/images/tour_can_tho.jpg"
             }
         }
@@ -456,35 +465,36 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour Cà Mau 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Cà Mau.",
-            "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "ten": "Tour Cà Mau – Đất Mũi – U Minh Hạ 1N/2N",
+            "mo_ta": "Chương trình phổ biến: tham quan Mũi Cà Mau (cột mốc tọa độ quốc gia, cột mốc GPS 0001), đi vỏ lãi rừng ngập mặn, kết hợp rừng U Minh Hạ. Một số tuyến ghép đi Bạc Liêu – Sóc Trăng trước rồi vô Cà Mau.",
+            "thoi_luong": "1 ngày hoặc 2 ngày 1 đêm",
+            "khoi_hanh": "Cần Thơ / Cà Mau",
+            "gia_tham_khao": "699.000 – 1.800.000đ/khách",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm Cà Mau",
+                    "tieu_de": "TP. Cà Mau – Mũi Cà Mau – Cột mốc tọa độ",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở Cà Mau",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                        "Đi ca nô/vỏ lãi xuyên rừng ngập mặn đến Đất Mũi",
+                        "Check-in mốc tọa độ quốc gia, thuyền con rồng, cột mốc GPS 0001",
+                        "Tham quan tượng đài Mũi Cà Mau, pano mũi tàu",
+                        "Ăn trưa hải sản/đặc sản cua Cà Mau",
+                        "Chiều về lại Cà Mau, ghé chợ nổi Cà Mau (nếu kịp)"
                     ]
                 },
                 {
                     "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "tieu_de": "Rừng U Minh Hạ – mua đặc sản",
                     "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Tham quan rừng U Minh Hạ, đi xuồng kênh",
+                        "Tìm hiểu nghề ong mật rừng tràm",
+                        "Mua khô cá, tôm khô, mắm về làm quà",
+                        "Kết thúc tour"
                     ]
                 }
             ],
             "anh": {
-                "id": 105,
+                "id": 203,
                 "url": "/static/images/tour_ca_mau.jpg"
             }
         }
@@ -554,35 +564,36 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour Đồng Tháp 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Đồng Tháp.",
-            "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "ten": "Tour Đồng Tháp 1N/2N – Tràm Chim – Làng hoa Sa Đéc – Gáo Giồng",
+            "mo_ta": "Tour đặc trưng Đồng Tháp đưa khách đi Tràm Chim Tam Nông ngắm sếu, kết hợp làng hoa Sa Đéc và nhà cổ Huỳnh Thủy Lê. Phù hợp đi từ Cần Thơ hoặc TP.HCM.",
+            "thoi_luong": "1 ngày hoặc 2 ngày 1 đêm",
+            "khoi_hanh": "Cần Thơ / TP.HCM",
+            "gia_tham_khao": "690.000 – 1.500.000đ/khách",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm Đồng Tháp",
+                    "tieu_de": "TP.HCM – Cao Lãnh – Tràm Chim/Gáo Giồng",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở Đồng Tháp",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                        "Đón khách sáng sớm đi Đồng Tháp",
+                        "Đi xuồng/võ lãi tham quan Tràm Chim hoặc Gáo Giồng",
+                        "Ngắm chim, rừng tràm, trải nghiệm mùa nước nổi",
+                        "Ăn trưa tại nhà vườn với đặc sản cá lóc, điên điển",
+                        "Chiều về TP. Cao Lãnh nghỉ ngơi"
                     ]
                 },
                 {
                     "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "tieu_de": "Sa Đéc – Làng hoa – Nhà cổ Huỳnh Thủy Lê",
                     "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Tham quan làng hoa Sa Đéc",
+                        "Check-in nhà cổ Huỳnh Thủy Lê",
+                        "Mua quýt Lai Vung (theo mùa)",
+                        "Trả khách về điểm đón"
                     ]
                 }
             ],
             "anh": {
-                "id": 106,
+                "id": 202,
                 "url": "/static/images/tour_dong_thap.jpg"
             }
         }
@@ -652,35 +663,36 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour Sóc Trăng 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Sóc Trăng.",
+            "ten": "Tour Sóc Trăng – Bạc Liêu – Cà Mau 2N1Đ",
+            "mo_ta": "Tuyến phổ biến đi từ Cần Thơ: sáng Sóc Trăng (chùa Dơi, chùa Chén Kiểu), trưa Bạc Liêu (nhà công tử, điện gió, nhà thờ Tắc Sậy), ngày sau xuống Cà Mau và Đất Mũi.",
             "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "khoi_hanh": "Cần Thơ",
+            "gia_tham_khao": "1.800.000 – 2.400.000đ/khách",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm Sóc Trăng",
+                    "tieu_de": "Cần Thơ – Sóc Trăng – Bạc Liêu",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở Sóc Trăng",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                        "Tham quan chùa Dơi, chùa Chén Kiểu",
+                        "Ăn trưa với bún nước lèo Sóc Trăng",
+                        "Chiều đi Bạc Liêu thăm nhà Công tử Bạc Liêu",
+                        "Check-in cánh đồng điện gió",
+                        "Tối viếng nhà thờ Tắc Sậy (nếu kịp)"
                     ]
                 },
                 {
                     "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "tieu_de": "Bạc Liêu – Cà Mau – Đất Mũi",
                     "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Sáng đi Cà Mau",
+                        "Tham quan Đất Mũi, cột mốc tọa độ",
+                        "Ăn trưa hải sản",
+                        "Chiều về lại Cần Thơ"
                     ]
                 }
             ],
             "anh": {
-                "id": 107,
+                "id": 208,
                 "url": "/static/images/tour_soc_trang.jpg"
             }
         }
@@ -729,36 +741,28 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour Hậu Giang 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Hậu Giang.",
-            "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "ten": "Tour Hậu Giang nửa ngày – Khu bảo tồn Lung Ngọc Hoàng",
+            "mo_ta": "Tour sinh thái nhẹ, đi từ Cần Thơ khoảng 1 giờ. Vào khu bảo tồn bằng xuồng/xe điện, tìm hiểu hệ sinh thái rừng ngập, chụp ảnh đồng lúa và kênh rạch.",
+            "thoi_luong": "1/2 ngày hoặc 1 ngày",
+            "khoi_hanh": "Cần Thơ",
+            "gia_tham_khao": "450.000 – 700.000đ/khách",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm Hậu Giang",
+                    "tieu_de": "Cần Thơ – Lung Ngọc Hoàng",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở Hậu Giang",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
-                    ]
-                },
-                {
-                    "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
-                    "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Đón khách tại Cần Thơ, đi Hậu Giang",
+                        "Vào khu bảo tồn bằng xe điện",
+                        "Đi xuồng tham quan rừng tràm",
+                        "Check-in cầu gỗ/rạch nước",
+                        "Ăn trưa (nếu đi nguyên ngày)",
+                        "Chiều về lại Cần Thơ"
                     ]
                 }
             ],
             "anh": {
-                "id": 108,
-                "url": "/static/images/tour_haugiang.jpg"
+                "id": 212,
+                "url": "/static/images/tour_hau_giang.jpg"
             }
         }
     },
@@ -827,35 +831,26 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour Trà Vinh 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Trà Vinh.",
-            "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "ten": "Tour Trà Vinh 1 ngày – Ao Bà Om – chùa Âng – biển Ba Động",
+            "mo_ta": "Tuyến đặc trưng Trà Vinh: tham quan di sản văn hóa Khmer (chùa Âng), thắng cảnh Ao Bà Om, chiều tắm biển Ba Động hoặc đi KDL Cồn Chim.",
+            "thoi_luong": "1 ngày",
+            "khoi_hanh": "Cần Thơ / Trà Vinh / TP.HCM",
+            "gia_tham_khao": "690.000 – 1.100.000đ/khách",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm Trà Vinh",
+                    "tieu_de": "Văn hóa Khmer – Biển Ba Động",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở Trà Vinh",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
-                    ]
-                },
-                {
-                    "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
-                    "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Tham quan chùa Âng và bảo tàng văn hóa Khmer",
+                        "Check-in Ao Bà Om",
+                        "Ăn trưa đặc sản Trà Vinh (bún nước lèo, bánh canh Bến Có)",
+                        "Chiều đi biển Ba Động hoặc KDL Cồn Chim",
+                        "Trở về điểm đón"
                     ]
                 }
             ],
             "anh": {
-                "id": 109,
+                "id": 213,
                 "url": "/static/images/tour_tra_vinh.jpg"
             }
         }
@@ -925,35 +920,26 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour Bạc Liêu 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Bạc Liêu.",
-            "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "ten": "Tour Bạc Liêu 1 ngày – Nhà Công tử – Điện gió – Tắc Sậy",
+            "mo_ta": "City tour Bạc Liêu trong ngày thường đi từ Cần Thơ/Sóc Trăng: thăm nhà Công tử Bạc Liêu, khu tưởng niệm Cao Văn Lầu, cánh đồng điện gió và nhà thờ Tắc Sậy.",
+            "thoi_luong": "1 ngày",
+            "khoi_hanh": "Cần Thơ / Sóc Trăng / Bạc Liêu",
+            "gia_tham_khao": "750.000 – 1.100.000đ/khách",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm Bạc Liêu",
+                    "tieu_de": "Tham quan các điểm nổi bật Bạc Liêu",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở Bạc Liêu",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
-                    ]
-                },
-                {
-                    "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
-                    "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Tham quan nhà Công tử Bạc Liêu",
+                        "Thăm khu lưu niệm Cao Văn Lầu",
+                        "Check-in cánh đồng điện gió Bạc Liêu",
+                        "Chiều đi nhà thờ Tắc Sậy",
+                        "Mua bánh củ cải, khô cá làm quà"
                     ]
                 }
             ],
             "anh": {
-                "id": 110,
+                "id": 209,
                 "url": "/static/images/tour_bac_lieu.jpg"
             }
         }
@@ -1016,35 +1002,26 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour Vĩnh Long 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Vĩnh Long.",
-            "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "ten": "Tour Vĩnh Long 1 ngày – Cù lao An Bình – miệt vườn – homestay",
+            "mo_ta": "Tour lên tàu sang cù lao An Bình, ăn trưa tại nhà vườn, nghe đờn ca tài tử và tham quan lò gạch/làng nghề. Có thể kết hợp ngủ homestay trên cù lao.",
+            "thoi_luong": "1 ngày (có thể nâng 2N1Đ)",
+            "khoi_hanh": "Vĩnh Long / Cần Thơ",
+            "gia_tham_khao": "350.000 – 900.000đ/khách",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm Vĩnh Long",
+                    "tieu_de": "Cù lao An Bình – nhà vườn – đờn ca",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở Vĩnh Long",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
-                    ]
-                },
-                {
-                    "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
-                    "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Đi tàu sang cù lao An Bình",
+                        "Ăn trái cây, nghe đờn ca tài tử",
+                        "Ăn trưa tại nhà vườn",
+                        "Tham quan lò gạch/làng nghề",
+                        "Chiều về bến"
                     ]
                 }
             ],
             "anh": {
-                "id": 111,
+                "id": 210,
                 "url": "/static/images/tour_vinh_long.jpg"
             }
         }
@@ -1100,35 +1077,27 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour Long An 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Long An.",
-            "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "ten": "Tour Long An 1 ngày – Làng nổi Tân Lập – đường xuyên rừng tràm",
+            "mo_ta": "Tour cực phổ biến của Long An: đi từ Sài Gòn khoảng 2 giờ, check-in rừng tràm, đi xuồng, chụp ảnh trên cầu chữ V, có thể ghé Thiền viện Trúc Lâm Chánh Giác.",
+            "thoi_luong": "1 ngày",
+            "khoi_hanh": "TP.HCM (thứ 7, CN)",
+            "gia_tham_khao": "590.000 – 800.000đ/khách",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm Long An",
+                    "tieu_de": "TP.HCM – Làng nổi Tân Lập",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở Long An",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
-                    ]
-                },
-                {
-                    "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
-                    "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Đón khách tại TP.HCM đi Long An",
+                        "Tham quan làng nổi Tân Lập, đi xuồng trên kênh",
+                        "Đi bộ đường xuyên rừng tràm",
+                        "Ăn trưa đặc sản địa phương",
+                        "Chiều ghé Thiền viện Trúc Lâm Chánh Giác (nếu kịp)",
+                        "Trở về TP.HCM"
                     ]
                 }
             ],
             "anh": {
-                "id": 112,
+                "id": 211,
                 "url": "/static/images/tour_long_an.jpg"
             }
         }
@@ -1191,35 +1160,35 @@ dulieu = {
             }
         },
         "tour": {
-            "ten": "Tour Tiền Giang 2N1Đ – Khám phá điểm nổi bật",
-            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Tiền Giang.",
-            "thoi_luong": "2 ngày 1 đêm",
-            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "ten": "Tour Tiền Giang 1 ngày – Chợ nổi Cái Bè – Cù lao Thới Sơn",
+            "mo_ta": "Tour tham quan vùng ven sông Tiền: chợ nổi Cái Bè, cơ sở kẹo, làng nghề, vườn trái cây và đờn ca tài tử. Nội dung tương tự Mỹ Tho – Bến Tre nhưng xuất phát gần miền Tây hơn.",
+            "thoi_luong": "1 ngày",
+            "khoi_hanh": "TP.HCM / Mỹ Tho",
+            "gia_tham_khao": "450.000 – 900.000đ/khách",
             "lich_trinh": [
                 {
                     "ngay": 1,
-                    "tieu_de": "Khám phá trung tâm Tiền Giang",
+                    "tieu_de": "Chợ nổi Cái Bè – làng nghề",
                     "hoat_dong": [
-                        "Tham quan các điểm văn hóa nổi bật ở Tiền Giang",
-                        "Dùng bữa trưa với món đặc sản địa phương",
-                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
-                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                        "Lên thuyền tham quan chợ nổi Cái Bè",
+                        "Thăm lò cốm, lò kẹo, bánh tráng",
+                        "Nghe đờn ca tài tử",
+                        "Ăn trái cây theo mùa"
                     ]
                 },
                 {
-                    "ngay": 2,
-                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "ngay": 1,
+                    "tieu_de": "Cù lao Thới Sơn – về bến",
                     "hoat_dong": [
-                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
-                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
-                        "Dùng bữa trưa",
-                        "Mua sắm đặc sản địa phương",
-                        "Kết thúc tour và tiễn khách"
+                        "Đi xe ngựa/xe lôi quanh làng",
+                        "Ăn trưa đặc sản miền Tây",
+                        "Chiều lên thuyền về lại bến",
+                        "Trả khách"
                     ]
                 }
             ],
             "anh": {
-                "id": 113,
+                "id": 206,
                 "url": "/static/images/tour_tien_giang.jpg"
             }
         }
