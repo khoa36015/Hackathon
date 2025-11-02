@@ -62,6 +62,39 @@ dulieu = {
                     "url": "/static/images/banhxeonuisam.jpg"
                 }
             }
+        },
+        "tour": {
+            "ten": "Tour An Giang 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại An Giang.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm An Giang",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở An Giang",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 101,
+                "url": "/static/images/tour_an_giang.jpg"
+            }
         }
     },
     "kien_giang": {
@@ -126,6 +159,39 @@ dulieu = {
                     "id": 16,
                     "url": "/static/images/coibienmainuong.jpg"
                 }
+            }
+        },
+        "tour": {
+            "ten": "Tour Kiên Giang 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Kiên Giang.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm Kiên Giang",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở Kiên Giang",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 102,
+                "url": "/static/images/tour_kien_giang.jpg"
             }
         }
     },
@@ -192,6 +258,39 @@ dulieu = {
                     "url": "/static/images/chuoidapnuong.jpg"
                 }
             }
+        },
+        "tour": {
+            "ten": "Tour Bến Tre 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Bến Tre.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm Bến Tre",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở Bến Tre",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 103,
+                "url": "/static/images/tour_ben_tre.jpg"
+            }
         }
     },
     "can_tho": {
@@ -256,6 +355,39 @@ dulieu = {
                     "id": 32,
                     "url": "/static/images/banhcongcantho.jpg"
                 }
+            }
+        },
+        "tour": {
+            "ten": "Tour Cần Thơ 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Cần Thơ.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm Cần Thơ",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở Cần Thơ",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 104,
+                "url": "/static/images/tour_can_tho.jpg"
             }
         }
     },
@@ -322,6 +454,39 @@ dulieu = {
                     "url": "/static/images/cuacamau.jpg"
                 }
             }
+        },
+        "tour": {
+            "ten": "Tour Cà Mau 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Cà Mau.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm Cà Mau",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở Cà Mau",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 105,
+                "url": "/static/images/tour_ca_mau.jpg"
+            }
         }
     },
     "dong_thap": {
@@ -386,6 +551,39 @@ dulieu = {
                     "id": 48,
                     "url": "/static/images/xoingusac.jpg"
                 }
+            }
+        },
+        "tour": {
+            "ten": "Tour Đồng Tháp 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Đồng Tháp.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm Đồng Tháp",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở Đồng Tháp",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 106,
+                "url": "/static/images/tour_dong_thap.jpg"
             }
         }
     },
@@ -452,6 +650,39 @@ dulieu = {
                     "url": "/static/images/bungoida.jpg"
                 }
             }
+        },
+        "tour": {
+            "ten": "Tour Sóc Trăng 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Sóc Trăng.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm Sóc Trăng",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở Sóc Trăng",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 107,
+                "url": "/static/images/tour_soc_trang.jpg"
+            }
         }
     },
     "haugiang": {
@@ -495,6 +726,39 @@ dulieu = {
                     "id": 61,
                     "url": "/static/images/banhxeocuhudua.jpg"
                 }
+            }
+        },
+        "tour": {
+            "ten": "Tour Hậu Giang 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Hậu Giang.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm Hậu Giang",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở Hậu Giang",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 108,
+                "url": "/static/images/tour_haugiang.jpg"
             }
         }
     },
@@ -561,6 +825,39 @@ dulieu = {
                     "url": "/static/images/bunsuong.jpg"
                 }
             }
+        },
+        "tour": {
+            "ten": "Tour Trà Vinh 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Trà Vinh.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm Trà Vinh",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở Trà Vinh",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 109,
+                "url": "/static/images/tour_tra_vinh.jpg"
+            }
         }
     },
     "bac_lieu": {
@@ -626,6 +923,39 @@ dulieu = {
                     "url": "/static/images/bunbocaybaclieu.jpg"
                 }
             }
+        },
+        "tour": {
+            "ten": "Tour Bạc Liêu 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Bạc Liêu.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm Bạc Liêu",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở Bạc Liêu",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 110,
+                "url": "/static/images/tour_bac_lieu.jpg"
+            }
         }
     },
     "vinh_long": {
@@ -684,6 +1014,39 @@ dulieu = {
                     "url": "/static/images/chuoinepnuong.jpg"
                 }
             }
+        },
+        "tour": {
+            "ten": "Tour Vĩnh Long 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Vĩnh Long.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm Vĩnh Long",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở Vĩnh Long",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 111,
+                "url": "/static/images/tour_vinh_long.jpg"
+            }
         }
     },
     "long_an": {
@@ -734,6 +1097,39 @@ dulieu = {
                     "id": 90,
                     "url": "/static/images/banhtetlongan.jpg"
                 }
+            }
+        },
+        "tour": {
+            "ten": "Tour Long An 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Long An.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm Long An",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở Long An",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 112,
+                "url": "/static/images/tour_long_an.jpg"
             }
         }
     },
@@ -792,6 +1188,39 @@ dulieu = {
                     "id": 97,
                     "url": "/static/images/banhvatiengiang.jpg"
                 }
+            }
+        },
+        "tour": {
+            "ten": "Tour Tiền Giang 2N1Đ – Khám phá điểm nổi bật",
+            "mo_ta": "Hành trình tham quan các địa danh nổi tiếng và đặc sắc tại Tiền Giang.",
+            "thoi_luong": "2 ngày 1 đêm",
+            "gia_du_kien": "1.200.000 - 1.800.000 VNĐ/người",
+            "lich_trinh": [
+                {
+                    "ngay": 1,
+                    "tieu_de": "Khám phá trung tâm Tiền Giang",
+                    "hoat_dong": [
+                        "Tham quan các điểm văn hóa nổi bật ở Tiền Giang",
+                        "Dùng bữa trưa với món đặc sản địa phương",
+                        "Chiều tham quan và chụp ảnh tại điểm du lịch nổi bật",
+                        "Tối nghỉ ngơi tại khách sạn trung tâm"
+                    ]
+                },
+                {
+                    "ngay": 2,
+                    "tieu_de": "Tham quan khu sinh thái và chợ địa phương",
+                    "hoat_dong": [
+                        "Khởi hành sớm tham quan khu sinh thái đặc trưng",
+                        "Trải nghiệm văn hóa chợ nổi / làng nghề truyền thống",
+                        "Dùng bữa trưa",
+                        "Mua sắm đặc sản địa phương",
+                        "Kết thúc tour và tiễn khách"
+                    ]
+                }
+            ],
+            "anh": {
+                "id": 113,
+                "url": "/static/images/tour_tien_giang.jpg"
             }
         }
     }
