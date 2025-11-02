@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from data import  tours
 from data1 import dulieu
 import random
 
