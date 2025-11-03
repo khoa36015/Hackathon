@@ -2,142 +2,318 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>Test API Tỉnh Miền Tây</title>
+  <title>Test API Miền Tây</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+    body {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      height: 100vh;
+    }
+    aside {
+      border-right: 1px solid #1f2937;
+      background: #111827;
+      overflow-y: auto;
+    }
+    main {
+      padding: 16px;
+      overflow-y: auto;
+    }
+    h1 {
+      font-size: 1.1rem;
+      margin: 12px 0;
+    }
+    .panel {
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 12px;
+      background: #0f172a;
+      margin-bottom: 12px;
+    }
+    .input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    input {
+      flex: 1;
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 1px solid #1f2937;
+      background: #111827;
+      color: #e2e8f0;
+    }
+    button {
+      background: #2563eb;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:disabled {
+      background: #1f2937;
+      cursor: not-allowed;
+    }
+    .province-item {
+      padding: 6px 10px;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+    .province-item:hover {
+      background: rgba(37, 99, 235, 0.15);
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(148, 163, 184, 0.2);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 9999px;
+      padding: 3px 10px;
+      font-size: 0.7rem;
+      margin: 2px 4px 0 0;
+    }
+    pre {
+      background: #020617;
+      padding: 10px;
+      border-radius: 10px;
+      overflow-x: auto;
+      border: 1px solid #1f2937;
+    }
+    .section-title {
+      font-weight: 600;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      font-size: .8rem;
+      opacity: .7;
+    }
+    .result-card {
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      background: rgba(15, 23, 42, 0.3);
+    }
+  </style>
 </head>
-<body class="bg-slate-100 min-h-screen">
-  <div class="max-w-5xl mx-auto py-6 px-4">
-    <h1 class="text-2xl font-bold mb-4 text-slate-800">Test API tỉnh (Flask)</h1>
+<body>
+  <aside>
+    <div class="panel">
+      <h1>📍 Provinces</h1>
+      <button onclick="loadProvinces()">Reload</button>
+    </div>
+    <div id="province-list"></div>
+  </aside>
+  <main>
+    <h1>🧪 Miền Tây API Tester</h1>
 
-    <!-- API base -->
-    <div class="mb-4">
-      <label class="block text-sm font-medium mb-1">API base</label>
-      <input id="apiBase" value="http://127.0.0.1:1311" class="w-full border rounded px-3 py-2" />
-      <p class="text-xs text-slate-500 mt-1">Nếu bạn deploy sang port khác thì đổi ở đây.</p>
+    <!-- Search by name -->
+    <div class="panel">
+      <h2>Tìm theo tên tỉnh</h2>
+      <div class="input-row">
+        <input id="search-name" placeholder="ví dụ: An Giang, Cần Thơ..." />
+        <button onclick="searchByName()">Search</button>
+      </div>
+      <div id="search-name-result"></div>
     </div>
 
-    <!-- Actions -->
-    <div class="flex flex-wrap gap-3 mb-6">
-      <button id="btnAll" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">Lấy tất cả tỉnh</button>
-
-      <div class="flex gap-2 items-center">
-        <input id="searchInput" placeholder="vd: an giang" class="border rounded px-2 py-1" />
-        <button id="btnSearch" class="bg-emerald-600 text-white px-4 py-2 rounded hover:bg-emerald-700 text-sm">Tìm kiếm</button>
+    <!-- Search by hashtag -->
+    <div class="panel">
+      <h2>Tìm theo hashtag</h2>
+      <p class="subtitle">Ví dụ: <code>#kham_pha</code>, <code>#am_thuc</code>, <code>#tam_linh</code>, <code>#bien</code></p>
+      <div class="input-row">
+        <input id="search-hashtag" placeholder="#kham_pha" />
+        <button onclick="searchByHashtag()">Search</button>
       </div>
-
-      <div class="flex gap-2 items-center">
-        <input id="detailInput" placeholder="id (vd: angiang)" class="border rounded px-2 py-1" />
-        <button id="btnDetail" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 text-sm">Xem chi tiết</button>
-      </div>
+      <div id="search-hashtag-result"></div>
     </div>
 
-    <!-- Result -->
-    <div id="alert" class="hidden mb-4 px-4 py-2 rounded bg-red-100 text-red-700 text-sm"></div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <!-- Danh sách -->
-      <div class="bg-white shadow rounded p-4">
-        <h2 class="font-semibold mb-2">Kết quả</h2>
-        <pre id="result" class="text-xs bg-slate-900 text-slate-100 p-3 rounded overflow-auto max-h-[400px]"></pre>
-      </div>
-
-      <!-- Preview dạng thẻ -->
-      <div class="bg-white shadow rounded p-4">
-        <h2 class="font-semibold mb-2">Preview nhanh</h2>
-        <div id="cards" class="space-y-2 max-h-[400px] overflow-auto"></div>
-      </div>
+    <!-- Province detail -->
+    <div class="panel">
+      <h2>Chi tiết tỉnh</h2>
+      <div id="province-detail">Chọn 1 tỉnh ở bên trái để xem chi tiết.</div>
     </div>
-  </div>
+
+    <!-- Raw response -->
+    <div class="panel">
+      <h2>Raw JSON</h2>
+      <pre id="raw-json">...</pre>
+    </div>
+  </main>
 
   <script>
-    const apiBaseEl = document.getElementById('apiBase');
-    const resultEl = document.getElementById('result');
-    const cardsEl = document.getElementById('cards');
-    const alertEl = document.getElementById('alert');
+    const BASE_URL = "http://127.0.0.1:1311";
 
-    function showError(msg) {
-      alertEl.textContent = msg;
-      alertEl.classList.remove('hidden');
-      setTimeout(() => alertEl.classList.add('hidden'), 3500);
-    }
-
-    function renderJSON(data) {
-      resultEl.textContent = JSON.stringify(data, null, 2);
-    }
-
-    function renderCards(data) {
-      cardsEl.innerHTML = '';
-      const arr = Array.isArray(data) ? data : [data];
-      arr.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'border rounded p-3';
-        div.innerHTML = `
-          <div class="text-sm text-slate-500 mb-1">ID: <span class="font-mono">${item.id || '-'}</span></div>
-          <div class="font-semibold mb-1">${item.ten || 'Không có tên'}</div>
-          ${item.mo_ta ? `<p class="text-sm text-slate-600">${item.mo_ta}</p>` : ''}
-        `;
-        cardsEl.appendChild(div);
-      });
-    }
-
-    // Lấy tất cả
-    document.getElementById('btnAll').addEventListener('click', async () => {
-      const base = apiBaseEl.value.trim();
+    async function loadProvinces() {
+      const list = document.getElementById("province-list");
+      list.innerHTML = "Đang tải...";
       try {
-        const res = await fetch(`${base}/api/provinces`);
-        if (!res.ok) throw new Error('API lỗi: ' + res.status);
+        const res = await fetch(`${BASE_URL}/api/provinces`);
+        if (!res.ok) throw new Error("Fail to load provinces");
         const data = await res.json();
-        renderJSON(data);
-        renderCards(data);
+        list.innerHTML = "";
+        data.forEach(p => {
+          const div = document.createElement("div");
+          div.className = "province-item";
+          div.textContent = p.ten + " (" + p.id + ")";
+          div.onclick = () => loadProvinceDetail(p.id);
+          list.appendChild(div);
+        });
+        setRaw(data);
       } catch (err) {
-        showError(err.message);
+        list.innerHTML = "Lỗi tải provinces: " + err.message;
       }
-    });
+    }
 
-    // Tìm kiếm
-    document.getElementById('btnSearch').addEventListener('click', async () => {
-      const base = apiBaseEl.value.trim();
-      const q = document.getElementById('searchInput').value.trim();
-      if (!q) return showError('Nhập tên để tìm kiếm');
+    async function loadProvinceDetail(id) {
+      const detail = document.getElementById("province-detail");
+      detail.innerHTML = "Đang tải chi tiết " + id + "...";
       try {
-        const res = await fetch(`${base}/api/search?name=${encodeURIComponent(q)}`);
+        const res = await fetch(`${BASE_URL}/api/province/${id}`);
+        if (!res.ok) throw new Error("Không tìm thấy tỉnh");
+        const data = await res.json();
+        detail.innerHTML = renderProvinceDetail(data);
+        setRaw(data);
+      } catch (err) {
+        detail.innerHTML = "Lỗi: " + err.message;
+      }
+    }
+
+    function renderProvinceDetail(p) {
+      let html = `<h3>${p.ten}</h3>`;
+      html += `<p>${p.mo_ta || ""}</p>`;
+      // tour
+      if (p.tour) {
+        html += `<div class="section-title">🧭 Tour gợi ý</div>`;
+        html += `<div class="result-card">
+          <strong>${p.tour.ten || ""}</strong><br/>
+          <small>${p.tour.mo_ta || ""}</small><br/>
+          <small>⏱ ${p.tour.thoi_luong || ""}</small><br/>
+          <small>💵 ${p.tour.gia_tham_khao || p.tour.gia_du_kien || ""}</small>
+        </div>`;
+      }
+      // địa điểm
+      if (p.dia_diem) {
+        html += `<div class="section-title">🗺 Địa điểm</div>`;
+        Object.entries(p.dia_diem).forEach(([name, info]) => {
+          html += `<div class="result-card">
+            <strong>${name}</strong><br/>
+            <small>${info.mo_ta || ""}</small><br/>`;
+          if (info.hashtags && info.hashtags.length) {
+            info.hashtags.forEach(h => {
+              html += `<span class="badge">${h}</span>`;
+            });
+          }
+          html += `</div>`;
+        });
+      }
+      // món ăn
+      if (p.mon_an) {
+        html += `<div class="section-title">🍜 Món ăn</div>`;
+        Object.entries(p.mon_an).forEach(([name, info]) => {
+          html += `<div class="result-card">
+            <strong>${name}</strong><br/>
+            <small>${info.mo_ta || ""}</small><br/>`;
+          if (info.hashtags && info.hashtags.length) {
+            info.hashtags.forEach(h => {
+              html += `<span class="badge">${h}</span>`;
+            });
+          }
+          html += `</div>`;
+        });
+      }
+      return html;
+    }
+
+    async function searchByName() {
+      const q = document.getElementById("search-name").value.trim();
+      const box = document.getElementById("search-name-result");
+      if (!q) {
+        box.innerHTML = "Nhập tên tỉnh trước.";
+        return;
+      }
+      box.innerHTML = "Đang tìm...";
+      try {
+        const res = await fetch(`${BASE_URL}/api/search?name=${encodeURIComponent(q)}`);
+        if (!res.ok) throw new Error("Không tìm thấy tỉnh phù hợp");
+        const data = await res.json();
+        box.innerHTML = "";
+        data.forEach(p => {
+          const card = document.createElement("div");
+          card.className = "result-card";
+          card.innerHTML = `<strong>${p.ten}</strong> <small>(${p.id})</small><br/>${p.mo_ta || ""}`;
+          card.onclick = () => loadProvinceDetail(p.id);
+          box.appendChild(card);
+        });
+        setRaw(data);
+      } catch (err) {
+        box.innerHTML = "Lỗi: " + err.message;
+      }
+    }
+
+    async function searchByHashtag() {
+      const q = document.getElementById("search-hashtag").value.trim();
+      const box = document.getElementById("search-hashtag-result");
+      if (!q) {
+        box.innerHTML = "Nhập hashtag trước.";
+        return;
+      }
+      box.innerHTML = "Đang tìm...";
+      try {
+        const res = await fetch(`${BASE_URL}/api/search/hashtag?tag=${encodeURIComponent(q)}`);
         if (!res.ok) {
-          const txt = await res.text();
-          throw new Error(txt || 'API lỗi: ' + res.status);
+          const errText = await res.text();
+          throw new Error(errText || "Không tìm thấy");
         }
         const data = await res.json();
-        renderJSON(data);
-        renderCards(data);
+        box.innerHTML = "";
+        data.results.forEach(item => {
+          const wrap = document.createElement("div");
+          wrap.className = "result-card";
+          let inner = `<strong>${item.province_name}</strong> <small>(${item.province_id})</small><br/>`;
+          if (item.dia_diem && item.dia_diem.length) {
+            inner += `<div class="section-title">Địa điểm:</div>`;
+            item.dia_diem.forEach(d => {
+              inner += `<div><strong>${d.ten}</strong></div>`;
+              if (d.hashtags) {
+                d.hashtags.forEach(h => inner += `<span class="badge">${h}</span>`);
+              }
+            });
+          }
+          if (item.mon_an && item.mon_an.length) {
+            inner += `<div class="section-title">Món ăn:</div>`;
+            item.mon_an.forEach(m => {
+              inner += `<div><strong>${m.ten}</strong></div>`;
+              if (m.hashtags) {
+                m.hashtags.forEach(h => inner += `<span class="badge">${h}</span>`);
+              }
+            });
+          }
+          wrap.innerHTML = inner;
+          box.appendChild(wrap);
+        });
+        setRaw(data);
       } catch (err) {
-        showError(err.message);
+        box.innerHTML = "Lỗi: " + err.message;
       }
-    });
+    }
 
-    // Xem chi tiết
-    document.getElementById('btnDetail').addEventListener('click', async () => {
-      const base = apiBaseEl.value.trim();
-      const id = document.getElementById('detailInput').value.trim();
-      if (!id) return showError('Nhập id tỉnh, ví dụ: angiang');
-      try {
-        const res = await fetch(`${base}/api/province/${encodeURIComponent(id)}`);
-        if (!res.ok) {
-          const txt = await res.text();
-          throw new Error(txt || 'API lỗi: ' + res.status);
-        }
-        const data = await res.json();
-        renderJSON(data);
-        renderCards(data);
-      } catch (err) {
-        showError(err.message);
-      }
-    });
+    function setRaw(data) {
+      const pre = document.getElementById("raw-json");
+      pre.textContent = JSON.stringify(data, null, 2);
+    }
 
-    // Auto load all khi mở trang
-    window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('btnAll').click();
-    });
+    // load lúc mở trang
+    loadProvinces();
   </script>
 </body>
 </html>
