@@ -5,18 +5,19 @@
     let randomProvinces = [];
 
     function getRandomPlaces(provinces, count = 6) {
+        let places = [];
 
         for (const provinceKey in provinces) {
-        const province = provinces[provinceKey];
-        if (province?.dia_diem) {
-            for (const [name, info] of Object.entries(province.dia_diem)) {
-            provinces.push({ name, ...info, province: province.ten });
+            const province = provinces[provinceKey];
+            if (province?.dia_diem) {
+                for (const [name, info] of Object.entries(province.dia_diem)) {
+                    places.push({ name, ...info, province: province.ten });
+                }
             }
-        }
         }
 
         // Trộn ngẫu nhiên và lấy số lượng yêu cầu
-        return provinces.sort(() => Math.random() - 0.5).slice(0, count);
+        return places.sort(() => Math.random() - 0.5).slice(0, count);
     }
 
     onMount(async () => {
@@ -36,7 +37,7 @@
     <h2 class="text-3xl font-bold text-center text-sky-800 mb-8">Địa điểm nổi bật</h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    {#each randomPlaces as place}
+    {#each randomProvinces as place}
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-[1.02] hover:shadow-xl">
         <div class="h-48 w-full overflow-hidden">
             <img src={place.anh} alt={place.name} class="w-full h-full object-cover transition duration-300 group-hover:scale-105" />
@@ -52,7 +53,7 @@
 
     <div class="mt-10 flex justify-center">
     <button
-        on:click={() => randomPlaces = getRandomPlaces(allProvinces)}
+        on:click={() => randomProvinces = getRandomPlaces(provinces)}
         class="bg-sky-600 hover:bg-sky-700 text-white font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300">
         🔁 Gợi ý khác
     </button>
