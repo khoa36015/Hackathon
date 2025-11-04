@@ -1,58 +1,216 @@
-<div id="hashtag-container">
-  <span class="hashtag" data-tag="#vui_ve">giải trí</span>
-  <span class="hashtag" data-tag="#tam_linh">tâm linh</span>
-  <span class="hashtag" data-tag="#thien_nhien">thiên nhiên</span>
-  <span class="hashtag" data-tag="#lich_su">lịch sử</span> 
-  <span class="hashtag" data-tag="#van_hoa">văn hoá</span>
-  <span class="hashtag" data-tag="#am_thuc">ẩm thực</span>
-  <span class="hashtag" data-tag="#bien">biển</span>
-  <span class="hashtag" data-tag="#kham_pha">khám phá</span>
-</div>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tester • Anh Ba Sỉn API</title>
+  <style>
+    :root{--bg:#0b0c10;--card:#111318;--muted:#9aa4af;--text:#e5e7eb;--accent:#22d3ee;--ok:#22c55e;--bad:#ef4444}
+    *{box-sizing:border-box}
+    body{margin:0;font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{max-width:980px;margin:24px auto;padding:16px}
+    .card{background:var(--card);border:1px solid #1f242b;border-radius:16px;padding:16px;box-shadow:0 10px 25px rgba(0,0,0,.25)}
+    h1{font-size:22px;margin:0 0 12px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+    label{display:block;font-weight:600;margin-bottom:6px;color:var(--muted)}
+    input,select,textarea,button{width:100%;padding:10px 12px;border-radius:12px;border:1px solid #2a3038;background:#0d0f14;color:var(--text)}
+    textarea{min-height:120px;resize:vertical}
+    button{cursor:pointer;background:#0d1117;border-color:#2a3038;font-weight:700}
+    .primary{background:linear-gradient(135deg,#00bcd4,#3b82f6);border:0}
+    .ghost{background:#0d0f14}
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap}
+    .muted{color:var(--muted)}
+    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #2a3038;background:#0d0f14;padding:6px 10px;border-radius:999px}
+    pre{background:#0b0e13;border:1px solid #1f242b;border-radius:12px;padding:12px;overflow:auto}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12.5px}
+    .status{display:flex;gap:8px;align-items:center}
+    .dot{width:10px;height:10px;border-radius:99px;background:var(--muted)}
+    .ok{background:var(--ok)}.bad{background:var(--bad)}
+    .hint{font-size:12px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media (max-width:900px){.row,.row3,.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" style="margin-bottom:16px">
+      <h1>Tester • <span class="muted">/api/ai/agent</span></h1>
+      <div class="row">
+        <div>
+          <label for="url">API URL</label>
+          <input id="url" value="http://localhost:8000/api/ai/agent" />
+          <div class="hint">Đặt đúng host/port nơi bạn chạy Flask.</div>
+        </div>
+        <div class="status" style="justify-content:flex-end">
+          <span class="pill"><span id="healthDot" class="dot"></span> <span id="healthText" class="muted">Chưa kiểm tra</span></span>
+          <button class="ghost" id="btnHealth">GET /api/ai/agent</button>
+        </div>
+      </div>
+    </div>
 
-<div id="results"></div>
+    <div class="grid">
+      <div class="card">
+        <h1>Gửi yêu cầu</h1>
+        <div class="row">
+          <div>
+            <label for="message">message</label>
+            <textarea id="message" placeholder="Ví dụ: Lịch trình 2 ngày ở Cần Thơ?">Lịch trình 2 ngày ở Cần Thơ?</textarea>
+          </div>
+          <div>
+            <label for="tips">Notes</label>
+            <textarea id="notes" placeholder="Ghi chú cho bản thân (không gửi lên API)"></textarea>
+          </div>
+        </div>
+        <div class="row3" style="margin-top:12px">
+          <div>
+            <label for="model">model (tùy chọn)</label>
+            <input id="model" placeholder="openai/gpt-4o-mini (mặc định ở server)" />
+          </div>
+          <div>
+            <label for="temperature">temperature</label>
+            <input id="temperature" type="number" step="0.1" min="0" max="2" value="0.2" />
+          </div>
+          <div>
+            <label for="maxTokens">max_tokens</label>
+            <input id="maxTokens" type="number" min="1" max="20480" value="512" />
+          </div>
+        </div>
+        <div class="toolbar" style="margin-top:12px">
+          <button class="primary" id="btnSend">POST /api/ai/agent</button>
+          <button class="ghost" id="btnCurl">Copy cURL</button>
+          <button class="ghost" id="btnSave">Lưu cấu hình</button>
+          <span class="muted" id="timing"></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h1>Kết quả</h1>
+        <div class="row">
+          <div>
+            <label>HTTP</label>
+            <div class="pill"><span id="httpCode">—</span> · <span id="bytes">0 B</span> · <span id="elapsed">0 ms</span></div>
+          </div>
+          <div style="text-align:right">
+            <label class="muted">on_topic</label>
+            <div class="pill"><span id="onTopic">—</span></div>
+          </div>
+        </div>
+        <label style="margin-top:12px">Body (JSON)</label>
+        <pre><code id="out">{ }</code></pre>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h1>Logs</h1>
+      <pre><code id="log"></code></pre>
+    </div>
+  </div>
 
 <script>
-const hashtags = document.querySelectorAll(".hashtag");
+const $ = (s)=>document.querySelector(s)
+const log = (m)=>{$('#log').textContent += (new Date().toLocaleTimeString())+"  "+m+"\n"}
 
-hashtags.forEach(tag => {
-  tag.addEventListener("click", async () => {
-    const tagValue = tag.getAttribute("data-tag");
-    const res = await fetch(`/api/search_by_hashtag/${tagValue}`);
-    const data = await res.json();
+function save(){
+  const data={
+    url: $('#url').value.trim(),
+    model: $('#model').value.trim(),
+    temperature: $('#temperature').value,
+    maxTokens: $('#maxTokens').value,
+    message: $('#message').value
+  }
+  localStorage.setItem('absin_config', JSON.stringify(data))
+  log('Đã lưu cấu hình vào LocalStorage')
+}
 
-    // hiển thị kết quả
-    const resultsDiv = document.getElementById("results");
-    resultsDiv.innerHTML = data.map(item => `
-      <div class="card">
-        <h3>${item.ten}</h3>
-        <p>${item.mo_ta}</p>
-      </div>
-    `).join("");
-  });
-});
+function restore(){
+  try{const raw=localStorage.getItem('absin_config'); if(!raw) return; const d=JSON.parse(raw);
+    if(d.url) $('#url').value=d.url
+    if(d.model) $('#model').value=d.model
+    if(d.temperature) $('#temperature').value=d.temperature
+    if(d.maxTokens) $('#maxTokens').value=d.maxTokens
+    if(d.message) $('#message').value=d.message
+  }catch(e){}
+}
+
+async function health(){
+  const base = $('#url').value.trim().replace(/\/api\/ai\/agent$/, '')
+  const url = base + '/api/ai/agent'
+  const t0=performance.now()
+  try{
+    const r = await fetch(url, {method:'GET'})
+    const t1=performance.now()
+    $('#healthDot').classList.remove('ok','bad')
+    if(r.ok){
+      $('#healthDot').classList.add('ok'); $('#healthText').textContent = 'Healthy ('+Math.round(t1-t0)+' ms)'
+    } else {
+      $('#healthDot').classList.add('bad'); $('#healthText').textContent = 'HTTP '+r.status
+    }
+  }catch(err){
+    $('#healthDot').classList.add('bad'); $('#healthText').textContent = 'Không kết nối được'
+  }
+}
+
+function asCurl(){
+  const url=$('#url').value.trim()
+  const body={message:$('#message').value}
+  if($('#model').value.trim()) body.model=$('#model').value.trim()
+  const t=parseFloat($('#temperature').value)
+  if(!Number.isNaN(t)) body.temperature=t
+  const m=parseInt($('#maxTokens').value,10)
+  if(Number.isFinite(m)) body.max_tokens=m
+
+  const curl = [
+    'curl -X POST '+JSON.stringify(url),
+    "-H 'Content-Type: application/json'",
+    "-d "+JSON.stringify(JSON.stringify(body))
+  ].join(' \\\n  ')
+  navigator.clipboard.writeText(curl)
+  log('Đã copy cURL vào clipboard')
+}
+
+async function send(){
+  const url=$('#url').value.trim()
+  const payload={ message: $('#message').value }
+  const model=$('#model').value.trim(); if(model) payload.model=model
+  const t=parseFloat($('#temperature').value); if(!Number.isNaN(t)) payload.temperature=t
+  const m=parseInt($('#maxTokens').value,10); if(Number.isFinite(m)) payload.max_tokens=m
+
+  $('#out').textContent = '{ }'
+  $('#httpCode').textContent = '…'; $('#bytes').textContent='…'; $('#elapsed').textContent='…';
+  const t0=performance.now()
+  try{
+    const r = await fetch(url, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    })
+    const txt = await r.text();
+    const t1=performance.now()
+    $('#httpCode').textContent = r.status
+    $('#elapsed').textContent = Math.round(t1-t0)+' ms'
+    $('#bytes').textContent = new Blob([txt]).size + ' B'
+
+    let data
+    try{ data = JSON.parse(txt) }catch(e){ data = { raw: txt } }
+    $('#onTopic').textContent = (data && typeof data.on_topic!== 'undefined') ? String(data.on_topic) : '—'
+    $('#out').textContent = JSON.stringify(data, null, 2)
+    log('POST ok • HTTP '+r.status)
+  } catch(err){
+    $('#httpCode').textContent = 'ERR'
+    $('#elapsed').textContent = '—'
+    $('#bytes').textContent = '—'
+    $('#out').textContent = JSON.stringify({ error: String(err) }, null, 2)
+    $('#onTopic').textContent = '—'
+    log('POST error: '+err)
+  }
+}
+
+$('#btnHealth').addEventListener('click', health)
+$('#btnSend').addEventListener('click', send)
+$('#btnCurl').addEventListener('click', asCurl)
+$('#btnSave').addEventListener('click', save)
+
+restore();
 </script>
-
-<style>
-#hashtag-container {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.hashtag {
-  background: #e6f4ff;
-  border-radius: 20px;
-  padding: 5px 12px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.hashtag:hover {
-  background: #cde4ff;
-}
-.card {
-  background: white;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-</style>
+</body>
+</html>
