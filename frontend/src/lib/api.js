@@ -1,4 +1,4 @@
-export const API_AUTH = 'http://34.158.61.248/api';
+export const API_AUTH = 'http://34.158.61.248:3000/api';
 
 export async function register(username, password) {
   const res = await fetch(`${API_AUTH}/register`, {
