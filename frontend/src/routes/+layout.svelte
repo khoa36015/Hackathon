@@ -1,19 +1,15 @@
-<script lang="js">
-  let { children } = $props();
-  import '../app.css';
-  import { onMount } from 'svelte';
-  import { checkSession } from '$lib/api';
-  import { session } from '$lib/stores/session';
+<script>
+    import '../app.css';
+    import Header from '$lib/components/Header.svelte';
+    import Footer from '$lib/components/Footer.svelte';
 
-  onMount(async () => {
-    const data = await checkSession();
-    session.set({
-      isLoggedIn: data.isLoggedIn,
-      username: data.username
-    });
-  });
+    let keyword = '';
+
+    function handleSearch(e) {
+        keyword = e.detail.keyword;
+    }
 </script>
 
-<main>
-{@render children()}
-</main>
+<Header on:search={handleSearch} />
+<slot {keyword}/>
+<Footer />

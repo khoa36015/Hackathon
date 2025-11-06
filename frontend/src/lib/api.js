@@ -1,5 +1,4 @@
 export const API_AUTH = 'http://localhost:3000/api';
-export const API_PROVINCE = 'http://localhost:1311/api';
 
 export async function register(username, password) {
   const res = await fetch(`${API_AUTH}/register`, {
@@ -38,15 +37,15 @@ export async function logout() {
 }
 
 export async function getProvinces() {
-  const res = await fetch(`${API_PROVINCE}/provinces`, {
+  const res = await fetch(`${API_AUTH}/provinces`, {
     method: 'GET',
     credentials: 'include'
   });
   return await res.json();
 }
 
-export async function getDetailProvice() {
-  const res = await fetch(`${API_PROVINCE}/province/<province_id>`, {
+export async function getDetailProvince() {
+  const res = await fetch(`${API_AUTH}/province/<province_id>`, {
     method: 'GET',
     credentials: 'include'
   });

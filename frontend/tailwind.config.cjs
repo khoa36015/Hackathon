@@ -3,9 +3,6 @@ module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{svelte,ts,js}'],
   theme: {
-    fontFamily: {
-      display: ["Fleur De Leah", "cursive"],
-    },
     extend: {
       colors: {
         brand: {

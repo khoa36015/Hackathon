@@ -4,14 +4,14 @@ dulieu = {
         "mo_ta": "Vùng đất tâm linh và hùng vĩ, nơi có núi Sam, Bà Chúa Xứ và cảnh quan sông núi đặc trưng.",
         "anh_dai_dien": {
             "id": 1,
-            "url": "/static/images/angiang.jpg"
+            "url": "/angiang.jpg"
         },
         "dia_diem": {
             "Núi Sam": {
                 "mo_ta": "Điểm du lịch tâm linh nổi tiếng với Miếu Bà Chúa Xứ linh thiêng.",
                 "anh": {
                     "id": 2,
-                    "url": "/static/images/nuisam.jpg"
+                    "url": "/nuisam.jpg"
                 },
                 "hashtags": [
                     "#kham_pha",
@@ -23,7 +23,7 @@ dulieu = {
                 "mo_ta": "Khu sinh thái ngập nước tiêu biểu của miền Tây, nổi tiếng với vẻ đẹp xanh mướt.",
                 "anh": {
                     "id": 3,
-                    "url": "/static/images/rungtramtrasu.jpg"
+                    "url": "/rungtramtrasu.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -34,7 +34,7 @@ dulieu = {
                 "mo_ta": "Nơi buôn bán nhộn nhịp trên sông Hậu, mang đậm văn hóa sông nước.",
                 "anh": {
                     "id": 4,
-                    "url": "/static/images/chonoilongxuyen.jpg"
+                    "url": "/chonoilongxuyen.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -47,7 +47,7 @@ dulieu = {
                 "mo_ta": "‘Tuyệt tình cốc’ của miền Tây với làn nước xanh ngọc bích.",
                 "anh": {
                     "id": 5,
-                    "url": "/static/images/hotapa.jpg"
+                    "url": "/hotapa.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -64,7 +64,7 @@ dulieu = {
                 "mo_ta": "Món đặc sản trứ danh với hương vị đậm đà.",
                 "anh": {
                     "id": 6,
-                    "url": "/static/images/buncachaudoc.jpg"
+                    "url": "/buncachaudoc.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -76,7 +76,7 @@ dulieu = {
                 "mo_ta": "Đặc sản làm từ cá lên men, hương vị đặc trưng miền Tây.",
                 "anh": {
                     "id": 7,
-                    "url": "/static/images/mamchaudoc.jpg"
+                    "url": "/mamchaudoc.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -88,7 +88,7 @@ dulieu = {
                 "mo_ta": "Vỏ giòn, nhân tôm thịt, ăn kèm rau rừng.",
                 "anh": {
                     "id": 8,
-                    "url": "/static/images/banhxeonuisam.jpg"
+                    "url": "/banhxeonuisam.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -128,7 +128,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 201,
-                "url": "/static/images/tour_an_giang_thuc_te.jpg"
+                "url": "/tour_an_giang_thuc_te.jpg"
             }
         }
     },
@@ -137,14 +137,14 @@ dulieu = {
         "mo_ta": "Thiên đường biển đảo của miền Tây, nổi bật với Phú Quốc, Nam Du và Hòn Sơn.",
         "anh_dai_dien": {
             "id": 9,
-            "url": "/static/images/kiengiang.jpg"
+            "url": "/kiengiang.jpg"
         },
         "dia_diem": {
             "Phú Quốc": {
                 "mo_ta": "Hòn đảo ngọc với biển xanh và cát trắng mịn.",
                 "anh": {
                     "id": 10,
-                    "url": "/static/images/phuquoc.jpg"
+                    "url": "/phuquoc.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -156,7 +156,7 @@ dulieu = {
                 "mo_ta": "Quần đảo hoang sơ với nước biển trong vắt.",
                 "anh": {
                     "id": 11,
-                    "url": "/static/images/namdu.jpg"
+                    "url": "/namdu.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -168,7 +168,7 @@ dulieu = {
                 "mo_ta": "Thiên nhiên trong lành, là điểm đến yêu thích của dân phượt.",
                 "anh": {
                     "id": 12,
-                    "url": "/static/images/honson.jpg"
+                    "url": "/honson.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -180,7 +180,7 @@ dulieu = {
                 "mo_ta": "Thành phố biển hiện đại, trung tâm hành chính của Kiên Giang.",
                 "anh": {
                     "id": 13,
-                    "url": "/static/images/rachgia.jpg"
+                    "url": "/rachgia.jpg"
                 },
                 "hashtags": [
                     "#giai_tri",
@@ -198,7 +198,7 @@ dulieu = {
                 "mo_ta": "Món đặc sản Phú Quốc nổi tiếng, ăn kèm rau rừng.",
                 "anh": {
                     "id": 14,
-                    "url": "/static/images/goicatrich.jpg"
+                    "url": "/goicatrich.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -210,7 +210,7 @@ dulieu = {
                 "mo_ta": "Sợi bún tươi trộn nước chấm tự pha, hương vị độc đáo.",
                 "anh": {
                     "id": 15,
-                    "url": "/static/images/bunquaykiengiang.jpg"
+                    "url": "/bunquaykiengiang.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -221,7 +221,7 @@ dulieu = {
                 "mo_ta": "Đặc sản biển Phú Quốc được nhiều du khách ưa chuộng.",
                 "anh": {
                     "id": 16,
-                    "url": "/static/images/coibienmainuong.jpg"
+                    "url": "/coibienmainuong.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -267,7 +267,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 207,
-                "url": "/static/images/tour_kien_giang.jpg"
+                "url": "/tour_kien_giang.jpg"
             }
         }
     },
@@ -276,14 +276,14 @@ dulieu = {
         "mo_ta": "Xứ dừa yên bình, quê hương của những làng nghề thủ công và món ngon miệt vườn.",
         "anh_dai_dien": {
             "id": 17,
-            "url": "/static/images/bentre.jpg"
+            "url": "/bentre.jpg"
         },
         "dia_diem": {
             "Cồn Phụng": {
                 "mo_ta": "Điểm du lịch sinh thái nổi tiếng ven sông Tiền.",
                 "anh": {
                     "id": 18,
-                    "url": "/static/images/conphung.jpg"
+                    "url": "/conphung.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -294,7 +294,7 @@ dulieu = {
                 "mo_ta": "Nổi tiếng khắp cả nước, du khách có thể tham quan quy trình làm kẹo.",
                 "anh": {
                     "id": 19,
-                    "url": "/static/images/langnghekeodua.jpg"
+                    "url": "/langnghekeodua.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -305,7 +305,7 @@ dulieu = {
                 "mo_ta": "Thiên đường cây ăn trái quanh năm trĩu quả.",
                 "anh": {
                     "id": 20,
-                    "url": "/static/images/vuontraicaycholach.jpg"
+                    "url": "/vuontraicaycholach.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -316,7 +316,7 @@ dulieu = {
                 "mo_ta": "Công trình kiến trúc cổ mang dấu ấn văn hóa miền Tây.",
                 "anh": {
                     "id": 21,
-                    "url": "/static/images/nhacohuynhphu.jpg"
+                    "url": "/nhacohuynhphu.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -333,7 +333,7 @@ dulieu = {
                 "mo_ta": "Đặc sản nổi tiếng của Bến Tre, ngọt béo và thơm lừng.",
                 "anh": {
                     "id": 22,
-                    "url": "/static/images/keodua.jpg"
+                    "url": "/keodua.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -345,7 +345,7 @@ dulieu = {
                 "mo_ta": "Món ăn dân dã, đậm vị quê hương miền Tây.",
                 "anh": {
                     "id": 23,
-                    "url": "/static/images/cakhoto.jpg"
+                    "url": "/cakhoto.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -356,7 +356,7 @@ dulieu = {
                 "mo_ta": "Món ăn vặt giản dị nhưng đậm đà hương vị miệt vườn.",
                 "anh": {
                     "id": 24,
-                    "url": "/static/images/chuoidapnuong.jpg"
+                    "url": "/chuoidapnuong.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -394,7 +394,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 205,
-                "url": "/static/images/tour_ben_tre.jpg"
+                "url": "/tour_ben_tre.jpg"
             }
         }
     },
@@ -403,14 +403,14 @@ dulieu = {
         "mo_ta": "Trung tâm kinh tế, văn hóa của miền Tây, nổi tiếng với chợ nổi Cái Răng và bến Ninh Kiều.",
         "anh_dai_dien": {
             "id": 25,
-            "url": "/static/images/cantho.jpg"
+            "url": "/cantho.jpg"
         },
         "dia_diem": {
             "Bến Ninh Kiều": {
                 "mo_ta": "Biểu tượng của thành phố, nơi du khách ngắm sông Hậu và thành phố về đêm.",
                 "anh": {
                     "id": 26,
-                    "url": "/static/images/benninhkieu.jpg"
+                    "url": "/benninhkieu.jpg"
                 },
                 "hashtags": [
                     "#giai_tri",
@@ -422,7 +422,7 @@ dulieu = {
                 "mo_ta": "Nơi thể hiện rõ nhất nét văn hóa sông nước miền Tây.",
                 "anh": {
                     "id": 27,
-                    "url": "/static/images/chonoicairang.jpg"
+                    "url": "/chonoicairang.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -435,7 +435,7 @@ dulieu = {
                 "mo_ta": "Ngôi nhà cổ hơn 100 năm tuổi, pha trộn kiến trúc Đông - Tây.",
                 "anh": {
                     "id": 28,
-                    "url": "/static/images/nhacobinhthuy.jpg"
+                    "url": "/nhacobinhthuy.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -446,7 +446,7 @@ dulieu = {
                 "mo_ta": "Cây cầu dây văng lớn nhất miền Tây, biểu tượng hiện đại của vùng.",
                 "anh": {
                     "id": 29,
-                    "url": "/static/images/caucantho.jpg"
+                    "url": "/caucantho.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -463,7 +463,7 @@ dulieu = {
                 "mo_ta": "Món ăn trứ danh miền sông nước với mùi vị đậm đà.",
                 "anh": {
                     "id": 30,
-                    "url": "/static/images/laumamcantho.jpg"
+                    "url": "/laumamcantho.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -474,7 +474,7 @@ dulieu = {
                 "mo_ta": "Món ăn dân dã, cay thơm, thường thấy ở các quán ven sông.",
                 "anh": {
                     "id": 31,
-                    "url": "/static/images/octieunuong.jpg"
+                    "url": "/octieunuong.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -485,7 +485,7 @@ dulieu = {
                 "mo_ta": "Vỏ giòn rụm, nhân tôm thịt, chấm nước mắm chua ngọt.",
                 "anh": {
                     "id": 32,
-                    "url": "/static/images/banhcongcantho.jpg"
+                    "url": "/banhcongcantho.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -523,7 +523,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 204,
-                "url": "/static/images/tour_can_tho.jpg"
+                "url": "/tour_can_tho.jpg"
             }
         }
     },
@@ -532,14 +532,14 @@ dulieu = {
         "mo_ta": "Mảnh đất cực Nam của Tổ quốc, nơi có Mũi Cà Mau thiêng liêng và hệ sinh thái rừng ngập mặn độc đáo.",
         "anh_dai_dien": {
             "id": 33,
-            "url": "/static/images/camau.jpg"
+            "url": "/camau.jpg"
         },
         "dia_diem": {
             "Mũi Cà Mau": {
                 "mo_ta": "Cột mốc thiêng liêng nơi tận cùng đất nước.",
                 "anh": {
                     "id": 34,
-                    "url": "/static/images/muicamau.jpg"
+                    "url": "/muicamau.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -550,7 +550,7 @@ dulieu = {
                 "mo_ta": "Khu dự trữ sinh quyển, nơi sinh sống của nhiều loài động vật quý hiếm.",
                 "anh": {
                     "id": 35,
-                    "url": "/static/images/runguminhha.jpg"
+                    "url": "/runguminhha.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -561,7 +561,7 @@ dulieu = {
                 "mo_ta": "Quần thể đá granite kỳ vĩ nằm ven biển.",
                 "anh": {
                     "id": 36,
-                    "url": "/static/images/hondabac.jpg"
+                    "url": "/hondabac.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -573,7 +573,7 @@ dulieu = {
                 "mo_ta": "Nơi giao thương nhộn nhịp giữa các ghe hàng trên sông.",
                 "anh": {
                     "id": 37,
-                    "url": "/static/images/chonoicamau.jpg"
+                    "url": "/chonoicamau.jpg"
                 },
                 "hashtags": [
                     "#giai_tri",
@@ -591,7 +591,7 @@ dulieu = {
                 "mo_ta": "Đặc sản trứ danh, mặn mà hương vị biển Tây Nam.",
                 "anh": {
                     "id": 38,
-                    "url": "/static/images/bakhiamuoi.jpg"
+                    "url": "/bakhiamuoi.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -603,7 +603,7 @@ dulieu = {
                 "mo_ta": "Món ăn dân dã, quy tụ tinh hoa ẩm thực Cà Mau.",
                 "anh": {
                     "id": 39,
-                    "url": "/static/images/laumamuminh.jpg"
+                    "url": "/laumamuminh.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -614,7 +614,7 @@ dulieu = {
                 "mo_ta": "Nổi tiếng cả nước với thịt ngọt, chắc và thơm.",
                 "anh": {
                     "id": 40,
-                    "url": "/static/images/cuacamau.jpg"
+                    "url": "/cuacamau.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -654,7 +654,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 203,
-                "url": "/static/images/tour_ca_mau.jpg"
+                "url": "/tour_ca_mau.jpg"
             }
         }
     },
@@ -663,14 +663,14 @@ dulieu = {
         "mo_ta": "Miền sen hồng rực rỡ, với những cánh đồng sen và làng hoa Sa Đéc.",
         "anh_dai_dien": {
             "id": 41,
-            "url": "/static/images/dongthap.jpg"
+            "url": "/dongthap.jpg"
         },
         "dia_diem": {
             "Làng hoa Sa Đéc": {
                 "mo_ta": "Thiên đường hoa rực rỡ quanh năm.",
                 "anh": {
                     "id": 42,
-                    "url": "/static/images/langhoasadec.jpg"
+                    "url": "/langhoasadec.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -681,7 +681,7 @@ dulieu = {
                 "mo_ta": "Khu rừng tràm lịch sử, gắn liền kháng chiến.",
                 "anh": {
                     "id": 43,
-                    "url": "/static/images/khudulichxeoquyt.jpg"
+                    "url": "/khudulichxeoquyt.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -692,7 +692,7 @@ dulieu = {
                 "mo_ta": "Nơi trú ngụ của hàng trăm loài chim quý hiếm.",
                 "anh": {
                     "id": 44,
-                    "url": "/static/images/tramchimtamnong.jpg"
+                    "url": "/tramchimtamnong.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -703,7 +703,7 @@ dulieu = {
                 "mo_ta": "Công trình kiến trúc Pháp cổ nổi tiếng.",
                 "anh": {
                     "id": 45,
-                    "url": "/static/images/nhacohuynhthuyle.jpg"
+                    "url": "/nhacohuynhthuyle.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -720,7 +720,7 @@ dulieu = {
                 "mo_ta": "Sợi hủ tiếu dẻo, nước dùng ngọt thanh đặc trưng.",
                 "anh": {
                     "id": 46,
-                    "url": "/static/images/hutieusadec.jpg"
+                    "url": "/hutieusadec.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -731,7 +731,7 @@ dulieu = {
                 "mo_ta": "Đặc sản dân dã, giòn thơm hấp dẫn.",
                 "anh": {
                     "id": 47,
-                    "url": "/static/images/chuotdongnuong.jpg"
+                    "url": "/chuotdongnuong.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -743,7 +743,7 @@ dulieu = {
                 "mo_ta": "Món xôi đặc trưng được làm từ gạo nếp thơm.",
                 "anh": {
                     "id": 48,
-                    "url": "/static/images/xoingusac.jpg"
+                    "url": "/xoingusac.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -782,7 +782,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 202,
-                "url": "/static/images/tour_dong_thap.jpg"
+                "url": "/tour_dong_thap.jpg"
             }
         }
     },
@@ -791,14 +791,14 @@ dulieu = {
         "mo_ta": "Vùng đất giao thoa văn hóa Việt - Hoa - Khmer, nổi bật với chùa Dơi và chùa Chén Kiểu.",
         "anh_dai_dien": {
             "id": 49,
-            "url": "/static/images/soctrang.jpg"
+            "url": "/soctrang.jpg"
         },
         "dia_diem": {
             "Chùa Dơi": {
                 "mo_ta": "Ngôi chùa Khmer cổ kính, nơi sinh sống của hàng ngàn con dơi.",
                 "anh": {
                     "id": 50,
-                    "url": "/static/images/chuadoi.jpg"
+                    "url": "/chuadoi.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -809,7 +809,7 @@ dulieu = {
                 "mo_ta": "Ngôi chùa độc đáo với tường khảm chén sứ.",
                 "anh": {
                     "id": 51,
-                    "url": "/static/images/chuachenkieu.jpg"
+                    "url": "/chuachenkieu.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -820,7 +820,7 @@ dulieu = {
                 "mo_ta": "Điểm thư giãn lý tưởng giữa lòng thành phố.",
                 "anh": {
                     "id": 52,
-                    "url": "/static/images/khudulichhonuocngot.jpg"
+                    "url": "/khudulichhonuocngot.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -831,7 +831,7 @@ dulieu = {
                 "mo_ta": "Chợ nổi giao thương tấp nập trên sông.",
                 "anh": {
                     "id": 53,
-                    "url": "/static/images/chonoinganam.jpg"
+                    "url": "/chonoinganam.jpg"
                 },
                 "hashtags": [
                     "#giai_tri",
@@ -849,7 +849,7 @@ dulieu = {
                 "mo_ta": "Món ăn biểu tượng của vùng, kết hợp cá, tôm, heo quay.",
                 "anh": {
                     "id": 54,
-                    "url": "/static/images/bunnuocleosoctrang.jpg"
+                    "url": "/bunnuocleosoctrang.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -860,7 +860,7 @@ dulieu = {
                 "mo_ta": "Đặc sản nổi tiếng toàn quốc, nhân sầu riêng trứng muối.",
                 "anh": {
                     "id": 55,
-                    "url": "/static/images/banhpia.jpg"
+                    "url": "/banhpia.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -872,7 +872,7 @@ dulieu = {
                 "mo_ta": "Hương vị chua ngọt đặc trưng, hấp dẫn lạ miệng.",
                 "anh": {
                     "id": 56,
-                    "url": "/static/images/bungoida.jpg"
+                    "url": "/bungoida.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -911,7 +911,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 208,
-                "url": "/static/images/tour_soc_trang.jpg"
+                "url": "/tour_soc_trang.jpg"
             }
         }
     },
@@ -920,14 +920,14 @@ dulieu = {
         "mo_ta": "Trái tim của miền Tây, nơi lưu giữ nét đẹp văn hóa sông nước và những khu sinh thái miệt vườn đặc trưng.",
         "anh_dai_dien": {
             "id": 57,
-            "url": "/static/images/haugiang.jpg"
+            "url": "/haugiang.jpg"
         },
         "dia_diem": {
             "Khu du lịch sinh thái Lung Ngọc Hoàng": {
                 "mo_ta": "Khu sinh thái đẹp với hệ sinh thái đa dạng.",
                 "anh": {
                     "id": 58,
-                    "url": "/static/images/khudulichsinhthaingochoang.jpg"
+                    "url": "/khudulichsinhthaingochoang.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -938,7 +938,7 @@ dulieu = {
                 "mo_ta": "Điểm giao thương sầm uất trên sông.",
                 "anh": {
                     "id": 59,
-                    "url": "/static/images/chonoingabay.jpg"
+                    "url": "/chonoingabay.jpg"
                 },
                 "hashtags": [
                     "#giai_tri",
@@ -956,7 +956,7 @@ dulieu = {
                 "mo_ta": "Món ăn đặc trưng của vùng sông nước.",
                 "anh": {
                     "id": 60,
-                    "url": "/static/images/laumamhaugiang.jpg"
+                    "url": "/laumamhaugiang.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -967,7 +967,7 @@ dulieu = {
                 "mo_ta": "Bánh xèo độc đáo với nhân củ hủ dừa.",
                 "anh": {
                     "id": 61,
-                    "url": "/static/images/banhxeocuhudua.jpg"
+                    "url": "/banhxeocuhudua.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -997,7 +997,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 212,
-                "url": "/static/images/tour_hau_giang.jpg"
+                "url": "/tour_hau_giang.jpg"
             }
         }
     },
@@ -1006,14 +1006,14 @@ dulieu = {
         "mo_ta": "Vùng đất của chùa Khmer, mang nét văn hóa đặc sắc và thiên nhiên thanh bình.",
         "anh_dai_dien": {
             "id": 62,
-            "url": "/static/images/travinh.jpg"
+            "url": "/travinh.jpg"
         },
         "dia_diem": {
             "Ao Bà Om": {
                 "mo_ta": "Hồ nước nổi tiếng, được bao quanh bởi rừng cổ thụ.",
                 "anh": {
                     "id": 63,
-                    "url": "/static/images/aobaom.jpg"
+                    "url": "/aobaom.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1024,7 +1024,7 @@ dulieu = {
                 "mo_ta": "Ngôi chùa Khmer cổ kính, nằm cạnh Ao Bà Om.",
                 "anh": {
                     "id": 64,
-                    "url": "/static/images/chuaang.jpg"
+                    "url": "/chuaang.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1035,7 +1035,7 @@ dulieu = {
                 "mo_ta": "Nơi lưu giữ các hiện vật văn hóa truyền thống Khmer.",
                 "anh": {
                     "id": 65,
-                    "url": "/static/images/baotangkhmer.jpg"
+                    "url": "/baotangkhmer.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1046,7 +1046,7 @@ dulieu = {
                 "mo_ta": "Khu du lịch biển nổi tiếng, thu hút nhiều du khách.",
                 "anh": {
                     "id": 66,
-                    "url": "/static/images/bienbadong.jpg"
+                    "url": "/bienbadong.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -1064,7 +1064,7 @@ dulieu = {
                 "mo_ta": "Đặc sản mang hương vị riêng biệt, thơm ngon đậm đà.",
                 "anh": {
                     "id": 67,
-                    "url": "/static/images/bunnuocleotravinh.jpg"
+                    "url": "/bunnuocleotravinh.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1076,7 +1076,7 @@ dulieu = {
                 "mo_ta": "Nổi tiếng với nước dùng ngọt thanh và sợi bánh dai ngon.",
                 "anh": {
                     "id": 68,
-                    "url": "/static/images/banhcanhbenco.jpg"
+                    "url": "/banhcanhbenco.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1088,7 +1088,7 @@ dulieu = {
                 "mo_ta": "Món ăn dân dã, hấp dẫn với vị tôm đặc trưng.",
                 "anh": {
                     "id": 69,
-                    "url": "/static/images/bunsuong.jpg"
+                    "url": "/bunsuong.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1117,7 +1117,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 213,
-                "url": "/static/images/tour_tra_vinh.jpg"
+                "url": "/tour_tra_vinh.jpg"
             }
         }
     },
@@ -1126,14 +1126,14 @@ dulieu = {
         "mo_ta": "Vùng đất trù phú, gắn với giai thoại Công tử Bạc Liêu và văn hóa đờn ca tài tử.",
         "anh_dai_dien": {
             "id": 70,
-            "url": "/static/images/baclieu.jpg"
+            "url": "/baclieu.jpg"
         },
         "dia_diem": {
             "Nhà Công tử Bạc Liêu": {
                 "mo_ta": "Ngôi biệt thự cổ của vị công tử nổi tiếng miền Nam.",
                 "anh": {
                     "id": 71,
-                    "url": "/static/images/nhacongtubaclieu.jpg"
+                    "url": "/nhacongtubaclieu.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1144,7 +1144,7 @@ dulieu = {
                 "mo_ta": "Biểu tượng mới của du lịch Bạc Liêu.",
                 "anh": {
                     "id": 72,
-                    "url": "/static/images/canhdongquatgio.jpg"
+                    "url": "/canhdongquatgio.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1155,7 +1155,7 @@ dulieu = {
                 "mo_ta": "Nơi tưởng nhớ tác giả bài Dạ cổ hoài lang.",
                 "anh": {
                     "id": 73,
-                    "url": "/static/images/khuluuniemcaovanlau.jpg"
+                    "url": "/khuluuniemcaovanlau.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1166,7 +1166,7 @@ dulieu = {
                 "mo_ta": "Địa điểm hành hương nổi tiếng của người dân miền Tây.",
                 "anh": {
                     "id": 74,
-                    "url": "/static/images/nhathotacsay.jpg"
+                    "url": "/nhathotacsay.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1183,7 +1183,7 @@ dulieu = {
                 "mo_ta": "Đặc sản dân dã, giòn thơm vị tôm khô và củ cải.",
                 "anh": {
                     "id": 75,
-                    "url": "/static/images/banhcucai.jpg"
+                    "url": "/banhcucai.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1195,7 +1195,7 @@ dulieu = {
                 "mo_ta": "Món ăn đặc trưng của vùng, hương vị đậm đà.",
                 "anh": {
                     "id": 76,
-                    "url": "/static/images/laumambaclieu.jpg"
+                    "url": "/laumambaclieu.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1206,7 +1206,7 @@ dulieu = {
                 "mo_ta": "Món ăn đặc sản cay nồng khó quên.",
                 "anh": {
                     "id": 77,
-                    "url": "/static/images/bunbocaybaclieu.jpg"
+                    "url": "/bunbocaybaclieu.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1236,7 +1236,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 209,
-                "url": "/static/images/tour_bac_lieu.jpg"
+                "url": "/tour_bac_lieu.jpg"
             }
         }
     },
@@ -1245,14 +1245,14 @@ dulieu = {
         "mo_ta": "Vùng đất trù phú giữa sông Tiền và sông Hậu, nổi tiếng với miệt vườn trái cây.",
         "anh_dai_dien": {
             "id": 78,
-            "url": "/static/images/vinhlong.jpg"
+            "url": "/vinhlong.jpg"
         },
         "dia_diem": {
             "Cù Lao An Bình": {
                 "mo_ta": "Địa điểm du lịch sinh thái nổi tiếng với miệt vườn trĩu quả.",
                 "anh": {
                     "id": 79,
-                    "url": "/static/images/culaonanbinh.jpg"
+                    "url": "/culaonanbinh.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -1264,7 +1264,7 @@ dulieu = {
                 "mo_ta": "Khu vui chơi giải trí và trải nghiệm văn hóa miền Tây.",
                 "anh": {
                     "id": 80,
-                    "url": "/static/images/khudulichvinhsang.jpg"
+                    "url": "/khudulichvinhsang.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -1275,7 +1275,7 @@ dulieu = {
                 "mo_ta": "Công trình kiến trúc cổ đặc trưng Nam Bộ.",
                 "anh": {
                     "id": 81,
-                    "url": "/static/images/nhacocaicuong.jpg"
+                    "url": "/nhacocaicuong.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1292,7 +1292,7 @@ dulieu = {
                 "mo_ta": "Món lẩu dân dã đậm hương vị miền Tây.",
                 "anh": {
                     "id": 82,
-                    "url": "/static/images/laucakheo.jpg"
+                    "url": "/laucakheo.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1303,7 +1303,7 @@ dulieu = {
                 "mo_ta": "Vỏ bánh giòn rụm, nhân tôm thịt hấp dẫn.",
                 "anh": {
                     "id": 83,
-                    "url": "/static/images/banhxeovinhlong.jpg"
+                    "url": "/banhxeovinhlong.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1314,7 +1314,7 @@ dulieu = {
                 "mo_ta": "Món ăn vặt thơm ngon, được yêu thích khắp miền Tây.",
                 "anh": {
                     "id": 84,
-                    "url": "/static/images/chuoinepnuong.jpg"
+                    "url": "/chuoinepnuong.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1343,7 +1343,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 210,
-                "url": "/static/images/tour_vinh_long.jpg"
+                "url": "/tour_vinh_long.jpg"
             }
         }
     },
@@ -1352,14 +1352,14 @@ dulieu = {
         "mo_ta": "Cửa ngõ miền Tây, nơi hội tụ nét đẹp của đồng bằng và vùng giáp ranh Đông Nam Bộ.",
         "anh_dai_dien": {
             "id": 85,
-            "url": "/static/images/longan.jpg"
+            "url": "/longan.jpg"
         },
         "dia_diem": {
             "Làng nổi Tân Lập": {
                 "mo_ta": "Khu du lịch sinh thái rừng tràm nổi tiếng.",
                 "anh": {
                     "id": 86,
-                    "url": "/static/images/langnoitanlap.jpg"
+                    "url": "/langnoitanlap.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1370,7 +1370,7 @@ dulieu = {
                 "mo_ta": "Công trình cổ kính mang đậm dấu ấn lịch sử.",
                 "anh": {
                     "id": 87,
-                    "url": "/static/images/nhacotranvanho.jpg"
+                    "url": "/nhacotranvanho.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1381,7 +1381,7 @@ dulieu = {
                 "mo_ta": "Ngôi chùa có kiến trúc cổ và gắn liền với nhà thơ Nguyễn Đình Chiểu.",
                 "anh": {
                     "id": 88,
-                    "url": "/static/images/chuatonthanh.jpg"
+                    "url": "/chuatonthanh.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1398,7 +1398,7 @@ dulieu = {
                 "mo_ta": "Món canh chua dân dã, hương vị đậm đà.",
                 "anh": {
                     "id": 89,
-                    "url": "/static/images/canhchuacaloc.jpg"
+                    "url": "/canhchuacaloc.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1409,7 +1409,7 @@ dulieu = {
                 "mo_ta": "Đặc sản ngày Tết, dẻo thơm và đậm vị.",
                 "anh": {
                     "id": 90,
-                    "url": "/static/images/banhtetlongan.jpg"
+                    "url": "/banhtetlongan.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1440,7 +1440,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 211,
-                "url": "/static/images/tour_long_an.jpg"
+                "url": "/tour_long_an.jpg"
             }
         }
     },
@@ -1449,14 +1449,14 @@ dulieu = {
         "mo_ta": "Vùng đất ven sông Tiền, nổi tiếng với chợ nổi Cái Bè và miệt vườn trù phú.",
         "anh_dai_dien": {
             "id": 91,
-            "url": "/static/images/tiengiang.jpg"
+            "url": "/tiengiang.jpg"
         },
         "dia_diem": {
             "Chợ nổi Cái Bè": {
                 "mo_ta": "Chợ nổi lâu đời, trung tâm giao thương trên sông Tiền.",
                 "anh": {
                     "id": 92,
-                    "url": "/static/images/chonoicaibe.jpg"
+                    "url": "/chonoicaibe.jpg"
                 },
                 "hashtags": [
                     "#giai_tri",
@@ -1468,7 +1468,7 @@ dulieu = {
                 "mo_ta": "Khu du lịch sinh thái nổi tiếng, nơi du khách có thể chèo xuồng, thưởng thức trái cây.",
                 "anh": {
                     "id": 93,
-                    "url": "/static/images/culauthoison.jpg"
+                    "url": "/culauthoison.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -1479,7 +1479,7 @@ dulieu = {
                 "mo_ta": "Thiên đường trái cây nhiệt đới, thu hút du khách khắp nơi.",
                 "anh": {
                     "id": 94,
-                    "url": "/static/images/mietvuoncaibe.jpg"
+                    "url": "/mietvuoncaibe.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -1496,7 +1496,7 @@ dulieu = {
                 "mo_ta": "Đặc sản nổi tiếng với sợi hủ tiếu dai ngon, nước dùng đậm đà.",
                 "anh": {
                     "id": 95,
-                    "url": "/static/images/hutieumytho.jpg"
+                    "url": "/hutieumytho.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1508,7 +1508,7 @@ dulieu = {
                 "mo_ta": "Món ăn trứ danh được nhiều du khách yêu thích.",
                 "anh": {
                     "id": 96,
-                    "url": "/static/images/cataituongchienxu.jpg"
+                    "url": "/cataituongchienxu.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1519,7 +1519,7 @@ dulieu = {
                 "mo_ta": "Món ăn vặt dân dã, giòn rụm và thơm béo.",
                 "anh": {
                     "id": 97,
-                    "url": "/static/images/banhvatiengiang.jpg"
+                    "url": "/banhvatiengiang.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -1557,7 +1557,7 @@ dulieu = {
             ],
             "anh": {
                 "id": 206,
-                "url": "/static/images/tour_tien_giang.jpg"
+                "url": "/tour_tien_giang.jpg"
             }
         }
     }
