@@ -2,3 +2,9 @@ backend/_pycache__/
 backend/flask_session
 .vscode/
 .DS_Store
+node_modules/
+frontend/node_modules/
+frontend/build/
+frontend/.svelte-kit/
+frontend/src/lib/__pycache__/
+frontend/src/routes/__pycache__/
