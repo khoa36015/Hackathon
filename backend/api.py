@@ -128,14 +128,6 @@ def get_provinces():
     ]
     return jsonify(result)
 
-# ✅ Lấy chi tiết tỉnh theo id
-@app.route('/api/province/<province_id>', methods=['GET'])
-def get_province_detail(province_id):
-    province = dulieu.get(province_id.lower())
-    if not province:
-        abort(404, description="Không tìm thấy tỉnh này.")
-    return jsonify({"id": province_id.lower(), **province})
-
 # ✅ Tìm kiếm theo tên
 @app.route('/api/search', methods=['GET'])
 def search_province():

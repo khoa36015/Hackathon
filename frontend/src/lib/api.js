@@ -51,15 +51,3 @@ export async function getDetailProvince() {
   });
   return await res.json();
 }
-<<<<<<< HEAD
-=======
-
-export async function sendAgentMessage(message) {
-  const res = await fetch('http://127.0.0.1:8000/api/ai/agent', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message })
-  });
-  return await res.json();
-}
->>>>>>> 12c110aa06a2b22c969937ce6e8f2964850066ec

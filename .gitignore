@@ -1,2 +1,4 @@
 backend/_pycache__/
-backend\flask_session
+backend/flask_session
+.vscode/
+.DS_Store
