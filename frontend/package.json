@@ -41,7 +41,7 @@
 		"publint": "^0.3.13",
 		"svelte": "^5.39.5",
 		"tailwindcss": "^4.1.16",
-		"vite": "^7.1.7",
+		"vite": "^7.1.12",
 		"vite-plugin-devtools-json": "^1.0.0"
 	},
 	"keywords": [

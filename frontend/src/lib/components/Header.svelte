@@ -84,6 +84,8 @@
           {:else}
             <li><a href="#" on:click={() => showAuthForm = true} class="block hover:text-sky-600 transition duration-300">ĐĂNG KÝ</a></li>
           {/if}
+          <li><a href="/agent" class="block hover:text-sky-600 transition duration-300">AGENT</a></li>
+          <li><a href="#" on:click={() => dispatch('feedback')} class="block hover:text-sky-600 transition duration-300">FEEDBACK</a></li>
         </ul>
       </div>
     </nav>
