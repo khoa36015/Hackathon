@@ -8,6 +8,7 @@
   import { createEventDispatcher } from 'svelte';
   const dispatch = createEventDispatcher();
   import { searchQuery } from '$lib/stores/search.js';
+  import Agent from '$lib/components/Agent.svelte';
 
   const username = writable(null);
   const isLoggedIn = writable(false);
@@ -15,6 +16,7 @@
   let searchText = '';
   let showAuthForm = false;
   let showMenu = false;
+  let showAgent = false;
 
   function handleSearch() {
     searchQuery.set(searchText.trim().toLowerCase());
@@ -81,12 +83,18 @@
             <li><span class="text-sm">Xin chào, <strong>{$username}</strong></span></li>
             <li><a on:click={handleLogout} href="/" class="block hover:text-red-500 transition duration-300">ĐĂNG XUẤT</a></li>
           {:else}
-            <li><a href="/" on:click={() => showAuthForm = true} class="block hover:text-sky-600 transition duration-300">ĐĂNG KÝ</a></li>
+            <li><a href="/" 
+              on:click={() => {showAuthForm = true; showMenu = false}} 
+              class="block hover:text-sky-600 transition duration-300">ĐĂNG KÝ</a></li>
           {/if}
-          <li><a href="/agent" class="block hover:text-sky-600 transition duration-300">AGENT</a></li>
-          <li><a href="/feedback" on:click={() => dispatch('feedback')} class="block hover:text-sky-600 transition duration-300">FEEDBACK</a></li>
+          <li><a href="/" 
+            on:click={() => {showAgent = true; showMenu = false}} 
+            class="block hover:text-sky-600 transition duration-300">AGENT</a></li>
+          <li><a href="/feedback" 
+            on:click={() => {dispatch('feedback'); showMenu = false}} 
+            class="block hover:text-sky-600 transition duration-300">FEEDBACK</a></li>
         </ul>
-      </div>s
+      </div>
     </nav>
 
     
@@ -95,6 +103,11 @@
   <!-- Modal đăng ký -->
   <Modal show={showAuthForm} onClose={() => showAuthForm = false}>
     <AuthForm />
+  </Modal>
+
+  <!-- Modal Agent -->
+  <Modal show={showAgent} onClose={() => showAgent = false}>
+    <Agent />
   </Modal>
 
   <!-- Nội dung chính -->
