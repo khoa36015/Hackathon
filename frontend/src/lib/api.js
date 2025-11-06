@@ -1,4 +1,5 @@
 export const API_AUTH = 'http://34.158.61.248:3000/api';
+export const API_AGENT = 'http://34.158.61.248:8000/api';
 
 export async function register(username, password) {
   const res = await fetch(`${API_AUTH}/register`, {
@@ -45,7 +46,7 @@ export async function getProvinces() {
 }
 
 export async function sendAgentMessage(message) {
-  const res = await fetch(`${API_AUTH}/agent/message`, {
+  const res = await fetch(`${API_AGENT}/agent`, {
     method: 'POST',
     credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
