@@ -1,10 +1,10 @@
 <script>
   import { onMount } from 'svelte';
   import { getProvinces } from '$lib/api';
+  import { searchQuery } from '$lib/stores/search.js';
 
   let allProvinces = null;
   let randomProvinces = [];
-  export let keyword;
   let selectedProvince = null;
   let showPopup = false;
   let error = null;
@@ -37,8 +37,8 @@
 
   // Reactive: khi keyword thay đổi → tìm tỉnh và mở popup
   $: {
-    if (keyword && allProvinces) {
-      const lower = keyword.toLowerCase();
+    if ($searchQuery && allProvinces.length) {
+      const lower = $searchQuery.toLowerCase();
       const found = allProvinces.find(
         (p) =>
           (p.id && p.id.toLowerCase().includes(lower)) ||
@@ -46,16 +46,12 @@
           (p.mo_ta && p.mo_ta.toLowerCase().includes(lower))
       );
       if (found) {
-        selectedProvince = found;
-        showPopup = true;
+        openPopup(found);
       } else {
-        selectedProvince = null;
-        showPopup = false;
+        closePopup();
       }
     }
   }
-
-
 
   function openPopup(province) {
     selectedProvince = province;
@@ -75,21 +71,21 @@
     <p class="text-gray-500">Đang tải dữ liệu...</p>
   {:else}
     <!-- Hiển thị 6 tỉnh ngẫu nhiên -->
-    <section class="px-6 py-10 bg-gradient-to-b from-sky-50 to-white">
+    <section class="px-6 py-10 bg-linear-to-b from-sky-50 to-white">
       <h2 class="text-3xl font-bold text-center text-sky-800 mb-8">Tỉnh thành nổi bật</h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each randomProvinces as province}
           <div
-            class="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:scale-[1.02] transition"
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition"
           >
-            <a on:click={() => openPopup(province)}>
+            <button on:click={() => openPopup(province)} class="cursor-pointer">
               <img src={province.anh_dai_dien.url} alt={province.id} class="h-48 w-full object-cover" />
               <div class="p-5 space-y-3">
                 <h3 class="text-xl font-bold text-sky-700">{province.ten}</h3>
                 <p class="text-gray-700 text-sm leading-relaxed line-clamp-3">{province.mo_ta}</p>
               </div>
-            </a>
+            </button>
           </div>
         {/each}
       </div>

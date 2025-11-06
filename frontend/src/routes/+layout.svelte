@@ -5,9 +5,10 @@
 
     let keyword = '';
 
-    function handleSearch(e) {
-        keyword = e.detail.keyword;
+    function handleSearch(event) {
+        keyword = event.detail.keyword;
     }
+
 </script>
 
 <Header on:search={handleSearch} />

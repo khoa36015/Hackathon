@@ -1,13 +1,13 @@
 <script>
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
-  import { createEventDispatcher } from 'svelte';
-  const dispatch = createEventDispatcher();
   import Modal from '$lib/components/Modal.svelte';
   import AuthForm from '$lib/components/Auth.svelte';
   import { session } from '$lib/stores/session';
   import { checkSession, logout } from '$lib/api';
-  export let data;
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
+  import { searchQuery } from '$lib/stores/search.js';
 
   const username = writable(null);
   const isLoggedIn = writable(false);
@@ -17,9 +17,7 @@
   let showMenu = false;
 
   function handleSearch() {
-    if (searchText.trim()) {
-      dispatch('search', { keyword: searchText.trim().toLowerCase() });
-    }
+    searchQuery.set(searchText.trim().toLowerCase());
   }
   
 
@@ -65,6 +63,7 @@
           class="p-2 rounded-lg text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-300 transition-all duration-300 ease-in-out cursor-pointer"
           aria-controls="navbar-default"
           aria-expanded={showMenu}
+          aria-label="Show Menu"
         >
           <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -82,12 +81,12 @@
             <li><span class="text-sm">Xin chào, <strong>{$username}</strong></span></li>
             <li><a on:click={handleLogout} href="/" class="block hover:text-red-500 transition duration-300">ĐĂNG XUẤT</a></li>
           {:else}
-            <li><a href="#" on:click={() => showAuthForm = true} class="block hover:text-sky-600 transition duration-300">ĐĂNG KÝ</a></li>
+            <li><a href="/" on:click={() => showAuthForm = true} class="block hover:text-sky-600 transition duration-300">ĐĂNG KÝ</a></li>
           {/if}
           <li><a href="/agent" class="block hover:text-sky-600 transition duration-300">AGENT</a></li>
-          <li><a href="#" on:click={() => dispatch('feedback')} class="block hover:text-sky-600 transition duration-300">FEEDBACK</a></li>
+          <li><a href="/feedback" on:click={() => dispatch('feedback')} class="block hover:text-sky-600 transition duration-300">FEEDBACK</a></li>
         </ul>
-      </div>
+      </div>s
     </nav>
 
     
@@ -109,26 +108,26 @@
       KHÁM PHÁ VẺ ĐẸP SÔNG NƯỚC
     </p>
 
-    <div class="relative w-full max-w-xl opacity-50">
-      <form on:submit|preventDefault={handleSearch} class="flex gap-2">
+  <div class="relative w-full max-w-xl opacity-50">
       <input
         type="text"
         bind:value={searchText}
         placeholder="Tìm tỉnh..."
-        class="w-full rounded-4xl py-3 pl-5 pr-12 text-neutral-950 font-normal hover:font-black bg-white/90 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
+        class="cursor-auto w-full rounded-4xl py-3 pl-5 pr-12 text-neutral-950 font-normal hover:font-black bg-white/90 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
         on:keydown={(e) => e.key === 'Enter' && handleSearch()}
       />
       <button
         type="button"
         class="absolute top-1/2 right-4 -translate-y-1/2 text-neutral-950 hover:text-blue-600 transition cursor-pointer"
         on:click={handleSearch}
+        aria-label="Tìm kiếm"
+        title="Tìm kiếm"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M21 21l-5.2-5.2m0 0A7.5 7.5 0 105.2 5.2a7.5 7.5 0 0010.6 10.6z" />
         </svg>
       </button>
-      </form>
   </div>
   </div>
   </div>
