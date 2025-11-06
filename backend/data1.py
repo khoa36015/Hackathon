@@ -474,7 +474,7 @@ dulieu = {
                 "mo_ta": "Món ăn dân dã, cay thơm, thường thấy ở các quán ven sông.",
                 "anh": {
                     "id": 31,
-                    "url": "/octieunuong.jpg"
+                    "url": "/ocnuongtieu.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
@@ -927,7 +927,7 @@ dulieu = {
                 "mo_ta": "Khu sinh thái đẹp với hệ sinh thái đa dạng.",
                 "anh": {
                     "id": 58,
-                    "url": "/khudulichsinhthaingochoang.jpg"
+                    "url": "/khudulichsinhthailungngochoang.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -1035,7 +1035,7 @@ dulieu = {
                 "mo_ta": "Nơi lưu giữ các hiện vật văn hóa truyền thống Khmer.",
                 "anh": {
                     "id": 65,
-                    "url": "/baotangkhmer.jpg"
+                    "url": "/baotangvanhoakhmer.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1183,7 +1183,7 @@ dulieu = {
                 "mo_ta": "Đặc sản dân dã, giòn thơm vị tôm khô và củ cải.",
                 "anh": {
                     "id": 75,
-                    "url": "/banhcucai.jpg"
+                    "url": "/banhcucaibaclieu.jpg"
                 },
                 "hashtags": [
                     "#lich_su",
@@ -1252,7 +1252,7 @@ dulieu = {
                 "mo_ta": "Địa điểm du lịch sinh thái nổi tiếng với miệt vườn trĩu quả.",
                 "anh": {
                     "id": 79,
-                    "url": "/culaonanbinh.jpg"
+                    "url": "/culaoanbinh.jpg"
                 },
                 "hashtags": [
                     "#thien_nhien",
@@ -1292,7 +1292,7 @@ dulieu = {
                 "mo_ta": "Món lẩu dân dã đậm hương vị miền Tây.",
                 "anh": {
                     "id": 82,
-                    "url": "/laucakheo.jpg"
+                    "url": "/laucakeo.jpg"
                 },
                 "hashtags": [
                     "#van_hoa",
