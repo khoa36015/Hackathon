@@ -13,11 +13,9 @@ dulieu = {
                     "id": 2,
                     "url": "/nuisam.jpg"
                 },
-                "hashtags": [
-                    "#kham_pha",
-                    "#van_hoa",
-                    "#tam_linh"
-                ]
+                "hashtags": ["#kham_pha",
+                    "",
+                    "#tam_linh", "#nui"]
             },
             "Rừng Tràm Trà Sư": {
                 "mo_ta": "Khu sinh thái ngập nước tiêu biểu của miền Tây, nổi tiếng với vẻ đẹp xanh mướt.",
@@ -39,7 +37,7 @@ dulieu = {
                 "hashtags": [
                     "#thien_nhien",
                     "#giai_tri",
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             },
@@ -50,7 +48,7 @@ dulieu = {
                     "url": "/hotapa.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             }
@@ -68,7 +66,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -80,7 +78,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -91,7 +89,7 @@ dulieu = {
                     "url": "/banhxeonuisam.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
@@ -184,7 +182,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#giai_tri",
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             }
@@ -202,7 +200,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -213,7 +211,7 @@ dulieu = {
                     "url": "/bunquaykiengiang.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -225,7 +223,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
@@ -297,7 +295,7 @@ dulieu = {
                     "url": "/langnghekeodua.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             },
@@ -320,7 +318,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa"
+                    ""
                 ]
             }
         },
@@ -337,7 +335,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -348,7 +346,7 @@ dulieu = {
                     "url": "/cakhoto.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -359,7 +357,7 @@ dulieu = {
                     "url": "/chuoidapnuong.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
@@ -414,7 +412,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#giai_tri",
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             },
@@ -427,7 +425,7 @@ dulieu = {
                 "hashtags": [
                     "#thien_nhien",
                     "#giai_tri",
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             },
@@ -439,7 +437,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa"
+                    ""
                 ]
             },
             "Cầu Cần Thơ": {
@@ -449,7 +447,7 @@ dulieu = {
                     "url": "/caucantho.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             }
@@ -466,7 +464,7 @@ dulieu = {
                     "url": "/laumamcantho.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -477,7 +475,7 @@ dulieu = {
                     "url": "/ocnuongtieu.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -488,7 +486,7 @@ dulieu = {
                     "url": "/banhcongcantho.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
@@ -542,7 +540,7 @@ dulieu = {
                     "url": "/muicamau.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             },
@@ -577,7 +575,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#giai_tri",
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             }
@@ -595,7 +593,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -606,7 +604,7 @@ dulieu = {
                     "url": "/laumamuminh.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -618,7 +616,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
@@ -673,7 +671,7 @@ dulieu = {
                     "url": "/langhoasadec.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             },
@@ -707,7 +705,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa"
+                    ""
                 ]
             }
         },
@@ -723,7 +721,7 @@ dulieu = {
                     "url": "/hutieusadec.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -735,7 +733,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -746,7 +744,7 @@ dulieu = {
                     "url": "/xoingusac.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
@@ -801,7 +799,7 @@ dulieu = {
                     "url": "/chuadoi.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#tam_linh"
                 ]
             },
@@ -812,7 +810,7 @@ dulieu = {
                     "url": "/chuachenkieu.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#tam_linh"
                 ]
             },
@@ -835,7 +833,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#giai_tri",
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             }
@@ -852,7 +850,7 @@ dulieu = {
                     "url": "/bunnuocleosoctrang.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -864,7 +862,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -875,7 +873,7 @@ dulieu = {
                     "url": "/bungoida.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
@@ -942,7 +940,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#giai_tri",
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             }
@@ -959,7 +957,7 @@ dulieu = {
                     "url": "/laumamhaugiang.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -970,7 +968,7 @@ dulieu = {
                     "url": "/banhxeocuhudua.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
@@ -1016,7 +1014,7 @@ dulieu = {
                     "url": "/aobaom.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             },
@@ -1027,7 +1025,7 @@ dulieu = {
                     "url": "/chuaang.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#tam_linh"
                 ]
             },
@@ -1039,7 +1037,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa"
+                    ""
                 ]
             },
             "Biển Ba Động": {
@@ -1068,7 +1066,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -1080,7 +1078,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -1091,7 +1089,7 @@ dulieu = {
                     "url": "/bunsuong.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
@@ -1137,7 +1135,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa"
+                    ""
                 ]
             },
             "Cánh đồng quạt gió": {
@@ -1147,7 +1145,7 @@ dulieu = {
                     "url": "/canhdongquatgio.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             },
@@ -1159,7 +1157,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa"
+                    ""
                 ]
             },
             "Nhà thờ Tắc Sậy": {
@@ -1169,7 +1167,7 @@ dulieu = {
                     "url": "/nhathotacsay.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#tam_linh"
                 ]
             }
@@ -1187,7 +1185,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -1198,7 +1196,7 @@ dulieu = {
                     "url": "/laumambaclieu.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -1210,7 +1208,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
@@ -1256,7 +1254,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#thien_nhien",
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             },
@@ -1279,7 +1277,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa"
+                    ""
                 ]
             }
         },
@@ -1295,7 +1293,7 @@ dulieu = {
                     "url": "/laucakeo.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -1306,7 +1304,7 @@ dulieu = {
                     "url": "/banhxeovinhlong.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -1317,7 +1315,7 @@ dulieu = {
                     "url": "/chuoinepnuong.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
@@ -1362,7 +1360,7 @@ dulieu = {
                     "url": "/langnoitanlap.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             },
@@ -1374,7 +1372,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa"
+                    ""
                 ]
             },
             "Chùa Tôn Thạnh": {
@@ -1384,7 +1382,7 @@ dulieu = {
                     "url": "/chuatonthanh.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#tam_linh"
                 ]
             }
@@ -1401,7 +1399,7 @@ dulieu = {
                     "url": "/canhchuacaloc.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -1413,7 +1411,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
@@ -1460,7 +1458,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#giai_tri",
-                    "#van_hoa",
+                    "",
                     "#kham_pha"
                 ]
             },
@@ -1500,7 +1498,7 @@ dulieu = {
                 },
                 "hashtags": [
                     "#lich_su",
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -1511,7 +1509,7 @@ dulieu = {
                     "url": "/cataituongchienxu.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             },
@@ -1522,7 +1520,7 @@ dulieu = {
                     "url": "/banhvatiengiang.jpg"
                 },
                 "hashtags": [
-                    "#van_hoa",
+                    "",
                     "#am_thuc"
                 ]
             }
