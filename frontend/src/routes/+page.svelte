@@ -14,17 +14,41 @@
     try {
       const data = await getProvinces();
       allProvinces = data;
-      localStorage.setItem('provinces', JSON.stringify(data));
+      saveProvinces(data);
       randomProvinces = getRandomProvinces(data);
     } catch (err) {
       error = err.message;
     }
   }
 
+  function saveProvinces(data) {
+    const now = Date.now();
+    const item = {
+      value: data,
+      expiry: now + 3600 * 4000 // 4 giờ
+    };
+    localStorage.setItem('provinces', JSON.stringify(item));
+  }
+
+  function loadProvinces() {
+    const itemStr = localStorage.getItem('provinces');
+    if (!itemStr) return null;
+
+    const item = JSON.parse(itemStr);
+    const now = Date.now();
+
+    if (now > item.expiry) {
+      // Hết hạn → xóa và trả null
+      localStorage.removeItem('provinces');
+      return null;
+    }
+    return item.value;
+  }
+
   onMount(async () => {
-    const saved = localStorage.getItem('provinces');
+    const saved = loadProvinces();
     if (saved) {
-      allProvinces = JSON.parse(saved);
+      allProvinces = saved;
       randomProvinces = getRandomProvinces(allProvinces);
     } else {
       await fetchProvinces();
@@ -93,12 +117,12 @@
 
     <!-- Popup chi tiết -->
     {#if showPopup && selectedProvince}
-      <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300">
+      <div class="fixed inset-0 backdrop-blur-md bg-white/50 bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300">
         <div class="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full p-8 overflow-y-auto max-h-[90vh] transform transition-all duration-300 scale-100">
           <!-- Nút đóng -->
           <button
             class="absolute top-4 right-4 text-gray-500 hover:text-red-500 transition cursor-pointer"
-            on:click={closePopup}
+            on:click={() => { closePopup(); searchQuery.set(''); }}
           >
             ✖
           </button>

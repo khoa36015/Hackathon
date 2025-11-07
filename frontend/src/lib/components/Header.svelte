@@ -78,21 +78,21 @@
 
       <!-- Menu -->
       <div class={`transition-all duration-500 ease-in-out ${showMenu ? 'relative' : 'hidden'} `} id="navbar-default">
-        <ul class="flex flex-col md:flex-col gap-3 md:gap-6 px-4 md:py-0 z-10 text-gray-800 font-medium justify-end md:items-end items-end">
+        <ul class="flex flex-col md:flex-col gap-3 md:gap-6 px-4 md:py-0 z-10 text-gray-800  border-b border-gray-200 font-medium justify-end md:items-end items-end">
           {#if $isLoggedIn}
             <li><span class="text-sm">Xin chào, <strong>{$username}</strong></span></li>
             <li><a on:click={handleLogout} href="/" class="block hover:text-red-500 transition duration-300">ĐĂNG XUẤT</a></li>
           {:else}
             <li><a href="/" 
               on:click={() => {showAuthForm = true; showMenu = false}} 
-              class="block hover:text-sky-600 transition duration-300">ĐĂNG KÝ</a></li>
+              class="block hover:text-sky-600 border-y border-gray-600 transition duration-300 md:px-3 md:mr-25">ĐĂNG KÝ</a></li>
           {/if}
           <li><a href="/" 
             on:click={() => {showAgent = true; showMenu = false}} 
-            class="block hover:text-sky-600 transition duration-300">AGENT</a></li>
+            class="block hover:text-sky-600 transition duration-300 border-y border-gray-600 md:px-3 md:mr-25">AGENT</a></li>
           <li><a href="/feedback" 
             on:click={() => {dispatch('feedback'); showMenu = false}} 
-            class="block hover:text-sky-600 transition duration-300">FEEDBACK</a></li>
+            class="block hover:text-sky-600 transition duration-300 border-y border-gray-600 md:px-3 md:mr-25">FEEDBACK</a></li>
         </ul>
       </div>
     </nav>
